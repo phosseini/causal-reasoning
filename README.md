@@ -1,2 +1,1 @@
-# causal-reasoning
-A system for Commonsense Causal Reasoning
+# Commonsense Causal Reasoning
