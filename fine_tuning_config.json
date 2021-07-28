@@ -1,0 +1,22 @@
+{
+  "task_type": "multi",
+  "model_name": "phosseini/atomic-bert-large",
+  "tokenizer_name": "bert-large-cased",
+  "train_data_path": "data/copa/copa_dev_m.csv",
+  "test_data_path": "data/copa/copa_test_m.csv",
+  "n_fold": 10,
+  "n_trials": 10,
+  "learning_rate": [3e-4, 1e-4, 5e-5, 3e-5],
+  "tuning_num_train_epochs": [3, 4],
+  "tuning_per_device_train_batch_size": [16, 32],
+  "learning_rate_start": 1e-6,
+  "learning_rate_end": 1e-4,
+  "resources_per_trial": {"cpu": 8, "gpu": 1},
+  "test_run_path": "models/copa/test",
+  "random_seeds": [107, 117, 127, 137,
+                   822, 832, 842, 852,
+                   727, 737, 747, 757,
+                   409, 419, 429, 439,
+                   426, 436, 446, 456
+  ]
+}
