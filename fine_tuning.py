@@ -204,7 +204,7 @@ for train_index, dev_index in kf.split(encoded_datasets['train']):
 
     # if we want to specify hyperparameters: pass hp_space=tune_config_ray
     best_trial = trainer.hyperparameter_search(hp_space=tune_config_ray,
-                                               backend="ray",
+                                               backend=params['tuning_backend'],
                                                direction='maximize',
                                                scheduler=pbt_scheduler,
                                                keep_checkpoints_num=1,  # if using Ray and PopulationBasedTraining
@@ -219,13 +219,16 @@ for train_index, dev_index in kf.split(encoded_datasets['train']):
     # saving best trial
     best_ray_trials.append(best_trial)
 
+print('=========================================')
+print(" **** Hyperparameter search results **** ")
+print('=========================================')
+print(" **** All trials **** ")
+for trial in best_ray_trials:
+    print(trial)
 print('==========================================')
-print(" *** Best hyperparameter search trials *** ")
-print(best_ray_trials)
-output.append(str(best_ray_trials))
+print("Best accuracy: {}".format(best_objective))
 print('==========================================')
-print("Best accuracy from hyperparameter tuning: {}".format(best_objective))
-output.append(str(best_objective))
+print("Best run hyperparameters")
 print(best_model_params)
 print('==========================================')
 
@@ -235,6 +238,9 @@ random_seed_results = []
 for random_seed in random_seeds:
     args = TrainingArguments(
         test_run_path,
+        learning_rate=best_model_params.hyperparameters['learning_rate'],
+        num_train_epochs=best_model_params.hyperparameters['num_train_epochs'],
+        per_device_train_batch_size=best_model_params.hyperparameters['per_device_train_batch_size'],
         do_train=True,
         do_eval=True,
         seed=random_seed,
@@ -242,7 +248,7 @@ for random_seed in random_seeds:
 
     if task_type == 'multi':
         trainer = Trainer(
-            model_init=AutoModelForMultipleChoice.from_pretrained(best_model_params),
+            model_init=model_init,
             args=args,
             train_dataset=encoded_datasets['train'] if args.do_train else None,
             eval_dataset=encoded_datasets['test'] if args.do_eval else None,
@@ -252,7 +258,7 @@ for random_seed in random_seeds:
         )
     elif task_type == 'seq':
         trainer = Trainer(
-            model_init=AutoModelForSequenceClassification.from_pretrained(best_model_params),
+            model_init=model_init,
             args=args,
             train_dataset=encoded_datasets['train'] if args.do_train else None,
             eval_dataset=encoded_datasets['test'] if args.do_eval else None,

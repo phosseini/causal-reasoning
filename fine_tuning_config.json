@@ -8,6 +8,7 @@
   "n_trials": 6,
   "learning_rate": [3e-4, 1e-4, 5e-5, 3e-5],
   "tuning_num_train_epochs": [4],
+  "tuning_backend": "ray",
   "tuning_per_device_train_batch_size": [16, 32],
   "learning_rate_start": 1e-6,
   "learning_rate_end": 1e-4,
