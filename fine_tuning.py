@@ -2,17 +2,20 @@ import copy
 import json
 import torch
 
+import numpy as np
 from ray import tune
 from typing import Optional, Union
 from dataclasses import dataclass
 from datasets import (DatasetDict, Dataset)
 from transformers import (AutoModelForSequenceClassification, AutoModelForMultipleChoice,
+                          AutoModelForNextSentencePrediction, DataCollatorWithPadding,
                           AutoTokenizer, TrainingArguments, Trainer, PreTrainedTokenizerBase)
 from transformers.tokenization_utils_base import PaddingStrategy
+from transformers.trainer_utils import IntervalStrategy
 from ray.tune.schedulers import PopulationBasedTraining
 from sklearn.model_selection import KFold
 
-from utils import compute_metrics
+from utils import compute_metrics, lower_nth
 
 # ------------------------------
 # loading parameters
@@ -20,7 +23,8 @@ with open('fine_tuning_config.json') as f:
     params = json.load(f)
 task_type = params['task_type']
 n_fold = params['n_fold']
-test_run_path = params['test_run_path']
+tuning_output_path = params['hp_tuning_output_path']
+running_output_path = params['running_output_path']
 random_seeds = params['random_seeds']
 
 # ending0 and ending1 are the two choices for each question
@@ -43,14 +47,16 @@ if task_type == 'multi':
     model = AutoModelForMultipleChoice.from_pretrained(model_name)
 elif task_type == 'seq':
     model = AutoModelForSequenceClassification.from_pretrained(model_name)
+elif task_type == 'nsp':
+    model = AutoModelForNextSentencePrediction.from_pretrained(model_name)
 
 tokenizer = AutoTokenizer.from_pretrained(tokenizer_name, use_fast=True)
 
 
-def preprocess_function(examples, prompt=False, task=params['task_type']):
+def preprocess_function(examples, prompt=True, task=params['task_type']):
     # checking task value:
-    if task not in ['seq', 'multi']:
-        print("Task value should be one of the following: \'seq\' or \'multi\'")
+    if task not in ['seq', 'multi', 'nsp']:
+        print("Task value should be one of the following: \'seq\' or \'multi\' or \'nsp\'")
         return
 
     if task == 'multi':
@@ -59,12 +65,12 @@ def preprocess_function(examples, prompt=False, task=params['task_type']):
         # Grab all second sentences possible for each context.
         question_headers = examples["sent2"]
         if prompt:
-            second_sentences = [[f"{header} {examples[end][i]}" for end in ending_names] for i, header in
+            second_sentences = [[f"{header} {lower_nth(examples[end][i], 0)}" for end in ending_names] for i, header in
                                 enumerate(question_headers)]
         else:
             second_sentences = [[f"{examples[end][i]}" for end in ending_names] for i, header in
                                 enumerate(question_headers)]
-    elif task == 'seq':
+    elif task in ['seq', 'nsp']:
         first_sentences = [examples["sent1"]]
         second_sentences = [examples["sent2"]]
 
@@ -74,13 +80,13 @@ def preprocess_function(examples, prompt=False, task=params['task_type']):
 
     # Un-flatten
     if task == 'multi':
-        # Tokenize
-        tokenized_examples = tokenizer(first_sentences, second_sentences)
+        tokenized_examples = tokenizer(first_sentences, second_sentences, max_length=params['max_length'],
+                                       truncation=True)
         return {k: [v[i:i + 2] for i in range(0, len(v), 2)] for k, v in tokenized_examples.items()}
-    elif task == 'seq':
-        # Tokenize
-        tokenized_examples = tokenizer(first_sentences, second_sentences, truncation=True, padding=True)
-        return {k: [v[i:i + 1] for i in range(0, len(v), 1)] for k, v in tokenized_examples.items()}
+    elif task in ['seq', 'nsp']:
+        tokenized_examples = tokenizer(first_sentences, second_sentences, max_length=params['max_length'],
+                                       truncation=True)
+        return tokenized_examples
 
 
 @dataclass
@@ -119,30 +125,31 @@ class DataCollatorForMultipleChoice:
 
 
 encoded_datasets = splits.map(preprocess_function, batched=True)
-columns_to_return = ['input_ids', 'label', 'attention_mask']
+columns_to_return = ['input_ids', 'label', 'attention_mask', 'token_type_ids']
 encoded_datasets.set_format(type='torch', columns=columns_to_return)
 
 
 def tune_config_optuna(trial):
-    return {
-        "learning_rate": trial.suggest_float("learning_rate", params['learning_rate_start'],
-                                             params['learning_rate_end'], log=True),
-        "num_train_epochs": trial.suggest_int("num_train_epochs", 3, 4, 5),
-        "per_device_train_batch_size": trial.suggest_categorical("per_device_train_batch_size",
-                                                                 params['per_device_train_batch_size']),
-    }
+    optuna_config = {}
+    optuna_config["num_train_epochs"] = trial.suggest_int("num_train_epochs", 3, 4, 5)
+    optuna_config["per_device_train_batch_size"] = trial.suggest_categorical("per_device_train_batch_size",
+                                                                             params['per_device_train_batch_size'])
+    if params['learning_rate_range'] == 1:
+        optuna_config["learning_rate"] = trial.suggest_float("learning_rate", params['learning_rate_start'],
+                                                             params['learning_rate_end'], log=True)
+    return optuna_config
 
 
-# some values for BERT
-# "learning_rate_start": 1e-5,
-# "learning_rate_end": 1e-2,
 def tune_config_ray(trial):
-    return {
-        "learning_rate": tune.loguniform(params['learning_rate_start'], params['learning_rate_end']),
-        # "learning_rate": tune.choice(params['learning_rate']),
-        "num_train_epochs": tune.choice(params['tuning_num_train_epochs']),
-        "per_device_train_batch_size": tune.choice(params['tuning_per_device_train_batch_size']),
-    }
+    ray_config = {}
+    if params['learning_rate_range'] == 1:
+        ray_config["learning_rate"] = tune.loguniform(params['learning_rate_start'], params['learning_rate_end'])
+    else:
+        ray_config["learning_rate"] = tune.choice(params['tuning_learning_rate'])
+
+    ray_config["num_train_epochs"] = tune.choice(params['tuning_num_train_epochs'])
+    ray_config["per_device_train_batch_size"] = tune.choice(params['tuning_per_device_train_batch_size'])
+    return ray_config
 
 
 pbt_scheduler = PopulationBasedTraining(
@@ -156,26 +163,18 @@ def model_init():
         return AutoModelForMultipleChoice.from_pretrained(model_name)
     elif task_type == 'seq':
         return AutoModelForSequenceClassification.from_pretrained(model_name)
+    elif task_type == 'nsp':
+        return AutoModelForNextSentencePrediction.from_pretrained(model_name)
 
 
-# since we don't have training set in COPA, we run cross-validation for hyperparameter tuning
-# obviously, we DON'T do the hyperparameter tuning on test set to avoid leakage
-
-kf = KFold(n_splits=n_fold, random_state=42, shuffle=True)
-best_objective = 0
-best_model_params = {}
-
-for train_index, dev_index in kf.split(encoded_datasets['train']):
-    train_index = [int(idx) for idx in list(train_index)]
-    dev_index = [int(idx) for idx in list(dev_index)]
-    train_set = torch.utils.data.dataset.Subset(encoded_datasets['train'], train_index)
-    dev_set = torch.utils.data.dataset.Subset(encoded_datasets['train'], dev_index)
-
+def run_hyperparameter_tuning(data_train, data_dev):
     args = TrainingArguments(
-        test_run_path,
+        tuning_output_path,
         do_train=True,
         do_eval=True,
-        evaluation_strategy="steps",
+        evaluation_strategy=IntervalStrategy.STEPS,
+        # save_strategy=IntervalStrategy.EPOCH,
+        # save_total_limit=1,
         disable_tqdm=True,
     )
 
@@ -183,19 +182,20 @@ for train_index, dev_index in kf.split(encoded_datasets['train']):
         trainer = Trainer(
             model_init=model_init,
             args=args,
-            train_dataset=train_set,
-            eval_dataset=dev_set,
+            train_dataset=data_train,
+            eval_dataset=data_dev,
             tokenizer=tokenizer,
             data_collator=DataCollatorForMultipleChoice(tokenizer),
             compute_metrics=compute_metrics,
         )
-    elif task_type == 'seq':
+    elif task_type in ['seq', 'nsp']:
         trainer = Trainer(
             model_init=model_init,
             args=args,
-            train_dataset=train_set,
-            eval_dataset=dev_set,
+            train_dataset=data_train,
+            eval_dataset=data_dev,
             tokenizer=tokenizer,
+            data_collator=DataCollatorWithPadding(tokenizer),
             compute_metrics=compute_metrics,
         )
 
@@ -206,41 +206,87 @@ for train_index, dev_index in kf.split(encoded_datasets['train']):
     best_trial = trainer.hyperparameter_search(hp_space=tune_config_ray,
                                                backend=params['tuning_backend'],
                                                direction='maximize',
-                                               scheduler=pbt_scheduler,
-                                               keep_checkpoints_num=1,  # if using Ray and PopulationBasedTraining
+                                               # scheduler=pbt_scheduler,
+                                               keep_checkpoints_num=0,  # if using Ray and PopulationBasedTraining
                                                n_trials=params['n_trials'],
-                                               # resources_per_trial=params['resources_per_trial'],
+                                               resources_per_trial=params['resources_per_trial'],
                                                )
-    # check if the model is the best model so far, if yes, save it
-    if best_trial.objective > best_objective:
-        best_objective = copy.deepcopy(best_trial.objective)
-        best_model_params = copy.deepcopy(best_trial)
+    return best_trial
 
-    # saving best trial
-    best_ray_trials.append(best_trial)
 
-print('=========================================')
-print(" **** Hyperparameter search results **** ")
-print('=========================================')
-print(" **** All trials **** ")
-for trial in best_ray_trials:
-    print(trial)
-print('==========================================')
-print("Best accuracy: {}".format(best_objective))
-print('==========================================')
-print("Best run hyperparameters")
-print(best_model_params)
-print('==========================================')
+# since we don't have training set in COPA, we run cross-validation for hyperparameter tuning
+# obviously, we DON'T do the hyperparameter tuning on test set to avoid leakage
+
+if params['hyperparameter_search'] == 1:
+    best_objective = 0
+    best_model_params = {}
+    if params['cross_validation'] == 1:
+        kf = KFold(n_splits=n_fold, random_state=42, shuffle=True)
+
+        for train_index, dev_index in kf.split(encoded_datasets['train']):
+            train_index = [int(idx) for idx in list(train_index)]
+            dev_index = [int(idx) for idx in list(dev_index)]
+            train_set = torch.utils.data.dataset.Subset(encoded_datasets['train'], train_index)
+            dev_set = torch.utils.data.dataset.Subset(encoded_datasets['train'], dev_index)
+
+            best_trial = run_hyperparameter_tuning(train_set, dev_set)
+
+            # check if the model is the best model so far, if yes, save it
+            if best_trial.objective > best_objective:
+                best_objective = copy.deepcopy(best_trial.objective)
+                best_model_params = copy.deepcopy(best_trial)
+
+            # saving best trial
+            best_ray_trials.append(best_trial)
+    else:
+        shuffled_data = encoded_datasets['train'].shuffle(seed=42)
+        splitted_data = shuffled_data.train_test_split(test_size=0.1)
+
+        train_set = splitted_data['train']
+        dev_set = splitted_data['test']
+
+        best_trial = run_hyperparameter_tuning(train_set, dev_set)
+
+        # check if the model is the best model so far, if yes, save it
+        if best_trial.objective > best_objective:
+            best_objective = copy.deepcopy(best_trial.objective)
+            best_model_params = copy.deepcopy(best_trial)
+
+        # saving best trial
+        best_ray_trials.append(best_trial)
+
+    print('=========================================')
+    print(" **** Hyperparameter search results **** ")
+    print('=========================================')
+    print(" **** All trials **** ")
+    for trial in best_ray_trials:
+        print(trial)
+    print('==========================================')
+    print("Best accuracy: {}".format(best_objective))
+    print('==========================================')
+    print("Best run hyperparameters")
+    print(best_model_params)
+    print('==========================================')
+
+    # setting hyperparameters based on best trial
+    learning_rate = best_model_params.hyperparameters['learning_rate']
+    num_train_epochs = best_model_params.hyperparameters['num_train_epochs']
+    per_device_train_batch_size = best_model_params.hyperparameters['per_device_train_batch_size']
 
 random_seed_results = []
+
+# shuffling train and test before running with random seeds
+shuffled_train = encoded_datasets['train'].shuffle(seed=42)
+shuffled_test = encoded_datasets['test'].shuffle(seed=42)
 
 # now, fine-tuning the model with the best set of hyperparameters and evaluate it on the test set
 for random_seed in random_seeds:
     args = TrainingArguments(
-        test_run_path,
-        learning_rate=best_model_params.hyperparameters['learning_rate'],
-        num_train_epochs=best_model_params.hyperparameters['num_train_epochs'],
-        per_device_train_batch_size=best_model_params.hyperparameters['per_device_train_batch_size'],
+        running_output_path,
+        learning_rate=learning_rate if params['hyperparameter_search'] == 1 else params['learning_rate'],
+        num_train_epochs=num_train_epochs if params['hyperparameter_search'] == 1 else params['num_train_epochs'],
+        per_device_train_batch_size=per_device_train_batch_size if params['hyperparameter_search'] == 1 else params[
+            'per_device_train_batch_size'],
         do_train=True,
         do_eval=True,
         seed=random_seed,
@@ -250,21 +296,24 @@ for random_seed in random_seeds:
         trainer = Trainer(
             model_init=model_init,
             args=args,
-            train_dataset=encoded_datasets['train'] if args.do_train else None,
-            eval_dataset=encoded_datasets['test'] if args.do_eval else None,
+            train_dataset=shuffled_train if args.do_train else None,
+            eval_dataset=shuffled_test if args.do_eval else None,
             tokenizer=tokenizer,
             data_collator=DataCollatorForMultipleChoice(tokenizer),
             compute_metrics=compute_metrics,
         )
-    elif task_type == 'seq':
+    elif task_type in ['seq', 'nsp']:
         trainer = Trainer(
             model_init=model_init,
             args=args,
-            train_dataset=encoded_datasets['train'] if args.do_train else None,
-            eval_dataset=encoded_datasets['test'] if args.do_eval else None,
+            train_dataset=shuffled_train if args.do_train else None,
+            eval_dataset=shuffled_test if args.do_eval else None,
             tokenizer=tokenizer,
+            data_collator=DataCollatorWithPadding(tokenizer),
             compute_metrics=compute_metrics,
         )
+
+    trainer.train()
 
     result = trainer.evaluate()
 
@@ -274,3 +323,6 @@ print('====================================')
 print(" *** Report on random seed runs *** ")
 print(random_seed_results)
 print('\n\nAverage performance: {}'.format(round(sum(random_seed_results) / len(random_seed_results), 3)))
+print('==========================================')
+print("*** Best hyperparameter tuning run ***")
+print(best_model_params)
