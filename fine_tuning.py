@@ -21,6 +21,7 @@ from utils import compute_metrics, lower_nth
 # loading parameters
 with open('fine_tuning_config.json') as f:
     params = json.load(f)
+
 task_type = params['task_type']
 n_fold = params['n_fold']
 tuning_output_path = params['hp_tuning_output_path']
