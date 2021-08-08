@@ -178,6 +178,6 @@ def convert_copa(file_path):
                                       'label': label - 1})
 
     except Exception as e:
-        print("[crest-log] copa2bert. Detail: {}".format(e))
+        print("[copa-convert-log] error detail: {}".format(e))
 
     return data, data_cause_effect, data_multi_choice
