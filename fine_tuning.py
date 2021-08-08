@@ -325,5 +325,6 @@ print(" *** Report on random seed runs *** ")
 print(random_seed_results)
 print('\n\nAverage performance: {}'.format(round(sum(random_seed_results) / len(random_seed_results), 3)))
 print('==========================================')
-print("*** Best hyperparameter tuning run ***")
-print(best_model_params)
+if params['hyperparameter_search'] == 1:
+    print("*** Best hyperparameter tuning run ***")
+    print(best_model_params)
