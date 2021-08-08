@@ -104,7 +104,7 @@ def get_atomic_relation_map(return_modified_templates=False):
         }
 
 
-def convert_copa(file_path):
+def convert_copa_data(file_path):
     """
     Converting Choice of Plausible Alternatives (COPA)-formatted data to multiple formats for following tasks:
     - sequence classification
