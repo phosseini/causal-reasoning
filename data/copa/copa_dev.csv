@@ -1,0 +1,1001 @@
+sent1,sent2,label
+My body cast a shadow over the grass.,The sun was rising.,1
+My body cast a shadow over the grass.,The grass was cut.,0
+The woman tolerated her friend's difficult behavior.,The woman knew her friend was going through a hard time.,1
+The woman tolerated her friend's difficult behavior.,The woman felt that her friend took advantage of her kindness.,0
+The women met for coffee.,They wanted to catch up with each other.,1
+The women met for coffee.,The cafe reopened in a new location.,0
+The runner wore shorts.,The forecast predicted high temperatures.,1
+The runner wore shorts.,She planned to run along the beach.,0
+The guests of the party hid behind the couch.,It was a surprise party.,1
+The guests of the party hid behind the couch.,It was a birthday party.,0
+The politician lost the election.,No one voted for him.,1
+The politician lost the election.,He ran negative campaign ads.,0
+The stain came out of the shirt.,I bleached the shirt.,1
+The stain came out of the shirt.,I patched the shirt.,0
+The man got a discount on his groceries.,He used a coupon.,1
+The man got a discount on his groceries.,He greeted the cashier.,0
+The physician misdiagnosed the patient.,The patient filed a malpractice lawsuit against the physician.,1
+The physician misdiagnosed the patient.,The patient disclosed confidential information to the physician.,0
+The customer filed a complaint with the store manager.,The sales associate acted rude to the customer.,1
+The customer filed a complaint with the store manager.,The sales associate undercharged the customer.,0
+The woman repaired her faucet.,The faucet was leaky.,1
+The woman repaired her faucet.,The faucet was turned off.,0
+The elderly woman suffered a stroke.,The woman's daughter moved in to take care of her.,1
+The elderly woman suffered a stroke.,The woman's daughter came over to clean her house.,0
+The pond froze over for the winter.,People skated on the pond.,1
+The pond froze over for the winter.,People brought boats to the pond.,0
+The offender violated parole.,She was sent back to jail.,1
+The offender violated parole.,She stole money from a church.,0
+I poured water on my sleeping friend.,My friend awoke.,1
+I poured water on my sleeping friend.,My friend snored.,0
+The girl gasped.,Her friend stuck an ice cube down her back.,1
+The girl gasped.,Her friend gave her a pat on the back.,0
+The shirt shrunk.,I put it in the dryer.,1
+The shirt shrunk.,I poured bleach on it.,0
+It got dark outside.,The moon became visible in the sky.,1
+It got dark outside.,Snowflakes began to fall from the sky.,0
+I hung up the phone.,The caller said goodbye to me.,1
+I hung up the phone.,The caller identified himself to me.,0
+The woman's ring slipped off in the shower.,The ring went down the drain.,1
+The woman's ring slipped off in the shower.,The woman polished the ring.,0
+The girl received a trophy.,She won a spelling bee.,1
+The girl received a trophy.,She made a new friend.,0
+The woman's date wanted to look like a gentleman.,He opened the door for her.,1
+The woman's date wanted to look like a gentleman.,He asked her if she liked sushi.,0
+The farmland needed irrigation.,A canal was constructed.,1
+The farmland needed irrigation.,A flood occurred.,0
+The host cancelled the party.,She was certain she had the flu.,1
+The host cancelled the party.,She worried she would catch the flu.,0
+The woman gave the man her phone number.,She was attracted to him.,1
+The woman gave the man her phone number.,She was repulsed by him.,0
+The skydiver glided safely to the ground.,She opened her parachute.,1
+The skydiver glided safely to the ground.,She jumped out of the plane.,0
+The toddler became cranky.,Her mother put her down for a nap.,1
+The toddler became cranky.,Her mother fixed her hair into pigtails.,0
+The child became immune to the disease.,He received the vaccine for the disease.,1
+The child became immune to the disease.,He avoided exposure to the disease.,0
+The grape juice fermented.,The juice turned to wine.,1
+The grape juice fermented.,The juice evaporated.,0
+The friends' debate dragged on interminably.,The friends were splitting hairs.,1
+The friends' debate dragged on interminably.,The friends saw eye to eye.,0
+The woman hummed to herself.,She was in a good mood.,1
+The woman hummed to herself.,She was nervous.,0
+The man hated his new haircut.,He wore a hat.,1
+The man hated his new haircut.,He grew a beard.,0
+The police aimed their weapons at the fugitive.,The fugitive dropped his gun.,1
+The police aimed their weapons at the fugitive.,The fugitive fell to the ground.,0
+The patient was dehydrated.,The nurse gave him an IV.,1
+The patient was dehydrated.,The nurse tested his reflexes.,0
+The girl found the missing puzzle piece.,She completed the puzzle.,1
+The girl found the missing puzzle piece.,She took apart the puzzle.,0
+The man urgently leaped out of bed.,He wanted to shut off the alarm clock.,1
+The man urgently leaped out of bed.,He wanted to iron his pants before work.,0
+The papers were disorganized.,I put them into alphabetical order.,1
+The papers were disorganized.,I made photocopies of them.,0
+The woman won the lottery.,She bought a yacht.,1
+The woman won the lottery.,She joined a church.,0
+The seamstress pushed the threaded needle into the fabric.,The thread went through the fabric.,1
+The seamstress pushed the threaded needle into the fabric.,The thread wrapped around the needle.,0
+The woman hired a lawyer.,She decided to sue her employer.,1
+The woman hired a lawyer.,She decided to run for office.,0
+The tenant misplaced his keys to his apartment.,His landlord unlocked the door.,1
+The tenant misplaced his keys to his apartment.,His landlord repaired the door.,0
+My favorite song came on the radio.,I sang along to it.,1
+My favorite song came on the radio.,I covered my ears.,0
+The executive decided not to hire the applicant.,The applicant failed a background check.,1
+The executive decided not to hire the applicant.,The applicant had experience for the job.,0
+The man's eye became infected.,He went blind.,1
+The man's eye became infected.,He put on glasses.,0
+The bird couldn't fly.,It injured its wing.,1
+The bird couldn't fly.,It migrated for the winter.,0
+The girl made a wish.,She saw a shooting star.,1
+The girl made a wish.,She saw a black cat.,0
+The woman shivered as she got out the pool.,She wrapped herself in a towel.,1
+The woman shivered as she got out the pool.,She poured herself some lemonade.,0
+The nurse prepared the needle for the patient's injection.,The patient tensed up.,1
+The nurse prepared the needle for the patient's injection.,The patient bled.,0
+The man threw out the bread.,It was stale.,1
+The man threw out the bread.,It was fresh.,0
+The children knocked over a lamp.,They had a pillow fight.,1
+The children knocked over a lamp.,They jumped on the bed.,0
+I drank from the water fountain.,I was thirsty.,1
+I drank from the water fountain.,I felt nauseous.,0
+The homeowners disliked their nosy neighbors.,They built a fence around their property.,1
+The homeowners disliked their nosy neighbors.,They hosted a barbeque in their backyard.,0
+The bodybuilder lifted weights.,Her muscles became fatigued.,1
+The bodybuilder lifted weights.,The gym closed.,0
+The cook stirred the ingredients in the bowl.,The ingredients blended together.,1
+The cook stirred the ingredients in the bowl.,The ingredients melted.,0
+The man signed the document.,The transaction became official.,1
+The man signed the document.,The transaction was voided.,0
+The police officer dropped the gun.,The gun went off.,1
+The police officer dropped the gun.,The gun recoiled.,0
+The woman felt compelled to help someone in need.,She donated blood.,1
+The woman felt compelled to help someone in need.,She wrote a poem.,0
+The woman felt lonely.,She adopted a cat.,1
+The woman felt lonely.,She renovated her kitchen.,0
+I rubbed sandpaper on the wood.,The wood became smooth.,1
+I rubbed sandpaper on the wood.,The wood became sticky.,0
+The crowd gave the band a standing ovation.,The band reappeared on the stage.,1
+The crowd gave the band a standing ovation.,The band signed autographs.,0
+The man threw his empty can onto the street.,He was fined for littering.,1
+The man threw his empty can onto the street.,He was jumped from behind.,0
+My stomach growled.,I forgot to eat breakfast.,1
+My stomach growled.,I was full from breakfast.,0
+The boaters set off a flare.,Their boat was rescued.,1
+The boaters set off a flare.,Their boat drifted to shore.,0
+The man removed his coat.,He entered the house.,1
+The man removed his coat.,He loosened his tie.,0
+The family took their dog to the veterinarian.,The dog injured his paw.,1
+The family took their dog to the veterinarian.,The dog chewed on a bone.,0
+The woman dangled the biscuit above the dog.,The dog jumped up.,1
+The woman dangled the biscuit above the dog.,The dog scratched its fur.,0
+I learned how to play the board game.,My friend explained the rules to me.,1
+I learned how to play the board game.,My friend got the rules wrong.,0
+The man went away for the weekend.,He wanted to relax.,1
+The man went away for the weekend.,He felt content.,0
+The shop was closed.,The shop was undergoing renovation.,1
+The shop was closed.,The owner was helping customers.,0
+The boy tuned the radio.,The station was coming in with static.,1
+The boy tuned the radio.,The station was playing rock music.,0
+The terrorist set off the bomb.,The bomb exploded.,1
+The terrorist set off the bomb.,The bomb was deactivated.,0
+The police handcuffed the suspect.,The suspect resisted arrest.,1
+The police handcuffed the suspect.,The police called for backup.,0
+The authorities vowed to protect the identity of the crime victim.,They withheld the victim's name from the public.,1
+The authorities vowed to protect the identity of the crime victim.,The victim struggled to recall details about the crime.,0
+The man's clothes fit loosely.,He lost weight.,1
+The man's clothes fit loosely.,He bought them on sale.,0
+The clock stopped ticking.,The clock showed the wrong time.,1
+The clock stopped ticking.,I took extra time to get ready.,0
+The man closed the umbrella.,He approached the building.,1
+The man closed the umbrella.,He got out of the car.,0
+The man craved a cigarette.,He was addicted to nicotine.,1
+The man craved a cigarette.,His family urged him to quit smoking.,0
+The man dropped food on the floor.,His dog ran over to eat the food.,1
+The man dropped food on the floor.,His dog jumped up on him.,0
+The girl was angry with her friend.,The girl spread a rumor about her friend.,1
+The girl was angry with her friend.,The girl told a secret to her friend.,0
+The fugitive hid from the police.,The fugitive remained at large.,1
+The fugitive hid from the police.,The police dropped the case.,0
+I tipped the bottle.,The liquid in the bottle poured out.,1
+I tipped the bottle.,The liquid in the bottle froze.,0
+The woman spoke with a foreign accent.,She migrated from another country.,1
+The woman spoke with a foreign accent.,She came from a wealthy family.,0
+The boy's mouth stung.,He ate a pepper.,1
+The boy's mouth stung.,He blew out the candle.,0
+I finished a page of the book.,I turned to the next page.,1
+I finished a page of the book.,I ripped out the next page.,0
+The service at the restaurant was slow.,The restaurant was crowded.,1
+The service at the restaurant was slow.,There were many empty tables.,0
+I saw a woman getting robbed on the street.,I called 911.,1
+I saw a woman getting robbed on the street.,I hailed a cab.,0
+My stomach hurt.,I ate birthday cake.,1
+My stomach hurt.,I jogged on the treadmill.,0
+I put my plate in the sink.,I finished eating.,1
+I put my plate in the sink.,I skipped dinner.,0
+The man closed the book.,He finished reading it.,1
+The man closed the book.,It provoked him to think.,0
+The boy read the novel aloud to his grandfather.,His grandfather was blind.,1
+The boy read the novel aloud to his grandfather.,His grandfather was deaf.,0
+My foot went numb.,I shook my foot.,1
+My foot went numb.,I put my shoes on.,0
+The photographer got the child to smile.,The photographer quickly snapped the child's photo.,1
+The photographer got the child to smile.,The photographer quickly changed the child's pose.,0
+The window was opaque.,The glass was stained.,1
+The window was opaque.,The blinds were open.,0
+I slipped on the floor.,The tile was wet.,1
+I slipped on the floor.,The tile was cracked.,0
+The man slid the razor across his chin.,His stubble disappeared.,1
+The man slid the razor across his chin.,His stubble grew.,0
+The woman took her family on vacation.,She received a salary bonus.,1
+The woman took her family on vacation.,Her husband got laid off.,0
+The woman awakened.,Her husband was snoring.,1
+The woman awakened.,She took sleeping pills.,0
+The woman sensed a pleasant smell.,She was reminded of her childhood.,1
+The woman sensed a pleasant smell.,She remembered to take her medication.,0
+The bar closed.,It was 3 AM.,1
+The bar closed.,It was crowded.,0
+The driver got pulled over by the police.,He was speeding.,1
+The driver got pulled over by the police.,He was parking.,0
+The teacher took roll.,She identified the students that were absent.,1
+The teacher took roll.,She gave her students a pop quiz.,0
+I pushed the pendulum.,It swung back and forth.,1
+I pushed the pendulum.,It slowed to a stop.,0
+The child kicked the stack of blocks.,The blocks scattered all over the rug.,1
+The child kicked the stack of blocks.,The stack towered over the boy's head.,0
+The teenager ran away from home.,His parents abused him.,1
+The teenager ran away from home.,He relied on his parents.,0
+I botched the job interview.,The interviewer asked difficult questions.,1
+I botched the job interview.,I anticipated the interviewer's questions.,0
+The pharmaceutical company recalled the drug.,Users reported dangerous side effects.,1
+The pharmaceutical company recalled the drug.,Users got refills on their prescriptions.,0
+The man looked at his watch.,He realized he was early.,1
+The man looked at his watch.,He realized he forgot something.,0
+I dabbed the floor with a paper towel.,I spilled juice on the floor.,1
+I dabbed the floor with a paper towel.,The floor was permanently stained.,0
+The bartender refused to serve the patron.,The patron was drunk.,1
+The bartender refused to serve the patron.,The patron was alone.,0
+I was confused by the professor's lecture.,I asked the professor questions.,1
+I was confused by the professor's lecture.,I paid attention to the professor.,0
+The book was deemed inappropriate for children.,Schools banned it from its libraries.,1
+The book was deemed inappropriate for children.,Teachers required students to read it.,0
+The man begged for forgiveness.,The woman took pity on him.,1
+The man begged for forgiveness.,The woman joked around with him.,0
+I received a package in the mail.,The package triggered my curiosity.,1
+I received a package in the mail.,I took the package to the post office.,0
+The surfer caught the wave.,The wave carried her to the shore.,1
+The surfer caught the wave.,She paddled her board into the ocean.,0
+The speaker disarmed her debate opponent.,The speaker won the debate.,1
+The speaker disarmed her debate opponent.,The speaker congratulated her opponent.,0
+I moved to a new city.,I found a better-paying job.,1
+I moved to a new city.,My son was born.,0
+I avoided giving a straight answer to the question.,The question made me uncomfortable.,1
+I avoided giving a straight answer to the question.,I wanted to be honest.,0
+The student received detention.,He talked back to the teacher.,1
+The student received detention.,The teacher graded his homework.,0
+The boy's hands were shaking.,He planned to ask the girl out.,1
+The boy's hands were shaking.,His palms were cold and sweaty.,0
+The fans in the stadium cheered.,The player scored.,1
+The fans in the stadium cheered.,The game ended in a tie.,0
+The girl went down the hill on her bike.,Her bike sped up.,1
+The girl went down the hill on her bike.,Her bike swerved.,0
+A man cut in front of me in the long line.,I confronted him.,1
+A man cut in front of me in the long line.,I smiled at him.,0
+The inside of the train went dark.,The train travelled through a tunnel.,1
+The inside of the train went dark.,The train ran off the tracks.,0
+The man contemplated the painting.,He felt in awe.,1
+The man contemplated the painting.,He collapsed.,0
+The turtle hid in its shell.,It detected a predator.,1
+The turtle hid in its shell.,It ate a fish.,0
+The girl handed down her clothes to her younger sister.,She outgrew the clothes.,1
+The girl handed down her clothes to her younger sister.,The clothes were tattered.,0
+Several witnesses of the crime testified against the suspect.,The suspect was convicted.,1
+Several witnesses of the crime testified against the suspect.,The suspect was acquitted.,0
+The parents left their children with a babysitter.,They made plans to celebrate their anniversary.,1
+The parents left their children with a babysitter.,Their youngest child started attending preschool.,0
+The trip took a long time.,The driver made a wrong turn.,1
+The trip took a long time., The driver talked the whole way.,0
+The product was heavily advertised.,Consumers recognized the product.,1
+The product was heavily advertised.,The product became outdated.,0
+I rubbed the soap between my hands.,The soap foamed.,1
+I rubbed the soap between my hands.,My hands went numb.,0
+The cowgirl threw her lasso towards the horse.,The lasso grabbed onto the horse.,1
+The cowgirl threw her lasso towards the horse.,The horse trotted into the barn.,0
+The group overlooked the woman's faux pas.,The woman was relieved.,1
+The group overlooked the woman's faux pas.,The woman apologized.,0
+The girl came across an unfamiliar word in her textbook.,She looked the term up in the dictionary.,1
+The girl came across an unfamiliar word in her textbook.,She chucked the textbook across the room.,0
+The man became disabled.,His family offered him financial support.,1
+The man became disabled.,His family cut off contact with him.,0
+The flashlight was dead.,I replaced the batteries.,1
+The flashlight was dead.,I took it apart.,0
+The skunk sprayed the dog.,The dog emitted a foul smell.,1
+The skunk sprayed the dog.,The skunk roamed the woods.,0
+I scratched my skin.,My itch went away.,1
+I scratched my skin.,My scar faded.,0
+I wrote a thank-you note to my grandmother.,She sent me a gift.,1
+I wrote a thank-you note to my grandmother.,She became forgetful.,0
+A burglar broke into the house.,The security alarm went off.,1
+A burglar broke into the house.,The homeowners were asleep.,0
+I held the door for the woman entering behind me.,The woman thanked me.,1
+I held the door for the woman entering behind me.,The door slammed shut.,0
+The mirror in the bathroom fogged up.,The girl turned on the fan.,1
+The mirror in the bathroom fogged up.,The girl applied her makeup.,0
+The security guard tackled the man.,The man displayed a weapon.,1
+The security guard tackled the man.,The man reached into his pocket.,0
+The driver rotated the steering wheel.,The car turned.,1
+The driver rotated the steering wheel.,The car halted.,0
+The army surrendered the battle.,They were outnumbered.,1
+The army surrendered the battle.,They stormed the city.,0
+The navy bombed the ship.,The ship's debris sunk in the sea.,1
+The navy bombed the ship.,The ship crashed into the pier.,0
+I ironed my shirt.,It was wrinkled.,1
+I ironed my shirt.,It was clean.,0
+The girl felt dizzy.,She lost her balance.,1
+The girl felt dizzy.,She did stretches.,0
+The driver pulled over to the side of the road.,He noticed a stranded vehicle.,1
+The driver pulled over to the side of the road.,He went through an intersection.,0
+The hospital sent the patient home.,The patient's symptoms cleared up.,1
+The hospital sent the patient home.,The patient's family visited him.,0
+The child caught a life-threatening illness.,She didn't get vaccinated.,1
+The child caught a life-threatening illness.,She was adopted.,0
+We found empty seats in the theatre.,We sat down.,1
+We found empty seats in the theatre.,The film began.,0
+The parents recognized their daughter's creativity.,They encouraged her to become an artist.,1
+The parents recognized their daughter's creativity.,They taught her how to ride a bike.,0
+The boy turned the lid on the jar.,The lid came off.,1
+The boy turned the lid on the jar.,The jar became warm.,0
+The woman received a diploma.,She graduated from college.,1
+The woman received a diploma.,She enrolled in college.,0
+I chugged the pitcher of water.,I ran five miles.,1
+I chugged the pitcher of water.,I walked upstairs.,0
+I came upon a puddle on the sidewalk.,I leapt over the puddle.,1
+I came upon a puddle on the sidewalk.,I played in the puddle.,0
+The woman covered her ears.,The fire alarm blared.,1
+The woman covered her ears.,The woman smelled smoke.,0
+The archeologist dug up the site.,She excavated ancient artifacts.,1
+The archeologist dug up the site.,She read about the site's history.,0
+The audience booed the comedian off the stage.,He told a racist joke.,1
+The audience booed the comedian off the stage.,He entertained the audience.,0
+The coach gave his player a high five.,The player scored a point.,1
+The coach gave his player a high five.,The player got a penalty.,0
+I tossed the ball upwards.,The ball hit the ceiling.,1
+I tossed the ball upwards.,The ball rolled across the ground.,0
+My breath smelled of garlic.,I brushed my teeth.,1
+My breath smelled of garlic.,I wiped my mouth.,0
+The man was lost.,He asked for directions.,1
+The man was lost.,He drew a map.,0
+The baby pulled the mother's hair.,The mother grimaced.,1
+The baby pulled the mother's hair.,The baby burped.,0
+I stood on one foot.,My balance wavered.,1
+I stood on one foot.,I kneeled down.,0
+I pushed the gas pedal.,The car accelerated.,1
+I pushed the gas pedal.,The car door opened.,0
+My car was towed.,I parked illegally.,1
+My car was towed.,I jumped the battery.,0
+The woman got away with the crime.,She destroyed the evidence.,1
+The woman got away with the crime.,Her accomplice was apprehended.,0
+The dust came off the desk.,I wiped the desk with a cloth.,1
+The dust came off the desk.,I removed the books from the desk.,0
+The motorcyclist twisted the throttle.,The motorcycle shot forward.,1
+The motorcyclist twisted the throttle.,The motorcycle coasted to a halt.,0
+The teacher caught the student chewing gum.,The student spit out the gum.,1
+The teacher caught the student chewing gum.,The gum stuck to the student's shoe.,0
+The host served dinner to his guests.,His guests were gracious.,1
+The host served dinner to his guests.,His guests went hungry.,0
+The boy climbed the tree.,A cat got stuck in the tree.,1
+The boy climbed the tree.,A bird built a nest in the tree.,0
+The chair squeaked.,The man scooted the chair closer to his desk.,1
+The chair squeaked.,The man carried the chair to his office.,0
+The father shut off the children's television.,It was bedtime for the children.,1
+The father shut off the children's television.,The children were watching cartoons.,0
+The man held his breath.,He went underwater.,1
+The man held his breath.,He treaded water.,0
+I clumsily bumped into the stranger.,I apologized to him.,1
+I clumsily bumped into the stranger.,I ran away.,0
+The boat capsized.,It was caught in a hurricane.,1
+The boat capsized.,The captain raised the sail.,0
+The mother suspected that her son was lying.,He avoided making eye contact with her.,1
+The mother suspected that her son was lying.,He refused to talk to her.,0
+The young woman was denied entrance into the bar.,She forgot her ID.,1
+The young woman was denied entrance into the bar.,Her friends stood her up.,0
+A crater formed on the moon.,A comet collided with the moon.,1
+A crater formed on the moon.,A comet passed by the moon.,0
+I planted the seeds in the soil.,The seeds sprouted.,1
+I planted the seeds in the soil.,I watered the soil.,0
+The benefactor requested to stay anonymous.,He wanted to maintain his privacy.,1
+The benefactor requested to stay anonymous.,He supported the cause behind his donation.,0
+The woman felt ashamed of scar on her face.,She hid the scar with makeup.,1
+The woman felt ashamed of scar on her face.,She explained the scar to strangers.,0
+The doctor x-rayed the patient's arm.,He discovered that the patient's arm was broken.,1
+The doctor x-rayed the patient's arm.,He put the patient's arm in a cast.,0
+The boy filled the bucket with sand.,He was building a sand castle.,1
+The boy filled the bucket with sand.,He was collecting seashells in the sand.,0
+The woman upgraded her computer hardware.,She installed new software on the computer.,1
+The woman upgraded her computer hardware.,She deleted old files on the computer.,0
+The girl performed in a dance recital.,Her parents came to watch the recital.,1
+The girl performed in a dance recital.,Her parents showed her how to dance.,0
+The baby was wailing in his crib.,The mother picked up the baby.,1
+The baby was wailing in his crib.,The baby crawled to the mother.,0
+The woman had a religious awakening.,She began going to church.,1
+The woman had a religious awakening.,She began travelling abroad.,0
+The bureau drawers were cluttered.,I threw away unnecessary contents.,1
+The bureau drawers were cluttered.,I locked the drawers shut.,0
+The student flaunted his test grade to his classmates.,He received a perfect score.,1
+The student flaunted his test grade to his classmates.,He feigned interest in the class.,0
+The boy felt homesick.,He went away to camp.,1
+The boy felt homesick.,He bickered with his sister.,0
+The rocket flew up into the sky.,The girl launched it.,1
+The rocket flew up into the sky.,The girl designed it.,0
+The boy murmured his reply to his mother.,His mother told him to speak up.,1
+The boy murmured his reply to his mother.,His mother told him to whisper.,0
+My flight got delayed.,Tornadoes were sighted in the area.,1
+My flight got delayed.,I was held up at airport security.,0
+The smoke alarm went off.,I burnt my dinner.,1
+The smoke alarm went off.,I lit a candle.,0
+The vase broke.,I glued it back together.,1
+The vase broke.,I stenciled it.,0
+The woman felt an electric shock.,She grabbed the doorknob.,1
+The woman felt an electric shock.,She pounded on the door.,0
+The man had lipstick on his cheek.,The woman kissed him.,1
+The man had lipstick on his cheek.,The woman made him blush.,0
+I jumped instinctively in fright.,I sensed someone approaching me from behind.,1
+I jumped instinctively in fright.,I heard people chuckling in the adjacent room.,0
+The gardener wanted his plants to flourish.,He put fertilizer in the soil.,1
+The gardener wanted his plants to flourish.,He planted a variety of seeds.,0
+A water pipe in the house burst.,The pipe froze.,1
+A water pipe in the house burst.,The water was unsanitary.,0
+The waistband on my pants was loose.,I put on a belt.,1
+The waistband on my pants was loose.,I put on a hat.,0
+The company lost money.,Some of its products were manufactured defectively.,1
+The company lost money.,Its products received positive consumer reviews.,0
+The tenants were evicted from the apartment.,They neglected to pay their rent.,1
+The tenants were evicted from the apartment.,They got along with their landlord.,0
+The man woke up with a toothache.,He made an appointment with the dentist.,1
+The man woke up with a toothache.,He missed an appointment with the dentist.,0
+The team lost the game.,Their best player was injured.,1
+The team lost the game.,Their coach pumped them up.,0
+The parents forbade their children from watching the movie. ,The movie was rated R.,1
+The parents forbade their children from watching the movie. ,The movie was animated.,0
+The woman deleted the email.,The sender tried to solicit money from her.,1
+The woman deleted the email.,The sender requested a response from her.,0
+The police eliminated the woman from the list of suspects.,Her alibi checked out.,1
+The police eliminated the woman from the list of suspects.,The police interrogated her.,0
+The climbers reached the peak of the mountain.,They congratulated each other.,1
+The climbers reached the peak of the mountain.,They encountered an avalanche.,0
+The vandals threw a rock at the window.,The window cracked.,1
+The vandals threw a rock at the window.,The window fogged up.,0
+The fortune teller's revelations were convincing.,She received many returning customers.,1
+The fortune teller's revelations were convincing.,Many customers asked for refunds.,0
+The woman's makeup smeared.,She wiped her eyes.,1
+The woman's makeup smeared.,She brushed her hair.,0
+The company's profits started to level off.,It increased its marketing efforts for new products.,1
+The company's profits started to level off.,It moved its headquarters to a suburban location.,0
+The student's answer on the exam was incorrect.,The teacher subtracted points off the student's grade.,1
+The student's answer on the exam was incorrect.,The teacher added bonus points to the student's grade.,0
+The girl wanted to demonstrate proper etiquette.,She put her napkin on her lap before eating.,1
+The girl wanted to demonstrate proper etiquette.,She threw away her napkin after eating.,0
+The detective flashed his badge to the police officer.,The police officer let the detective enter the crime scene.,1
+The detective flashed his badge to the police officer.,The police officer confiscated the detective's badge.,0
+The girl wanted to make her mother happy.,The girl picked a flower for her mother.,1
+The girl wanted to make her mother happy.,The girl ate the cookies her mother baked.,0
+The toddler started crying.,Her parents gave her a toy.,1
+The toddler started crying.,Her parents took away her toy.,0
+The stranger cried out to me in a foreign language.,I stared blankly at him.,1
+The stranger cried out to me in a foreign language.,I stopped to chat with him.,0
+The man uncovered incriminating evidence against his enemy.,The man blackmailed his enemy.,1
+The man uncovered incriminating evidence against his enemy.,The man avoided his enemy.,0
+The girl pushed herself off the top of the slide.,She glided down the slide.,1
+The girl pushed herself off the top of the slide.,She crawled up the slide.,0
+My jaw dropped open.,I was shocked.,1
+My jaw dropped open.,I was unhappy.,0
+The child disobeyed her parents.,Her parents punished her.,1
+The child disobeyed her parents.,Her parents hugged her.,0
+The car looked filthy.,The owner took it to the car wash.,1
+The car looked filthy.,He owner took it in for a paint job.,0
+My friend paid for my ticket.,I paid her back.,1
+My friend paid for my ticket.,I sought a refund.,0
+The woman was wrongly convicted for the crime.,She was framed.,1
+The woman was wrongly convicted for the crime.,The jury was fair.,0
+The girl applied the scissors to the paper.,The paper sliced apart.,1
+The girl applied the scissors to the paper.,The paper crinkled.,0
+The woman visited her family.,She missed them.,1
+The woman visited her family.,She distrusted them.,0
+I burst into a fit of laughter.,My eyes welled up with tears.,1
+I burst into a fit of laughter.,My teeth began to chatter.,0
+The school principal implemented a dress code.,Students protested the decision.,1
+The school principal implemented a dress code.,Students were expelled from school.,0
+The balloon expanded.,I blew into it.,1
+The balloon expanded.,I pricked it.,0
+I wanted to lighten the mood of the conversation.,I told a joke.,1
+I wanted to lighten the mood of the conversation.,I remained quiet.,0
+The man broke his toe.,He dropped a hammer on his foot.,1
+The man broke his toe.,He got a hole in his sock.,0
+The man had an attack of conscience.,He admitted his indiscretion.,1
+The man had an attack of conscience.,He manipulated his friend.,0
+A fistfight broke out in the hall of the school.,The principal suspended the students involved.,1
+A fistfight broke out in the hall of the school.,The principal called off classes for the day.,0
+The photo albums collected dust in the attic.,They remained untouched for years.,1
+The photo albums collected dust in the attic.,The family reminisced over the photos.,0
+I got distracted from my conversation with the woman.,Everyone in the room was talking.,1
+I got distracted from my conversation with the woman.,The woman was telling a funny story.,0
+I put coins in the washing machine at the laundromat.,The machine powered on.,1
+I put coins in the washing machine at the laundromat.,I ran out of laundry detergent.,0
+The family postponed the barbeque.,The forecast called for storms.,1
+The family postponed the barbeque.,It was a holiday weekend.,0
+Air leaked out of the beach ball.,There was a hole in it.,1
+Air leaked out of the beach ball.,It was inflated.,0
+Our group's conversation gradually lulled to silence.,I felt awkward.,1
+Our group's conversation gradually lulled to silence.,I became enraged.,0
+I clenched the candy wrapper in my fist.,The wrapper crinkled.,1
+I clenched the candy wrapper in my fist.,The wrapper ripped.,0
+The woman pressed down on the piano key.,A sound played.,1
+The woman pressed down on the piano key.,The key got stuck.,0
+The girl met her favorite actor.,She asked him for his autograph.,1
+The girl met her favorite actor.,She went to see his new film.,0
+The vehicles travelled slowly.,It was foggy.,1
+The vehicles travelled slowly.,It was cloudy.,0
+The chandelier shattered on the floor.,The chandelier dropped from the ceiling.,1
+The chandelier shattered on the floor.,The chandelier's lights flickered on and off.,0
+The cat purred.,I petted it.,1
+The cat purred.,It scratched me.,0
+The boy pushed his sister.,His sister tattled on him.,1
+The boy pushed his sister.,They played hide and seek.,0
+The man gained weight.,He got his suit altered.,1
+The man gained weight.,He got his shoes shined.,0
+The clouds looked dark.,I brought my umbrella to work.,1
+The clouds looked dark.,I brought my laptop to work.,0
+The engine of the airplane was faulty.,The airplane crashed.,1
+The engine of the airplane was faulty.,The pilot made an error.,0
+Cars moved to the shoulder of the road.,A screaming ambulance approached.,1
+Cars moved to the shoulder of the road.,The traffic light turned green.,0
+The boy lost hold of the bar of soap.,The bar was slippery.,1
+The boy lost hold of the bar of soap.,The bar emitted a fragrance.,0
+The button on my shirt fell off.,I sewed the button back on.,1
+The button on my shirt fell off.,I glued the button back on.,0
+The celebrity wore sunglasses.,She wanted to avoid recognition.,1
+The celebrity wore sunglasses.,She wanted to thank her fans.,0
+My grandmother passed away.,My family held a funeral.,1
+My grandmother passed away.,My family held a reunion.,0
+The police officer pulled over the celebrity.,The celebrity offered the officer a bribe.,1
+The police officer pulled over the celebrity.,The celebrity sued the police officer.,0
+The man revealed personal information to the therapist.,He trusted the therapist.,1
+The man revealed personal information to the therapist.,He disagreed with the therapist.,0
+The man fell unconscious.,The assailant struck the man in the head.,1
+The man fell unconscious.,The assailant took the man's wallet.,0
+I approached the man.,He looked familiar.,1
+I approached the man.,He looked busy.,0
+The leader received praise.,He fought poverty.,1
+The leader received praise.,He raised taxes.,0
+The man read the cartoon in the newspaper.,He chuckled.,1
+The man read the cartoon in the newspaper.,He sipped coffee.,0
+My mailbox was overflowing with letters.,I went on vacation for two weeks.,1
+My mailbox was overflowing with letters.,The lid on the mailbox broke.,0
+The bananas ripened.,We ate them.,1
+The bananas ripened.,We squeezed them.,0
+The chef pressed down on the dough.,The dough flattened.,1
+The chef pressed down on the dough.,The dough crumbled.,0
+The clay hardened.,The potter put the clay in the oven.,1
+The clay hardened.,The potter rolled the clay into a ball.,0
+My feet were blistered.,I went hiking.,1
+My feet were blistered.,I went swimming.,0
+The woman betrayed her friend.,Her friend cut off contact with her.,1
+The woman betrayed her friend.,Her friend sent her a greeting card.,0
+The man took notice of the woman.,He caught a whiff of her perfume.,1
+The man took notice of the woman.,He had his back turned to her.,0
+The woman and her boyfriend got into a fight.,They stopped seeing each other.,1
+The woman and her boyfriend got into a fight.,They planned a vacation together.,0
+The bully stuck his foot out in front of his classmate.,The bully's classmate tripped.,1
+The bully stuck his foot out in front of his classmate.,The bully picked up his classmate.,0
+The man wanted to get revenge on his enemy.,The man framed his enemy for a crime.,1
+The man wanted to get revenge on his enemy.,The man declared a truce with his enemy.,0
+I drank a cup of coffee.,My yawning ceased.,1
+I drank a cup of coffee.,I nodded off to sleep.,0
+The woman was mistaken for her sister.,The woman looked like her sister.,1
+The woman was mistaken for her sister.,The woman was close with her sister.,0
+The man made an error in his calculations.,His work was hasty.,1
+The man made an error in his calculations.,He checked his work.,0
+The woman's eyeglasses fogged up.,She entered the sauna.,1
+The woman's eyeglasses fogged up.,She reclined by the pool.,0
+The shopper wondered about the cost of the item.,He checked its price tag.,1
+The shopper wondered about the cost of the item.,He decided to buy it.,0
+The host of the trivia show called on the contestant for an answer.,The contestant rang the buzzer.,1
+The host of the trivia show called on the contestant for an answer.,The contestant was in the lead.,0
+The boy was afraid to go to bed.,He watched a horror movie.,1
+The boy was afraid to go to bed.,He turned on his nightlight.,0
+The woman wanted to be a doctor.,She went to medical school.,1
+The woman wanted to be a doctor.,She visited the hospital.,0
+The boy found the television show boring.,He shut it off.,1
+The boy found the television show boring.,He recorded it.,0
+My daughter suffered an allergy attack.,I took her to the emergency room.,1
+My daughter suffered an allergy attack.,I encouraged her to take deep breaths.,0
+The boy had trouble buttoning his shirt.,He asked his mother for help.,1
+The boy had trouble buttoning his shirt.,He refused to wear the shirt.,0
+I spit out my chewing gum.,The gum lost its flavor.,1
+I spit out my chewing gum.,I blew a bubble with the gum.,0
+The boy painted a picture for his mother.,His mother hung the picture on the wall.,1
+The boy painted a picture for his mother.,His mother sold the picture to a gallery.,0
+The competition ended.,The teams shook hands.,1
+The competition ended.,The teams got pumped up.,0
+The girl politely declined the hamburger.,She was a vegetarian.,1
+The girl politely declined the hamburger.,She liked fast food.,0
+I scrubbed the stain on the floor.,I got rid of the stain.,1
+I scrubbed the stain on the floor.,I got dirt on the floor.,0
+The documents contained important information.,I kept them in a secure place.,1
+The documents contained important information.,I paper clipped them together.,0
+The egg splattered.,I dropped it.,1
+The egg splattered.,I boiled it.,0
+The girl pushed her friend.,Her friend fell over.,1
+The girl pushed her friend.,Her friend choked.,0
+A group of teenagers crashed the party.,The host of the party kicked them out.,1
+A group of teenagers crashed the party.,The host of the party invited them in.,0
+The man took a shower.,He was sweaty from working out.,1
+The man took a shower.,He opened a new bar of soap.,0
+The screen on the laptop went black.,The laptop's battery died.,1
+The screen on the laptop went black.,The laptop's warranty expired.,0
+The book became a huge bestseller.,It was adapted into a movie.,1
+The book became a huge bestseller.,The author faded into obscurity.,0
+The man felt thankful to be alive.,He was cured of cancer.,1
+The man felt thankful to be alive.,His wife was diagnosed with cancer.,0
+The woman wrote a check to the gas company.,She received her monthly bill.,1
+The woman wrote a check to the gas company.,She preferred paying by cash.,0
+The woman felt reluctant to switch careers.,She made a lot of money in her current occupation.,1
+The woman felt reluctant to switch careers.,She endured a lot of stress in her current occupation.,0
+The woman filed a restraining order against the man.,The man stalked her.,1
+The woman filed a restraining order against the man.,The man called her.,0
+The ocean tide was dangerous.,The swimmers returned towards the shore.,1
+The ocean tide was dangerous.,The swimmers put on more sunscreen.,0
+The woman refused a second beer.,She was the designated driver for the night.,1
+The woman refused a second beer.,She was familiar with the bartender.,0
+I ran out of breath.,I climbed several flights of stairs.,1
+I ran out of breath.,I read several chapters of the book.,0
+The woman was deemed mentally ill.,She was sent to a psychiatric institution.,1
+The woman was deemed mentally ill.,She sought a career as a psychiatrist.,0
+The sun emerged from the clouds.,The woman took her sweater off.,1
+The sun emerged from the clouds.,The woman glanced at her watch.,0
+The football coach lost his voice after the game.,He yelled whenever a player fumbled the ball.,1
+The football coach lost his voice after the game.,He whistled whenever a player scored a touchdown.,0
+The woman complimented the man.,He blushed.,1
+The woman complimented the man.,He sneezed.,0
+I applied pressure to the cut on my arm.,It stopped bleeding.,1
+I applied pressure to the cut on my arm.,It healed.,0
+The woman had an infection.,She took antibiotics.,1
+The woman had an infection.,She washed her hands.,0
+The woman was summoned for jury duty.,She cancelled her appointments.,1
+The woman was summoned for jury duty.,She contacted her lawyer.,0
+The woman fanned herself with her hand.,The air conditioner in the room broke.,1
+The woman fanned herself with her hand.,She installed the air conditioner in the room.,0
+The doctors amputated the patient's leg.,It was severely infected.,1
+The doctors amputated the patient's leg.,It was badly bruised.,0
+The girl stared at herself in the mirror.,She felt self-conscious.,1
+The girl stared at herself in the mirror.,The mirror was smudged.,0
+The man was bitten by mosquitoes.,He went camping in the woods.,1
+The man was bitten by mosquitoes.,He fell asleep on his couch.,0
+The woman presented her brother with a gift.,Her brother unwrapped the gift.,1
+The woman presented her brother with a gift.,Her brother refused to accept the gift.,0
+The administrator cleared her throat.,The meeting commenced.,1
+The administrator cleared her throat.,The meeting was postponed.,0
+The children ran through the sprinkler.,They were hot.,1
+The children ran through the sprinkler.,They ate popsicles.,0
+The man needed coins to fill the parking meter.,He searched under his car seats for loose change.,1
+The man needed coins to fill the parking meter.,He begged people on the street for loose change.,0
+The customer thought the souvenir was overpriced.,He bargained with the vendor.,1
+The customer thought the souvenir was overpriced.,The vender sold it to him.,0
+The scientist gained recognition.,She discovered a new species.,1
+The scientist gained recognition.,She received tenure at the university.,0
+The car stopped at the crosswalk.,The pedestrian crossed the road.,1
+The car stopped at the crosswalk.,The pedestrian waited on the sidewalk.,0
+The boy giggled uncontrollably.,His brother tickled him.,1
+The boy giggled uncontrollably.,His brother kicked him.,0
+My knees buckled on the stairs.,I caught myself on the railing.,1
+My knees buckled on the stairs.,The railing came loose from the wall.,0
+I went to bed.,It was late.,1
+I went to bed.,It was a clear night.,0
+My friend was recovering from surgery.,I brought her a card and flowers.,1
+My friend was recovering from surgery.,I dropped her off at the hospital.,0
+The DJ turned the music on.,People began to dance.,1
+The DJ turned the music on.,People left the party.,0
+The security guard replayed the surveillance footage.,He noticed some suspicious activity.,1
+The security guard replayed the surveillance footage.,The surveillance camera was out of focus.,0
+I lingered in bed upon awakening.,It was Saturday.,1
+I lingered in bed upon awakening.,I was hungry.,0
+The man lifted the heavy box.,He put out his back.,1
+The man lifted the heavy box.,He scratched his back.,0
+The woman's purse was missing.,She left it unsupervised.,1
+The woman's purse was missing.,It contained a lot of junk.,0
+The woman suffered amnesia.,She got into a car accident.,1
+The woman suffered amnesia.,She had an allergic reaction.,0
+I needed to get cash.,I went to the bank.,1
+I needed to get cash.,I bought a wallet.,0
+The rider fell to the ground.,The bull bucked the rider.,1
+The rider fell to the ground.,The bull chased the rider.,0
+The boy wanted to be muscular.,He lifted weights.,1
+The boy wanted to be muscular.,He played computer games.,0
+The scientist conducted an experiment.,She validated her theory.,1
+The scientist conducted an experiment.,She fabricated her data.,0
+The milk stayed cold.,I stored it in the refrigerator.,1
+The milk stayed cold.,It was pasteurized.,0
+The fussy baby calmed down.,The parents shook a rattle in front of the baby.,1
+The fussy baby calmed down.,The parents picked out a name for the baby.,0
+I put ice cubes in the hot soup.,The soup cooled down.,1
+I put ice cubes in the hot soup.,The soup became thick.,0
+The girl shared her lunch with her friend.,Her friend forgot to bring his lunch.,1
+The girl shared her lunch with her friend.,Her friend sat next to her at lunch.,0
+The police closed the investigation.,They apprehended the suspect.,1
+The police closed the investigation.,The victim recovered.,0
+The rain subsided.,I went for a walk.,1
+The rain subsided.,I browsed the internet.,0
+The cup of tea was scalding hot.,I blew on it.,1
+The cup of tea was scalding hot.,I poured it out.,0
+The photograph faded.,It was old.,1
+The photograph faded.,It was fake.,0
+The boy got a black eye.,The bully punched the boy.,1
+The boy got a black eye.,The bully mocked the boy.,0
+I misplaced my wallet.,I retraced my steps.,1
+I misplaced my wallet.,I retrieved my phone.,0
+The hunter ran out of ammunition.,He reloaded the gun.,1
+The hunter ran out of ammunition.,He aimed at the deer.,0
+Marine life diminished.,Oil spilled into the ocean.,1
+Marine life diminished.,Boats sailed through the ocean.,0
+I ran the ice cube under warm water.,The ice cube vanished.,1
+I ran the ice cube under warm water.,The ice cube stuck to my fingers.,0
+The customer came into the boutique.,The window display caught her eye.,1
+The customer came into the boutique.,She left her wallet at home.,0
+The man drank water with his meal.,His meal was spicy.,1
+The man drank water with his meal.,His meal was cold.,0
+The woman stayed away from public places.,She was contagious.,1
+The woman stayed away from public places.,She was intoxicated.,0
+The putrid odor filled the room.,I clamped my hand over my nose.,1
+The putrid odor filled the room.,I put the rubber gloves on.,0
+The employee missed work.,There was a death in her family.,1
+The employee missed work.,Her family got in touch with her.,0
+The magnet attracted the paperclip.,The paperclip stuck to the magnet.,1
+The magnet attracted the paperclip.,The paperclip dropped from the magnet.,0
+The gardener pulled the weeds.,The weeds came out of the soil.,1
+The gardener pulled the weeds.,The weeds produced seeds.,0
+We ordered a pizza.,The pizza was delivered.,1
+We ordered a pizza.,The pizza got cold.,0
+The teenager grew taller than his father.,He went through a growth spurt.,1
+The teenager grew taller than his father.,He joined the basketball team.,0
+The patient underwent the risky medical procedure.,Specialists recommended the procedure.,1
+The patient underwent the risky medical procedure.,The procedure was costly.,0
+The man caught his shirtsleeve on the rungs of the fence.,The sleeve ripped.,1
+The man caught his shirtsleeve on the rungs of the fence.,He hopped the fence.,0
+The investigators deemed the man's death a suicide.,He left a note.,1
+The investigators deemed the man's death a suicide.,He had children.,0
+The computer crashed.,I downloaded a virus.,1
+The computer crashed.,I backed up my files.,0
+The girl's mouth ached.,She lost a tooth.,1
+The girl's mouth ached.,She swallowed her gum.,0
+The room was dim.,I opened the blinds.,1
+The room was dim.,I washed the windows.,0
+The father put his daughter in her stroller.,He was tired of carrying her.,1
+The father put his daughter in her stroller.,She learned to walk.,0
+The spy discovered the enemy's location.,The spy bugged the enemy's phone.,1
+The spy discovered the enemy's location.,The spy was hired by the government.,0
+The glasses on the table spilled.,The child yanked the tablecloth.,1
+The glasses on the table spilled.,The child drew on the table.,0
+The water in the teapot started to boil.,The teapot whistled.,1
+The water in the teapot started to boil.,The teapot cooled.,0
+The city re-elected the mayor.,The mayor fulfilled his promises.,1
+The city re-elected the mayor.,The city cut its budget.,0
+The woman exaggerated the details of the story.,She wanted attention.,1
+The woman exaggerated the details of the story.,She felt shy.,0
+The woman hit a midlife crisis.,She went sky diving.,1
+The woman hit a midlife crisis.,She retired.,0
+The man went into denial about the tragedy.,He refused to talk about it.,1
+The man went into denial about the tragedy.,He got over it easily.,0
+The man grieved.,His mother passed away.,1
+The man grieved.,His wife criticized him.,0
+The girl had a phobia of dogs.,She was bitten by a dog.,1
+The girl had a phobia of dogs.,She rescued an abandoned dog.,0
+I made a resolution to eat a healthy diet.,I bought fruits and vegetables.,1
+I made a resolution to eat a healthy diet.,I attended a yoga class.,0
+The patient went into a coma.,He suffered brain damage.,1
+The patient went into a coma.,He suffered emotional trauma.,0
+The friends' dinnertime conversation turned to politics.,A debate erupted.,1
+The friends' dinnertime conversation turned to politics.,The conversation quieted down.,0
+The woman spotted her friend from across the room.,The woman waved.,1
+The woman spotted her friend from across the room.,The woman escaped.,0
+The mother needed help looking after her children.,She sent the children to daycare.,1
+The mother needed help looking after her children.,She gave up custody of the children.,0
+The driver honked her horn.,Another car swerved into her lane.,1
+The driver honked her horn.,She made a right turn at the light.,0
+The man wanted to save money.,He cut back on making frivolous purchases.,1
+The man wanted to save money.,He withdrew money from his savings account.,0
+I put shoes on.,The floor contained broken glass.,1
+I put shoes on.,The paint on the walls was wet.,0
+The librarian located the book in the stacks.,I requested the librarian's help.,1
+The librarian located the book in the stacks.,The book was checked out.,0
+The mother became eye level with her son.,She squatted down.,1
+The mother became eye level with her son.,She held his hand.,0
+I packed up my belongings.,I was moving out of my apartment.,1
+I packed up my belongings.,I was hunting for a new apartment.,0
+The boy mimicked his older brother.,The boy looked up to his older brother.,1
+The boy mimicked his older brother.,The boy wrestled with his older brother.,0
+The girl desired her parent's approval.,She obeyed her parent's rules.,1
+The girl desired her parent's approval.,She ran away from home.,0
+The truck crashed into the motorcycle on the bridge.,The motorcyclist died.,1
+The truck crashed into the motorcycle on the bridge.,The bridge collapsed.,0
+The retail shop shut down.,Its sales were lagging.,1
+The retail shop shut down.,It renewed its lease.,0
+The swimmer won the race.,She received a gold medal.,1
+The swimmer won the race.,Her team lost the meet.,0
+Air pollution in the city worsened.,Factories increased their production.,1
+Air pollution in the city worsened.,Factories shut down.,0
+The mother scolded her daughter.,Her daughter burped at the kitchen table.,1
+The mother scolded her daughter.,Her daughter set the kitchen table.,0
+I excused myself from the group.,My phone rang.,1
+I excused myself from the group.,I turned off my phone.,0
+The skier slipped on the slope.,She hit a patch of ice.,1
+The skier slipped on the slope.,She dropped her ski poles.,0
+The print on the brochure was tiny.,The man put his glasses on.,1
+The print on the brochure was tiny.,The man retrieved a pen from his pocket.,0
+I flipped the light switch up and down.,The light flickered.,1
+I flipped the light switch up and down.,The light faded.,0
+The man's watch was broken.,He asked a stranger for the time.,1
+The man's watch was broken.,He waited at the bus stop.,0
+The soldiers were concealed in the brush.,They wore camouflage uniforms.,1
+The soldiers were concealed in the brush.,They were armed with rifles.,0
+The man turned on the faucet.,Water flowed from the spout.,1
+The man turned on the faucet.,The toilet filled with water.,0
+The girl found a bug in her cereal.,She lost her appetite.,1
+The girl found a bug in her cereal.,She poured milk in the bowl.,0
+The woman retired.,She received her pension.,1
+The woman retired.,She paid off her mortgage.,0
+I wanted to conserve energy.,I shut off the light in the unoccupied room.,1
+I wanted to conserve energy.,I swept the floor in the unoccupied room.,0
+The hamburger meat browned.,The cook grilled it.,1
+The hamburger meat browned.,The cook froze it.,0
+I doubted the salesman's pitch.,I turned his offer down.,1
+I doubted the salesman's pitch.,He persuaded me to buy the product.,0
+I decided to stay home for the night.,The forecast called for storms.,1
+I decided to stay home for the night.,My friends urged me to go out.,0
+My eyes became red and puffy.,I was sobbing.,1
+My eyes became red and puffy.,I was laughing.,0
+The flame on the candle went out.,I blew on the wick.,1
+The flame on the candle went out.,I put a match to the wick.,0
+The man drank heavily at the party.,He had a headache the next day.,1
+The man drank heavily at the party.,He had a runny nose the next day.,0
+The bowling ball knocked over the bowling pins.,The man rolled the bowling ball down the alley.,1
+The bowling ball knocked over the bowling pins.,The man dropped the bowling ball on his foot.,0
+The community learned of the man's death.,His obituary appeared in the newspaper.,1
+The community learned of the man's death.,His family buried him in the cemetery.,0
+My computer crashed.,I lost all my data.,1
+My computer crashed.,I installed new speakers.,0
+The woman resigned from her job.,She believed her superiors were acting unethically.,1
+The woman resigned from her job.,She aspired to hold an executive position in the firm.,0
+The player caught the ball.,Her teammate threw it to her.,1
+The player caught the ball.,Her opponent tried to intercept it.,0
+The judge pounded the gavel.,The courtroom broke into uproar.,1
+The judge pounded the gavel.,The jury announced its verdict.,0
+The woman banished the children from her property.,The children trampled through her garden.,1
+The woman banished the children from her property.,The children hit a ball into her yard.,0
+The kidnappers released the hostage.,They accepted ransom money.,1
+The kidnappers released the hostage.,They escaped from jail.,0
+The cook's eyes watered.,He cut an onion.,1
+The cook's eyes watered.,He ran out of onions.,0
+The woman ran her finger under cold water.,She burned her finger on the toaster.,1
+The woman ran her finger under cold water.,She put a diamond ring on her finger.,0
+The student misspelled the word.,The teacher corrected her.,1
+The student misspelled the word.,The teacher dismissed her.,0
+I regained composure from my fit of anger.,I took deep breaths.,1
+I regained composure from my fit of anger.,My heart pounded.,0
+I put my hands under the running faucet.,The soap rinsed off my hands.,1
+I put my hands under the running faucet.,The water splashed in my face.,0
+The man dressed in his best suit.,He scheduled a meeting with an important client.,1
+The man dressed in his best suit.,His wife bought him a new tie.,0
+The man confessed his love for the woman.,The woman rejected him.,1
+The man confessed his love for the woman.,The woman envied him.,0
+The driver got a flat tire.,He ran over a nail.,1
+The driver got a flat tire.,He went over the speed limit.,0
+My view of the movie screen was blocked.,A tall person was sitting in front of me.,1
+My view of the movie screen was blocked.,The couple behind me was whispering.,0
+The driver turned on the car's headlights.,The sun went down.,1
+The driver turned on the car's headlights.,He heard thunder.,0
+The girl refused to eat her vegetables.,Her father took away her dessert.,1
+The girl refused to eat her vegetables.,Her father told her to drink her milk.,0
+The woman covered her mouth with her hand.,She sneezed.,1
+The woman covered her mouth with her hand.,She exhaled.,0
+The secretary put the caller on hold.,The caller waited on the line.,1
+The secretary put the caller on hold.,The caller's phone lost reception.,0
+The woman walked with crutches.,She broke her leg.,1
+The woman walked with crutches.,She shaved her legs.,0
+I coughed.,I inhaled smoke.,1
+I coughed.,I lowered my voice.,0
+The clock chimed.,It was the top of the hour.,1
+The clock chimed.,The hour seemed to drag on.,0
+The chef hit the egg on the side of the bowl.,The egg cracked.,1
+The chef hit the egg on the side of the bowl.,The egg rotted.,0
+The police searched the offender's car.,They were looking for illegal drugs.,1
+The police searched the offender's car.,They were trying to elicit a confession.,0
+The couple travelled south for the winter.,They were retired.,1
+The couple travelled south for the winter.,They were separated.,0
+The man felt obligated to attend the event.,He promised his friend that he would go.,1
+The man felt obligated to attend the event.,He turned down his friend's invitation to go.,0
+The bride got cold feet before the wedding.,She called the wedding off.,1
+The bride got cold feet before the wedding.,The wedding guests brought gifts.,0
+The man grew old.,His hair turned gray.,1
+The man grew old.,He sold his belongings.,0
+The friends decided to share the hamburger.,They cut the hamburger in half.,1
+The friends decided to share the hamburger.,They ordered fries with the hamburger.,0
+I twisted the cap off the soda bottle.,The soda fizzed.,1
+I twisted the cap off the soda bottle.,The soda leaked out.,0
+The pair of students came under scrutiny by the teacher.,Their responses on the assignment were identical.,1
+The pair of students came under scrutiny by the teacher.,The students both received excellent grades.,0
+The student was in a rush to get to school on time.,He left his assignment at home.,1
+The student was in a rush to get to school on time.,He brought his lunch to school.,0
+The journalist wrote a biography about the humanitarian's life.,The journalist was intrigued by the humanitarian's work.,1
+The journalist wrote a biography about the humanitarian's life.,The humanitarian was difficult for the journalist to interview.,0
+The man defied the authorities of the church.,He was excommunicated from the church.,1
+The man defied the authorities of the church.,He donated money to the church.,0
+The woman's hair fell in her face.,She pulled her hair back with a clip.,1
+The woman's hair fell in her face.,She lathered shampoo into her hair.,0
+The ring on my finger got stuck.,My finger swelled.,1
+The ring on my finger got stuck.,I chipped my fingernail.,0
+I pulled the rubber band.,It stretched.,1
+I pulled the rubber band.,It flung across the room.,0
+I pressed my hand into the wet cement.,My handprint dried in the cement.,1
+I pressed my hand into the wet cement.,Cracks emerged in the cement.,0
+My skin broke out into a rash.,I brushed against poison ivy in my yard.,1
+My skin broke out into a rash.,I eradicated the poison ivy from my yard.,0
+My subscription to the magazine expired.,I stopped receiving new issues.,1
+My subscription to the magazine expired.,I discarded the new issue.,0
+The detective revealed an anomaly in the case.,He scrapped his theory.,1
+The detective revealed an anomaly in the case.,He finalized his theory.,0
+The boy threw a temper tantrum.,His brother took his toys from him.,1
+The boy threw a temper tantrum.,He shared his toys with his brother.,0
+The child learned how to read.,He began attending school.,1
+The child learned how to read.,He skipped a grade in school.,0
+The boy skipped dinner.,He ate a big lunch.,1
+The boy skipped dinner.,His mother cooked his favorite meal.,0
+The woman lavished her friend with flattery.,She wanted to ask her friend for a favor.,1
+The woman lavished her friend with flattery.,She was irritated with her friend's whining.,0
+The key was missing from my pants pocket.,The pocket had a hole.,1
+The key was missing from my pants pocket.,The pants were new.,0
+The man fainted.,He ran a marathon.,1
+The man fainted.,He took a nap.,0
+The man lost the competition.,The competition was sabotaged.,1
+The man lost the competition.,He intimidated his competitors.,0
+The mother called an ambulance.,Her son fell out of his bed.,1
+The mother called an ambulance.,Her son lost his cat.,0
+The driver slammed on his brakes.,A deer appeared on the road.,1
+The driver slammed on his brakes.,The car radio shut off.,0
+The lock opened.,I turned the key in the lock.,1
+The lock opened.,I made a duplicate of the key.,0
+I put rubber gloves on.,I was preparing to clean the bathroom.,1
+I put rubber gloves on.,I was preparing to wash my hands.,0
+The animal species became endangered.,Their habitat was destroyed.,1
+The animal species became endangered.,Their predators went extinct.,0
+The man perceived that the woman looked different.,The woman got her hair cut.,1
+The man perceived that the woman looked different.,The woman wore a bracelet.,0
+The student forgot to do her assignment.,She made up an excuse to tell the teacher.,1
+The student forgot to do her assignment.,The teacher promoted her to the next grade.,0
+The dog barked.,A knock sounded at the door.,1
+The dog barked.,The cat lounged on the couch.,0
+Plans were announced to replace a local park with a shopping mall.,Environmentalists started a petition.,1
+Plans were announced to replace a local park with a shopping mall.,Environmentalists produced a documentary.,0
+The couple was happy to see each other.,They kissed.,1
+The couple was happy to see each other.,They rested.,0
+The woman asked the man to leave.,He insulted her.,1
+The woman asked the man to leave.,He thanked her.,0
+The tree branch landed in the river.,The branch moved downstream.,1
+The tree branch landed in the river.,The river's current became stronger.,0
+The teacher assigned homework to the students.,The students groaned.,1
+The teacher assigned homework to the students.,The students passed notes.,0
+The seasons changed from summer to autumn.,Leaves fell from the trees.,1
+The seasons changed from summer to autumn.,People evacuated their homes.,0
+The politician was convicted of fraud.,He was removed from office.,1
+The politician was convicted of fraud.,He campaigned for re-election.,0
+I pushed the wagon.,The wagon wheels spun forward.,1
+I pushed the wagon.,The objects in the wagon fell out.,0
+The lobbyist persuaded the legislature to support the bill.,The legislature passed the bill.,1
+The lobbyist persuaded the legislature to support the bill.,The president vetoed the bill.,0
+My closet was messy.,I organized it.,1
+My closet was messy.,I decorated it.,0
+I stayed up late.,I was tired in the morning.,1
+I stayed up late.,I had vivid dreams that night.,0
+The man's pocket jingled as he walked.,His pocket was filled with coins.,1
+The man's pocket jingled as he walked.,He sewed the hole in his pocket.,0
+Everyone in the class turned to stare at the student.,The student's phone rang.,1
+Everyone in the class turned to stare at the student.,The student took notes.,0
+The horse bucked.,A fly bit the horse.,1
+The horse bucked.,The rider stroked the horse.,0
+The jewelry thieves were caught.,The stolen jewelry was returned to its owners.,1
+The jewelry thieves were caught.,The cost of the stolen jewelry was calculated.,0
+Political violence broke out in the nation.,Many citizens took refuge in other territories.,1
+Political violence broke out in the nation.,Many citizens relocated to the capitol.,0
+The woman was arrested.,She committed assault.,1
+The woman was arrested.,She checked into rehab.,0
+The woman read the newspaper.,She discovered the outcome of the election.,1
+The woman read the newspaper.,She casted a vote in the election.,0
+The sick child coughed on his friend.,His friend got sick.,1
+The sick child coughed on his friend.,His friend sneezed.,0
+The couple got engaged.,They planned a wedding.,1
+The couple got engaged.,They took some time apart.,0
+The woman contacted the real estate agent.,The woman planned to buy a condo.,1
+The woman contacted the real estate agent.,The woman needed to clean her house.,0
+The man won the lottery.,He became rich.,1
+The man won the lottery.,He owed money.,0
+I lit the candle.,Wax dripped off the candle.,1
+I lit the candle.,The wax on the candle hardened.,0
+I spent the day at the pool.,My face got sunburned.,1
+I spent the day at the pool.,I sprained my ankle.,0
+The man received a parking ticket.,The parking meter expired.,1
+The man received a parking ticket.,He parallel parked on the street.,0
+The woman became famous.,Photographers followed her.,1
+The woman became famous.,Her family avoided her.,0
+The girl wanted to wear earrings.,She got her ears pierced.,1
+The girl wanted to wear earrings.,She got a tattoo.,0
+My ears were ringing.,I went to a concert.,1
+My ears were ringing.,I went to a museum.,0
+I tidied up my house.,I was expecting company.,1
+I tidied up my house.,I was swamped with work.,0
+The airline mishandled my luggage.,They offered me compensation.,1
+The airline mishandled my luggage.,They cancelled my flight.,0
+The computer was expensive to fix.,I bought a new one.,1
+The computer was expensive to fix.,I got it repaired.,0
+The woman was in a bad mood.,She told her friend to leave her alone.,1
+The woman was in a bad mood.,She engaged in small talk with her friend.,0

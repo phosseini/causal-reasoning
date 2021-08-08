@@ -1,0 +1,1001 @@
+startphrase,sent1,sent2,ending0,ending1,label
+My body cast a shadow over the grass. It is because,My body cast a shadow over the grass.,It is because,The sun was rising.,The grass was cut.,0
+The garden looked well-groomed. It is because,The garden looked well-groomed.,It is because,The grass was cut.,The sun was rising.,0
+The woman tolerated her friend's difficult behavior. It is because,The woman tolerated her friend's difficult behavior.,It is because,The woman knew her friend was going through a hard time.,The woman felt that her friend took advantage of her kindness.,0
+The woman did not tolerate her friend's difficult behavior anymore. It is because,The woman did not tolerate her friend's difficult behavior anymore.,It is because,The woman felt that her friend took advantage of her kindness.,The woman knew her friend was going through a hard time.,0
+The women met for coffee. It is because,The women met for coffee.,It is because,The cafe reopened in a new location.,They wanted to catch up with each other.,1
+The women were surprised. It is because,The women were surprised.,It is because,The cafe reopened in a new location.,They wanted to catch up with each other.,0
+The runner wore shorts. It is because,The runner wore shorts.,It is because,She planned to run along the beach.,The forecast predicted high temperatures.,1
+The runner stretched. It is because,The runner stretched.,It is because,She planned to run along the beach.,The forecast predicted high temperatures.,0
+The guests of the party hid behind the couch. It is because,The guests of the party hid behind the couch.,It is because,It was a birthday party.,It was a surprise party.,1
+The guests of the party brought candles. It is because,The guests of the party brought candles.,It is because,It was a birthday party.,It was a surprise party.,0
+The politician lost the election. It is because,The politician lost the election.,It is because,No one voted for him.,He ran negative campaign ads.,0
+The politician won the election. It is because,The politician won the election.,It is because,No one voted for him.,He ran negative campaign ads.,1
+The stain came out of the shirt. It is because,The stain came out of the shirt.,It is because,I patched the shirt.,I bleached the shirt.,1
+The shirt did not have a hole anymore. It is because,The shirt did not have a hole anymore.,It is because,I patched the shirt.,I bleached the shirt.,0
+The man got a discount on his groceries. It is because,The man got a discount on his groceries.,It is because,He greeted the cashier.,He used a coupon.,1
+The man looked friendly. It is because,The man looked friendly.,It is because,He used a coupon.,He greeted the cashier.,1
+"The physician misdiagnosed the patient. As a result,",The physician misdiagnosed the patient.,"As a result,",The patient disclosed confidential information to the physician.,The patient filed a malpractice lawsuit against the physician.,1
+"The patient was a close friend of the physician. As a result,",The patient was a close friend of the physician.,"As a result,",The patient disclosed confidential information to the physician.,The patient filed a malpractice lawsuit against the physician.,0
+The customer filed a complaint with the store manager. It is because,The customer filed a complaint with the store manager.,It is because,The sales associate acted rude to the customer.,The sales associate undercharged the customer.,0
+The sales associate sent another invoice to the customer.  It is because,The sales associate sent another invoice to the customer. ,It is because,The sales associate undercharged the customer.,The sales associate acted rude to the customer.,0
+The woman repaired her faucet. It is because,The woman repaired her faucet.,It is because,The faucet was leaky.,The faucet was turned off.,0
+The woman could not wash her hands. It is because,The woman could not wash her hands.,It is because,The faucet was leaky.,The faucet was turned off.,1
+"The elderly woman suffered a stroke. As a result,",The elderly woman suffered a stroke.,"As a result,",The woman's daughter came over to clean her house.,The woman's daughter moved in to take care of her.,1
+"The elderly woman made a phone call. As a result,",The elderly woman made a phone call.,"As a result,",The woman's daughter came over to clean her house.,The woman's daughter moved in to take care of her.,0
+"The pond froze over for the winter. As a result,",The pond froze over for the winter.,"As a result,",People brought boats to the pond.,People skated on the pond.,1
+"The frozen pond thawed in the spring. As a result,",The frozen pond thawed in the spring.,"As a result,",People brought boats to the pond.,People skated on the pond.,0
+"The offender violated parole. As a result,",The offender violated parole.,"As a result,",She was sent back to jail.,She stole money from a church.,0
+"The offender was poor. As a result,",The offender was poor.,"As a result,",She was sent back to jail.,She stole money from a church.,1
+"I poured water on my sleeping friend. As a result,",I poured water on my sleeping friend.,"As a result,",My friend awoke.,My friend snored.,0
+"I made my friend very tired. As a result,",I made my friend very tired.,"As a result,",My friend awoke.,My friend snored.,1
+The girl gasped. It is because,The girl gasped.,It is because,Her friend stuck an ice cube down her back.,Her friend gave her a pat on the back.,0
+The girl smiled. It is because,The girl smiled.,It is because,Her friend stuck an ice cube down her back.,Her friend gave her a pat on the back.,1
+The shirt shrunk. It is because,The shirt shrunk.,It is because,I put it in the dryer.,I poured bleach on it.,0
+The shirt became clean. It is because,The shirt became clean.,It is because,I poured bleach on it.,I put it in the dryer.,0
+"It got dark outside. As a result,",It got dark outside.,"As a result,",Snowflakes began to fall from the sky.,The moon became visible in the sky.,1
+"It got cold outside. As a result,",It got cold outside.,"As a result,",Snowflakes began to fall from the sky.,The moon became visible in the sky.,0
+I hung up the phone. It is because,I hung up the phone.,It is because,The caller said goodbye to me.,The caller identified himself to me.,0
+I recognized the caller. It is because,I recognized the caller.,It is because,The caller identified himself to me.,The caller said goodbye to me.,0
+"The woman's ring slipped off in the shower. As a result,",The woman's ring slipped off in the shower.,"As a result,",The woman polished the ring.,The ring went down the drain.,1
+"The woman's ring got dirty. As a result,",The woman's ring got dirty.,"As a result,",The ring went down the drain.,The woman polished the ring.,1
+The girl received a trophy. It is because,The girl received a trophy.,It is because,She won a spelling bee.,She made a new friend.,0
+The girl was not lonely anymore. It is because,The girl was not lonely anymore.,It is because,She made a new friend.,She won a spelling bee.,0
+"The woman's date wanted to look like a gentleman. As a result,",The woman's date wanted to look like a gentleman.,"As a result,",He opened the door for her.,He asked her if she liked sushi.,0
+"The woman's date wanted to have Japanese cuisine. As a result,",The woman's date wanted to have Japanese cuisine.,"As a result,",He asked her if she liked sushi.,He opened the door for her.,0
+"The farmland needed irrigation. As a result,",The farmland needed irrigation.,"As a result,",A flood occurred.,A canal was constructed.,1
+"The farmland got heavy rain. As a result,",The farmland got heavy rain.,"As a result,",A canal was constructed.,A flood occurred.,1
+The host cancelled the party. It is because,The host cancelled the party.,It is because,She worried she would catch the flu.,She was certain she had the flu.,1
+The woman got vaccinated. It is because,The woman got vaccinated.,It is because,She was certain she had the flu.,She worried she would catch the flu.,1
+The woman gave the man her phone number. It is because,The woman gave the man her phone number.,It is because,She was attracted to him.,She was repulsed by him.,0
+The woman ignored the man. It is because,The woman ignored the man.,It is because,She was attracted to him.,She was repulsed by him.,1
+The skydiver glided safely to the ground. It is because,The skydiver glided safely to the ground.,It is because,She opened her parachute.,She jumped out of the plane.,0
+The skydiver started to fall down. It is because,The skydiver started to fall down.,It is because,She opened her parachute.,She jumped out of the plane.,1
+"The toddler became cranky. As a result,",The toddler became cranky.,"As a result,",Her mother fixed her hair into pigtails.,Her mother put her down for a nap.,1
+"The toddler joined a baby pageant. As a result,",The toddler joined a baby pageant.,"As a result,",Her mother fixed her hair into pigtails.,Her mother put her down for a nap.,0
+The child became immune to the disease. It is because,The child became immune to the disease.,It is because,He received the vaccine for the disease.,He avoided exposure to the disease.,0
+The child was not vaccinated but did not get the disease. It is because,The child was not vaccinated but did not get the disease.,It is because,He received the vaccine for the disease.,He avoided exposure to the disease.,1
+"The grape juice fermented. As a result,",The grape juice fermented.,"As a result,",The juice evaporated.,The juice turned to wine.,1
+"The grape juice was boiled. As a result,",The grape juice was boiled.,"As a result,",The juice evaporated.,The juice turned to wine.,0
+The friends' debate dragged on interminably. It is because,The friends' debate dragged on interminably.,It is because,The friends were splitting hairs.,The friends saw eye to eye.,0
+The friends did not have a debate. It is because,The friends did not have a debate.,It is because,The friends saw eye to eye.,The friends were splitting hairs.,0
+The woman hummed to herself. It is because,The woman hummed to herself.,It is because,She was nervous.,She was in a good mood.,1
+The woman trembled. It is because,The woman trembled.,It is because,She was in a good mood.,She was nervous.,1
+"The man hated his new haircut. As a result,",The man hated his new haircut.,"As a result,",He grew a beard.,He wore a hat.,1
+"The man hated the shape of his chin. As a result,",The man hated the shape of his chin.,"As a result,",He wore a hat.,He grew a beard.,1
+"The police aimed their weapons at the fugitive. As a result,",The police aimed their weapons at the fugitive.,"As a result,",The fugitive fell to the ground.,The fugitive dropped his gun.,1
+"The police shot the fugitive. As a result,",The police shot the fugitive.,"As a result,",The fugitive fell to the ground.,The fugitive dropped his gun.,0
+"The patient was dehydrated. As a result,",The patient was dehydrated.,"As a result,",The nurse gave him an IV.,The nurse tested his reflexes.,0
+"The patient said his leg felt numb. As a result,",The patient said his leg felt numb.,"As a result,",The nurse tested his reflexes.,The nurse gave him an IV.,0
+"The girl found the missing puzzle piece. As a result,",The girl found the missing puzzle piece.,"As a result,",She took apart the puzzle.,She completed the puzzle.,1
+"The girl was angry. As a result,",The girl was angry.,"As a result,",She took apart the puzzle.,She completed the puzzle.,0
+The man urgently leaped out of bed. It is because,The man urgently leaped out of bed.,It is because,He wanted to iron his pants before work.,He wanted to shut off the alarm clock.,1
+The man got up earlier. It is because,The man got up earlier.,It is because,He wanted to shut off the alarm clock.,He wanted to iron his pants before work.,1
+"The papers were disorganized. As a result,",The papers were disorganized.,"As a result,",I made photocopies of them.,I put them into alphabetical order.,1
+"The papers were important. As a result,",The papers were important.,"As a result,",I put them into alphabetical order.,I made photocopies of them.,1
+"The woman won the lottery. As a result,",The woman won the lottery.,"As a result,",She bought a yacht.,She joined a church.,0
+"The woman felt guilty. As a result,",The woman felt guilty.,"As a result,",She joined a church.,She bought a yacht.,0
+"The seamstress pushed the threaded needle into the fabric. As a result,",The seamstress pushed the threaded needle into the fabric.,"As a result,",The thread went through the fabric.,The thread wrapped around the needle.,0
+"The seamstress guided the thread through the eye of the needle. As a result,",The seamstress guided the thread through the eye of the needle.,"As a result,",The thread went through the fabric.,The thread wrapped around the needle.,1
+The woman hired a lawyer. It is because,The woman hired a lawyer.,It is because,She decided to run for office.,She decided to sue her employer.,1
+The woman hired a public relations consultant. It is because,The woman hired a public relations consultant.,It is because,She decided to run for office.,She decided to sue her employer.,0
+"The tenant misplaced his keys to his apartment. As a result,",The tenant misplaced his keys to his apartment.,"As a result,",His landlord unlocked the door.,His landlord repaired the door.,0
+"The tenant broke the door of his apartment. As a result,",The tenant broke the door of his apartment.,"As a result,",His landlord repaired the door.,His landlord unlocked the door.,0
+"My favorite song came on the radio. As a result,",My favorite song came on the radio.,"As a result,",I covered my ears.,I sang along to it.,1
+"An awful song came on the radio. As a result,",An awful song came on the radio.,"As a result,",I covered my ears.,I sang along to it.,0
+The executive decided not to hire the applicant. It is because,The executive decided not to hire the applicant.,It is because,The applicant had experience for the job.,The applicant failed a background check.,1
+The executive decided to hire the applicant. It is because,The executive decided to hire the applicant.,It is because,The applicant failed a background check.,The applicant had experience for the job.,1
+"The man's eye became infected. As a result,",The man's eye became infected.,"As a result,",He went blind.,He put on glasses.,0
+"The man had bad eyesight. As a result,",The man had bad eyesight.,"As a result,",He put on glasses.,He went blind.,0
+The bird couldn't fly. It is because,The bird couldn't fly.,It is because,It migrated for the winter.,It injured its wing.,1
+The bird flew south. It is because,The bird flew south.,It is because,It injured its wing.,It migrated for the winter.,1
+The girl made a wish. It is because,The girl made a wish.,It is because,She saw a black cat.,She saw a shooting star.,1
+The girl had bad luck. It is because,The girl had bad luck.,It is because,She saw a black cat.,She saw a shooting star.,0
+"The woman shivered as she got out the pool. As a result,",The woman shivered as she got out the pool.,"As a result,",She wrapped herself in a towel.,She poured herself some lemonade.,0
+"The woman was thirsty after she jogged. As a result,",The woman was thirsty after she jogged.,"As a result,",She poured herself some lemonade.,She wrapped herself in a towel.,0
+"The nurse prepared the needle for the patient's injection. As a result,",The nurse prepared the needle for the patient's injection.,"As a result,",The patient tensed up.,The patient bled.,0
+"The nurse made a mistake during the patient's injection. As a result,",The nurse made a mistake during the patient's injection.,"As a result,",The patient bled.,The patient tensed up.,0
+The man threw out the bread. It is because,The man threw out the bread.,It is because,It was fresh.,It was stale.,1
+The man liked the bread. It is because,The man liked the bread.,It is because,It was stale.,It was fresh.,1
+The children knocked over a lamp. It is because,The children knocked over a lamp.,It is because,They had a pillow fight.,They jumped on the bed.,0
+The children bumped their heads on the ceiling. It is because,The children bumped their heads on the ceiling.,It is because,They jumped on the bed.,They had a pillow fight.,0
+I drank from the water fountain. It is because,I drank from the water fountain.,It is because,I was thirsty.,I felt nauseous.,0
+I went to the toilet. It is because,I went to the toilet.,It is because,I was thirsty.,I felt nauseous.,1
+"The homeowners disliked their nosy neighbors. As a result,",The homeowners disliked their nosy neighbors.,"As a result,",They built a fence around their property.,They hosted a barbeque in their backyard.,0
+"The homeowners liked their neighbors. As a result,",The homeowners liked their neighbors.,"As a result,",They built a fence around their property.,They hosted a barbeque in their backyard.,1
+"The bodybuilder lifted weights. As a result,",The bodybuilder lifted weights.,"As a result,",The gym closed.,Her muscles became fatigued.,1
+"Bodybuilding fell out of fashion. As a result,",Bodybuilding fell out of fashion.,"As a result,",Her muscles became fatigued.,The gym closed.,1
+"The cook stirred the ingredients in the bowl. As a result,",The cook stirred the ingredients in the bowl.,"As a result,",The ingredients blended together.,The ingredients melted.,0
+"The cook boiled the ingredients in the bowl. As a result,",The cook boiled the ingredients in the bowl.,"As a result,",The ingredients melted.,The ingredients blended together.,0
+"The man signed the document. As a result,",The man signed the document.,"As a result,",The transaction was voided.,The transaction became official.,1
+"The man returned the document. As a result,",The man returned the document.,"As a result,",The transaction was voided.,The transaction became official.,0
+"The police officer dropped the gun. As a result,",The police officer dropped the gun.,"As a result,",The gun went off.,The gun recoiled.,0
+"The police officer shot the gun. As a result,",The police officer shot the gun.,"As a result,",The gun went off.,The gun recoiled.,1
+"The woman felt compelled to help someone in need. As a result,",The woman felt compelled to help someone in need.,"As a result,",She donated blood.,She wrote a poem.,0
+"The woman felt compelled to express herself. As a result,",The woman felt compelled to express herself.,"As a result,",She donated blood.,She wrote a poem.,1
+"The woman felt lonely. As a result,",The woman felt lonely.,"As a result,",She renovated her kitchen.,She adopted a cat.,1
+"The woman felt creative. As a result,",The woman felt creative.,"As a result,",She renovated her kitchen.,She adopted a cat.,0
+"I rubbed sandpaper on the wood. As a result,",I rubbed sandpaper on the wood.,"As a result,",The wood became smooth.,The wood became sticky.,0
+"I spilled glue on the wood. As a result,",I spilled glue on the wood.,"As a result,",The wood became sticky.,The wood became smooth.,0
+"The crowd gave the band a standing ovation. As a result,",The crowd gave the band a standing ovation.,"As a result,",The band reappeared on the stage.,The band signed autographs.,0
+"The crowd waited for the rock band at the airport. As a result,",The crowd waited for the rock band at the airport.,"As a result,",The band signed autographs.,The band reappeared on the stage.,0
+"The man threw his empty can onto the street. As a result,",The man threw his empty can onto the street.,"As a result,",He was fined for littering.,He was jumped from behind.,0
+"The man walked alone on the street. As a result,",The man walked alone on the street.,"As a result,",He was fined for littering.,He was jumped from behind.,1
+My stomach growled. It is because,My stomach growled.,It is because,I was full from breakfast.,I forgot to eat breakfast.,1
+My stomach was heavy. It is because,My stomach was heavy.,It is because,I was full from breakfast.,I forgot to eat breakfast.,0
+"The boaters set off a flare. As a result,",The boaters set off a flare.,"As a result,",Their boat drifted to shore.,Their boat was rescued.,1
+"The boaters caught a nice current. As a result,",The boaters caught a nice current.,"As a result,",Their boat drifted to shore.,Their boat was rescued.,0
+The man removed his coat. It is because,The man removed his coat.,It is because,He entered the house.,He loosened his tie.,0
+The man could breathe better. It is because,The man could breathe better.,It is because,He loosened his tie.,He entered the house.,0
+The family took their dog to the veterinarian. It is because,The family took their dog to the veterinarian.,It is because,The dog injured his paw.,The dog chewed on a bone.,0
+The dog broke his teeth. It is because,The dog broke his teeth.,It is because,The dog injured his paw.,The dog chewed on a bone.,1
+"The woman dangled the biscuit above the dog. As a result,",The woman dangled the biscuit above the dog.,"As a result,",The dog jumped up.,The dog scratched its fur.,0
+"The dog had lice. As a result,",The dog had lice.,"As a result,",The dog jumped up.,The dog scratched its fur.,1
+I learned how to play the board game. It is because,I learned how to play the board game.,It is because,My friend got the rules wrong.,My friend explained the rules to me.,1
+The board game ended in a disaster. It is because,The board game ended in a disaster.,It is because,My friend explained the rules to me.,My friend got the rules wrong.,1
+The man went away for the weekend. It is because,The man went away for the weekend.,It is because,He wanted to relax.,He felt content.,0
+The man did not need to buy more things. It is because,The man did not need to buy more things.,It is because,He felt content.,He wanted to relax.,0
+The shop was closed. It is because,The shop was closed.,It is because,The shop was undergoing renovation.,The owner was helping customers.,0
+The shop was very popular. It is because,The shop was very popular.,It is because,The shop was undergoing renovation.,The owner was helping customers.,1
+The boy tuned the radio. It is because,The boy tuned the radio.,It is because,The station was playing rock music.,The station was coming in with static.,1
+The boy listened to the radio. It is because,The boy listened to the radio.,It is because,The station was playing rock music.,The station was coming in with static.,0
+"The terrorist set off the bomb. As a result,",The terrorist set off the bomb.,"As a result,",The bomb was deactivated.,The bomb exploded.,1
+"The police found the bomb. As a result,",The police found the bomb.,"As a result,",The bomb was deactivated.,The bomb exploded.,0
+The police handcuffed the suspect. It is because,The police handcuffed the suspect.,It is because,The police called for backup.,The suspect resisted arrest.,1
+The police was hit by the suspect. It is because,The police was hit by the suspect.,It is because,The suspect resisted arrest.,The police called for backup.,1
+"The authorities vowed to protect the identity of the crime victim. As a result,",The authorities vowed to protect the identity of the crime victim.,"As a result,",The victim struggled to recall details about the crime.,They withheld the victim's name from the public.,1
+"The authorities brought on the case many years later. As a result,",The authorities brought on the case many years later.,"As a result,",They withheld the victim's name from the public.,The victim struggled to recall details about the crime.,1
+The man's clothes fit loosely. It is because,The man's clothes fit loosely.,It is because,He bought them on sale.,He lost weight.,1
+The man's clothes were cheap. It is because,The man's clothes were cheap.,It is because,He lost weight.,He bought them on sale.,1
+"The clock stopped ticking. As a result,",The clock stopped ticking.,"As a result,",I took extra time to get ready.,The clock showed the wrong time.,1
+"The time was earlier than I thought. As a result,",The time was earlier than I thought.,"As a result,",The clock showed the wrong time.,I took extra time to get ready.,1
+The man closed the umbrella. It is because,The man closed the umbrella.,It is because,He got out of the car.,He approached the building.,1
+The man opened the umbrella. It is because,The man opened the umbrella.,It is because,He approached the building.,He got out of the car.,1
+The man craved a cigarette. It is because,The man craved a cigarette.,It is because,His family urged him to quit smoking.,He was addicted to nicotine.,1
+The man threw his cigarettes away. It is because,The man threw his cigarettes away.,It is because,He was addicted to nicotine.,His family urged him to quit smoking.,1
+"The man dropped food on the floor. As a result,",The man dropped food on the floor.,"As a result,",His dog ran over to eat the food.,His dog jumped up on him.,0
+"The man had a cookie in his hand. As a result,",The man had a cookie in his hand.,"As a result,",His dog ran over to eat the food.,His dog jumped up on him.,1
+"The girl was angry with her friend. As a result,",The girl was angry with her friend.,"As a result,",The girl told a secret to her friend.,The girl spread a rumor about her friend.,1
+"The girl trusted her friend. As a result,",The girl trusted her friend.,"As a result,",The girl told a secret to her friend.,The girl spread a rumor about her friend.,0
+"The fugitive hid from the police. As a result,",The fugitive hid from the police.,"As a result,",The fugitive remained at large.,The police dropped the case.,0
+"The fugitive was shot by the police. As a result,",The fugitive was shot by the police.,"As a result,",The police dropped the case.,The fugitive remained at large.,0
+"I tipped the bottle. As a result,",I tipped the bottle.,"As a result,",The liquid in the bottle poured out.,The liquid in the bottle froze.,0
+"I put the bottle into a freezer. As a result,",I put the bottle into a freezer.,"As a result,",The liquid in the bottle froze.,The liquid in the bottle poured out.,0
+The woman spoke with a foreign accent. It is because,The woman spoke with a foreign accent.,It is because,She came from a wealthy family.,She migrated from another country.,1
+The woman was rich. It is because,The woman was rich.,It is because,She came from a wealthy family.,She migrated from another country.,0
+The boy's mouth stung. It is because,The boy's mouth stung.,It is because,He blew out the candle.,He ate a pepper.,1
+Smoke got in the boy's eyes. It is because,Smoke got in the boy's eyes.,It is because,He blew out the candle.,He ate a pepper.,0
+"I finished a page of the book. As a result,",I finished a page of the book.,"As a result,",I turned to the next page.,I ripped out the next page.,0
+"I got angry while reading the book. As a result,",I got angry while reading the book.,"As a result,",I ripped out the next page.,I turned to the next page.,0
+The service at the restaurant was slow. It is because,The service at the restaurant was slow.,It is because,The restaurant was crowded.,There were many empty tables.,0
+The service at the restaurant was quick. It is because,The service at the restaurant was quick.,It is because,There were many empty tables.,The restaurant was crowded.,0
+"I saw a woman getting robbed on the street. As a result,",I saw a woman getting robbed on the street.,"As a result,",I called 911.,I hailed a cab.,0
+"I was late for the meeting. As a result,",I was late for the meeting.,"As a result,",I hailed a cab.,I called 911.,0
+My stomach hurt. It is because,My stomach hurt.,It is because,I ate birthday cake.,I jogged on the treadmill.,0
+My feet hurt. It is because,My feet hurt.,It is because,I jogged on the treadmill.,I ate birthday cake.,0
+I put my plate in the sink. It is because,I put my plate in the sink.,It is because,I finished eating.,I skipped dinner.,0
+I didn't have to do the dishes. It is because,I didn't have to do the dishes.,It is because,I finished eating.,I skipped dinner.,1
+The man closed the book. It is because,The man closed the book.,It is because,It provoked him to think.,He finished reading it.,1
+The man liked the book. It is because,The man liked the book.,It is because,He finished reading it.,It provoked him to think.,1
+The boy read the novel aloud to his grandfather. It is because,The boy read the novel aloud to his grandfather.,It is because,His grandfather was deaf.,His grandfather was blind.,1
+The boy communicated with his grandfather by writing. It is because,The boy communicated with his grandfather by writing.,It is because,His grandfather was deaf.,His grandfather was blind.,0
+"My foot went numb. As a result,",My foot went numb.,"As a result,",I shook my foot.,I put my shoes on.,0
+"The sand at the beach was too hot. As a result,",The sand at the beach was too hot.,"As a result,",I put my shoes on.,I shook my foot.,0
+"The photographer got the child to smile. As a result,",The photographer got the child to smile.,"As a result,",The photographer quickly snapped the child's photo.,The photographer quickly changed the child's pose.,0
+"The photographer could not see the child's face. As a result,",The photographer could not see the child's face.,"As a result,",The photographer quickly changed the child's pose.,The photographer quickly snapped the child's photo.,0
+The window was opaque. It is because,The window was opaque.,It is because,The glass was stained.,The blinds were open.,0
+The sun was coming through the window. It is because,The sun was coming through the window.,It is because,The blinds were open.,The glass was stained.,0
+I slipped on the floor. It is because,I slipped on the floor.,It is because,The tile was cracked.,The tile was wet.,1
+I cut my foot on the floor. It is because,I cut my foot on the floor.,It is because,The tile was cracked.,The tile was wet.,0
+"The man slid the razor across his chin. As a result,",The man slid the razor across his chin.,"As a result,",His stubble grew.,His stubble disappeared.,1
+"The man did not shave. As a result,",The man did not shave.,"As a result,",His stubble disappeared.,His stubble grew.,1
+The woman took her family on vacation. It is because,The woman took her family on vacation.,It is because,Her husband got laid off.,She received a salary bonus.,1
+The woman looked for a job. It is because,The woman looked for a job.,It is because,She received a salary bonus.,Her husband got laid off.,1
+The woman awakened. It is because,The woman awakened.,It is because,She took sleeping pills.,Her husband was snoring.,1
+The woman did not wake up. It is because,The woman did not wake up.,It is because,Her husband was snoring.,She took sleeping pills.,1
+"The woman sensed a pleasant smell. As a result,",The woman sensed a pleasant smell.,"As a result,",She remembered to take her medication.,She was reminded of her childhood.,1
+"The woman felt dizzy. As a result,",The woman felt dizzy.,"As a result,",She was reminded of her childhood.,She remembered to take her medication.,1
+The bar closed. It is because,The bar closed.,It is because,It was 3 AM.,It was crowded.,0
+There was nowhere to sit in the bar. It is because,There was nowhere to sit in the bar.,It is because,It was crowded.,It was 3 AM.,0
+The driver got pulled over by the police. It is because,The driver got pulled over by the police.,It is because,He was parking.,He was speeding.,1
+The driver looked into the rear camera. It is because,The driver looked into the rear camera.,It is because,He was parking.,He was speeding.,0
+"The teacher took roll. As a result,",The teacher took roll.,"As a result,",She identified the students that were absent.,She gave her students a pop quiz.,0
+"The teacher wanted to grade the students. As a result,",The teacher wanted to grade the students.,"As a result,",She gave her students a pop quiz.,She identified the students that were absent.,0
+"I pushed the pendulum. As a result,",I pushed the pendulum.,"As a result,",It swung back and forth.,It slowed to a stop.,0
+"I blocked the pendulum. As a result,",I blocked the pendulum.,"As a result,",It swung back and forth.,It slowed to a stop.,1
+"The child kicked the stack of blocks. As a result,",The child kicked the stack of blocks.,"As a result,",The stack towered over the boy's head.,The blocks scattered all over the rug.,1
+"The child punched the stack of blocks. As a result,",The child punched the stack of blocks.,"As a result,",The stack towered over the boy's head.,The blocks scattered all over the rug.,0
+The teenager ran away from home. It is because,The teenager ran away from home.,It is because,He relied on his parents.,His parents abused him.,1
+The teenager always stayed home. It is because,The teenager always stayed home.,It is because,He relied on his parents.,His parents abused him.,0
+I botched the job interview. It is because,I botched the job interview.,It is because,I anticipated the interviewer's questions.,The interviewer asked difficult questions.,1
+I passed the job interview. It is because,I passed the job interview.,It is because,I anticipated the interviewer's questions.,The interviewer asked difficult questions.,0
+The pharmaceutical company recalled the drug. It is because,The pharmaceutical company recalled the drug.,It is because,Users got refills on their prescriptions.,Users reported dangerous side effects.,1
+The pharmaceutical company promoted the drug. It is because,The pharmaceutical company promoted the drug.,It is because,Users got refills on their prescriptions.,Users reported dangerous side effects.,0
+"The man looked at his watch. As a result,",The man looked at his watch.,"As a result,",He realized he was early.,He realized he forgot something.,0
+"The man looked at his list. As a result,",The man looked at his list.,"As a result,",He realized he was early.,He realized he forgot something.,1
+I dabbed the floor with a paper towel. It is because,I dabbed the floor with a paper towel.,It is because,The floor was permanently stained.,I spilled juice on the floor.,1
+I replaced the floor with brand new tile. It is because,I replaced the floor with brand new tile.,It is because,I spilled juice on the floor.,The floor was permanently stained.,1
+The bartender refused to serve the patron. It is because,The bartender refused to serve the patron.,It is because,The patron was alone.,The patron was drunk.,1
+The bartender accompanied the patron. It is because,The bartender accompanied the patron.,It is because,The patron was drunk.,The patron was alone.,1
+"I was confused by the professor's lecture. As a result,",I was confused by the professor's lecture.,"As a result,",I asked the professor questions.,I paid attention to the professor.,0
+"I was interested in the professor's lecture. As a result,",I was interested in the professor's lecture.,"As a result,",I paid attention to the professor.,I asked the professor questions.,0
+"The book was deemed inappropriate for children. As a result,",The book was deemed inappropriate for children.,"As a result,",Schools banned it from its libraries.,Teachers required students to read it.,0
+"The book was deemed appropriate for children. As a result,",The book was deemed appropriate for children.,"As a result,",Teachers required students to read it.,Schools banned it from its libraries.,0
+"The man begged for forgiveness. As a result,",The man begged for forgiveness.,"As a result,",The woman joked around with him.,The woman took pity on him.,1
+"The man laughed at comedy. As a result,",The man laughed at comedy.,"As a result,",The woman joked around with him.,The woman took pity on him.,0
+"I received a package in the mail. As a result,",I received a package in the mail.,"As a result,",I took the package to the post office.,The package triggered my curiosity.,1
+"I received someone's package in the mail. As a result,",I received someone's package in the mail.,"As a result,",I took the package to the post office.,The package triggered my curiosity.,0
+"The surfer caught the wave. As a result,",The surfer caught the wave.,"As a result,",She paddled her board into the ocean.,The wave carried her to the shore.,1
+"The surfer saw the wave. As a result,",The surfer saw the wave.,"As a result,",She paddled her board into the ocean.,The wave carried her to the shore.,0
+"The speaker disarmed her debate opponent. As a result,",The speaker disarmed her debate opponent.,"As a result,",The speaker congratulated her opponent.,The speaker won the debate.,1
+"The speaker was defeated by her debate opponent. As a result,",The speaker was defeated by her debate opponent.,"As a result,",The speaker won the debate.,The speaker congratulated her opponent.,1
+I moved to a new city. It is because,I moved to a new city.,It is because,My son was born.,I found a better-paying job.,1
+I was moved. It is because,I was moved.,It is because,My son was born.,I found a better-paying job.,0
+I avoided giving a straight answer to the question. It is because,I avoided giving a straight answer to the question.,It is because,The question made me uncomfortable.,I wanted to be honest.,0
+I promised to give a straight answer to the question. It is because,I promised to give a straight answer to the question.,It is because,The question made me uncomfortable.,I wanted to be honest.,1
+The student received detention. It is because,The student received detention.,It is because,He talked back to the teacher.,The teacher graded his homework.,0
+The student learned most mistakes. It is because,The student learned most mistakes.,It is because,He talked back to the teacher.,The teacher graded his homework.,1
+The boy's hands were shaking. It is because,The boy's hands were shaking.,It is because,He planned to ask the girl out.,His palms were cold and sweaty.,0
+The boy's friends were scared. It is because,The boy's friends were scared.,It is because,He planned to ask the girl out.,His palms were cold and sweaty.,1
+The fans in the stadium cheered. It is because,The fans in the stadium cheered.,It is because,The game ended in a tie.,The player scored.,1
+The fans in the stadium were apathetic. It is because,The fans in the stadium were apathetic.,It is because,The player scored.,The game ended in a tie.,1
+"The girl went down the hill on her bike. As a result,",The girl went down the hill on her bike.,"As a result,",Her bike swerved.,Her bike sped up.,1
+"The girl turned down the hill on her bike. As a result,",The girl turned down the hill on her bike.,"As a result,",Her bike sped up.,Her bike swerved.,1
+"A man cut in front of me in the long line. As a result,",A man cut in front of me in the long line.,"As a result,",I confronted him.,I smiled at him.,0
+"A man let me in front of the long line. As a result,",A man let me in front of the long line.,"As a result,",I confronted him.,I smiled at him.,1
+The inside of the train went dark. It is because,The inside of the train went dark.,It is because,The train travelled through a tunnel.,The train ran off the tracks.,0
+The inside of the train became destroyed. It is because,The inside of the train became destroyed.,It is because,The train ran off the tracks.,The train travelled through a tunnel.,0
+"The man contemplated the painting. As a result,",The man contemplated the painting.,"As a result,",He collapsed.,He felt in awe.,1
+"The man had a heart attack. As a result,",The man had a heart attack.,"As a result,",He felt in awe.,He collapsed.,1
+The turtle hid in its shell. It is because,The turtle hid in its shell.,It is because,It detected a predator.,It ate a fish.,0
+The turtle felt tired. It is because,The turtle felt tired.,It is because,It detected a predator.,It ate a fish.,1
+The girl handed down her clothes to her younger sister. It is because,The girl handed down her clothes to her younger sister.,It is because,She outgrew the clothes.,The clothes were tattered.,0
+The girl threw her clothes away. It is because,The girl threw her clothes away.,It is because,The clothes were tattered.,She outgrew the clothes.,0
+"Several witnesses of the crime testified against the suspect. As a result,",Several witnesses of the crime testified against the suspect.,"As a result,",The suspect was acquitted.,The suspect was convicted.,1
+"No witnesses of the crime testified against the suspect. As a result,",No witnesses of the crime testified against the suspect.,"As a result,",The suspect was convicted.,The suspect was acquitted.,1
+The parents left their children with a babysitter. It is because,The parents left their children with a babysitter.,It is because,They made plans to celebrate their anniversary.,Their youngest child started attending preschool.,0
+The parents left their children with a teacher. It is because,The parents left their children with a teacher.,It is because,They made plans to celebrate their anniversary.,Their youngest child started attending preschool.,1
+The trip took a long time. It is because,The trip took a long time.,It is because, The driver talked the whole way.,The driver made a wrong turn.,1
+The trip was a fun time. It is because,The trip was a fun time.,It is because,The driver talked the whole way.,The driver made a wrong turn.,0
+"The product was heavily advertised. As a result,",The product was heavily advertised.,"As a result,",The product became outdated.,Consumers recognized the product.,1
+"The producted was replaced. As a result,",The producted was replaced.,"As a result,",The product became outdated.,Consumers recognized the product.,0
+"I rubbed the soap between my hands. As a result,",I rubbed the soap between my hands.,"As a result,",My hands went numb.,The soap foamed.,1
+"I slammed my hands in the door. As a result,",I slammed my hands in the door.,"As a result,",The soap foamed.,My hands went numb.,1
+"The cowgirl threw her lasso towards the horse. As a result,",The cowgirl threw her lasso towards the horse.,"As a result,",The lasso grabbed onto the horse.,The horse trotted into the barn.,0
+"The cowgirl missed her lasso towards the horse. As a result,",The cowgirl missed her lasso towards the horse.,"As a result,",The horse trotted into the barn.,The lasso grabbed onto the horse.,0
+"The group overlooked the woman's faux pas. As a result,",The group overlooked the woman's faux pas.,"As a result,",The woman apologized.,The woman was relieved.,1
+"The group was offended by the woman's faux pas. As a result,",The group was offended by the woman's faux pas.,"As a result,",The woman apologized.,The woman was relieved.,0
+"The girl came across an unfamiliar word in her textbook. As a result,",The girl came across an unfamiliar word in her textbook.,"As a result,",She looked the term up in the dictionary.,She chucked the textbook across the room.,0
+"The girl came across an offensive word in her textbook. As a result,",The girl came across an offensive word in her textbook.,"As a result,",She chucked the textbook across the room.,She looked the term up in the dictionary.,0
+"The man became disabled. As a result,",The man became disabled.,"As a result,",His family cut off contact with him.,His family offered him financial support.,1
+"The man became offensive. As a result,",The man became offensive.,"As a result,",His family offered him financial support.,His family cut off contact with him.,1
+"The flashlight was dead. As a result,",The flashlight was dead.,"As a result,",I took it apart.,I replaced the batteries.,1
+"The flashlight was broken. As a result,",The flashlight was broken.,"As a result,",I replaced the batteries.,I took it apart.,1
+"The skunk sprayed the dog. As a result,",The skunk sprayed the dog.,"As a result,",The dog emitted a foul smell.,The skunk roamed the woods.,0
+"The skunk became hungry. As a result,",The skunk became hungry.,"As a result,",The skunk roamed the woods.,The dog emitted a foul smell.,0
+"I scratched my skin. As a result,",I scratched my skin.,"As a result,",My itch went away.,My scar faded.,0
+"I cleaned my skin. As a result,",I cleaned my skin.,"As a result,",My scar faded.,My itch went away.,0
+I wrote a thank-you note to my grandmother. It is because,I wrote a thank-you note to my grandmother.,It is because,She sent me a gift.,She became forgetful.,0
+I wrote a reminder note to my grandmother. It is because,I wrote a reminder note to my grandmother.,It is because,She sent me a gift.,She became forgetful.,1
+"A burglar broke into the house. As a result,",A burglar broke into the house.,"As a result,",The homeowners were asleep.,The security alarm went off.,1
+"It was night in a quiet neighborhood. As a result,",It was night in a quiet neighborhood.,"As a result,",The security alarm went off.,The homeowners were asleep.,1
+"I held the door for the woman entering behind me. As a result,",I held the door for the woman entering behind me.,"As a result,",The woman thanked me.,The door slammed shut.,0
+"The woman behind me left the door open. As a result,",The woman behind me left the door open.,"As a result,",The woman thanked me.,The door slammed shut.,1
+"The mirror in the bathroom fogged up. As a result,",The mirror in the bathroom fogged up.,"As a result,",The girl applied her makeup.,The girl turned on the fan.,1
+"The mirror in the bathroom cleared up. As a result,",The mirror in the bathroom cleared up.,"As a result,",The girl turned on the fan.,The girl applied her makeup.,1
+The security guard tackled the man. It is because,The security guard tackled the man.,It is because,The man reached into his pocket.,The man displayed a weapon.,1
+The security guard questioned the man. It is because,The security guard questioned the man.,It is because,The man displayed a weapon.,The man reached into his pocket.,1
+"The driver rotated the steering wheel. As a result,",The driver rotated the steering wheel.,"As a result,",The car turned.,The car halted.,0
+"The drived pressed on the brakes. As a result,",The drived pressed on the brakes.,"As a result,",The car halted.,The car turned.,0
+The army surrendered the battle. It is because,The army surrendered the battle.,It is because,They were outnumbered.,They stormed the city.,0
+The army won the battle. It is because,The army won the battle.,It is because,They were outnumbered.,They stormed the city.,1
+"The navy bombed the ship. As a result,",The navy bombed the ship.,"As a result,",The ship crashed into the pier.,The ship's debris sunk in the sea.,1
+"The captain passed out. As a result,",The captain passed out.,"As a result,",The ship's debris sunk in the sea.,The ship crashed into the pier.,1
+I ironed my shirt. It is because,I ironed my shirt.,It is because,It was wrinkled.,It was clean.,0
+I wore my shirt. It is because,I wore my shirt.,It is because,It was clean.,It was wrinkled.,0
+"The girl felt dizzy. As a result,",The girl felt dizzy.,"As a result,",She did stretches.,She lost her balance.,1
+"The girl wanted to exercise. As a result,",The girl wanted to exercise.,"As a result,",She lost her balance.,She did stretches.,1
+The driver pulled over to the side of the road. It is because,The driver pulled over to the side of the road.,It is because,He noticed a stranded vehicle.,He went through an intersection.,0
+The driver crashed over to the side of the road. It is because,The driver crashed over to the side of the road.,It is because,He noticed a stranded vehicle.,He went through an intersection.,1
+The hospital sent the patient home. It is because,The hospital sent the patient home.,It is because,The patient's symptoms cleared up.,The patient's family visited him.,0
+The patient felt happy. It is because,The patient felt happy.,It is because,The patient's family visited him.,The patient's symptoms cleared up.,0
+The child caught a life-threatening illness. It is because,The child caught a life-threatening illness.,It is because,She didn't get vaccinated.,She was adopted.,0
+The child did not know her parents. It is because,The child did not know her parents.,It is because,She was adopted.,She didn't get vaccinated.,0
+"We found empty seats in the theatre. As a result,",We found empty seats in the theatre.,"As a result,",We sat down.,The film began.,0
+"The opening credits finished playing. As a result,",The opening credits finished playing.,"As a result,",The film began.,We sat down.,0
+"The parents recognized their daughter's creativity. As a result,",The parents recognized their daughter's creativity.,"As a result,",They encouraged her to become an artist.,They taught her how to ride a bike.,0
+"The parents recognized their daughter's interest in sports. As a result,",The parents recognized their daughter's interest in sports.,"As a result,",They encouraged her to become an artist.,They taught her how to ride a bike.,1
+"The boy turned the lid on the jar. As a result,",The boy turned the lid on the jar.,"As a result,",The jar became warm.,The lid came off.,1
+"The boy rubbed the side of the jar. As a result,",The boy rubbed the side of the jar.,"As a result,",The lid came off.,The jar became warm.,1
+The woman received a diploma. It is because,The woman received a diploma.,It is because,She enrolled in college.,She graduated from college.,1
+The woman aimed for a diploma. It is because,The woman aimed for a diploma.,It is because,She enrolled in college.,She graduated from college.,0
+I chugged the pitcher of water. It is because,I chugged the pitcher of water.,It is because,I ran five miles.,I walked upstairs.,0
+I reached the top of the building. It is because,I reached the top of the building.,It is because,I walked upstairs.,I ran five miles.,0
+"I came upon a puddle on the sidewalk. As a result,",I came upon a puddle on the sidewalk.,"As a result,",I leapt over the puddle.,I played in the puddle.,0
+"The puddle on the sidewalk looked fun. As a result,",The puddle on the sidewalk looked fun.,"As a result,",I leapt over the puddle.,I played in the puddle.,1
+The woman covered her ears. It is because,The woman covered her ears.,It is because,The woman smelled smoke.,The fire alarm blared.,1
+The woman covered her nose. It is because,The woman covered her nose.,It is because,The fire alarm blared.,The woman smelled smoke.,1
+"The archeologist dug up the site. As a result,",The archeologist dug up the site.,"As a result,",She read about the site's history.,She excavated ancient artifacts.,1
+"The archelogist discovered the site. As a result,",The archelogist discovered the site.,"As a result,",She read about the site's history.,She excavated ancient artifacts.,0
+The audience booed the comedian off the stage. It is because,The audience booed the comedian off the stage.,It is because,He entertained the audience.,He told a racist joke.,1
+The audience applauded the comedian on stage. It is because,The audience applauded the comedian on stage.,It is because,He entertained the audience.,He told a racist joke.,0
+The coach gave his player a high five. It is because,The coach gave his player a high five.,It is because,The player got a penalty.,The player scored a point.,1
+The coach gave his player a headshake. It is because,The coach gave his player a headshake.,It is because,The player got a penalty.,The player scored a point.,0
+"I tossed the ball upwards. As a result,",I tossed the ball upwards.,"As a result,",The ball hit the ceiling.,The ball rolled across the ground.,0
+"I tossed the ball forward. As a result,",I tossed the ball forward.,"As a result,",The ball hit the ceiling.,The ball rolled across the ground.,1
+"My breath smelled of garlic. As a result,",My breath smelled of garlic.,"As a result,",I wiped my mouth.,I brushed my teeth.,1
+"My lips were covered in garlic. As a result,",My lips were covered in garlic.,"As a result,",I wiped my mouth.,I brushed my teeth.,0
+"The man was lost. As a result,",The man was lost.,"As a result,",He asked for directions.,He drew a map.,0
+"The man was local. As a result,",The man was local.,"As a result,",He drew a map.,He asked for directions.,0
+"The baby pulled the mother's hair. As a result,",The baby pulled the mother's hair.,"As a result,",The mother grimaced.,The baby burped.,0
+"The mother patted the baby's back. As a result,",The mother patted the baby's back.,"As a result,",The mother grimaced.,The baby burped.,1
+"I stood on one foot. As a result,",I stood on one foot.,"As a result,",My balance wavered.,I kneeled down.,0
+"I was tired of standing. As a result,",I was tired of standing.,"As a result,",I kneeled down.,My balance wavered.,0
+"I pushed the gas pedal. As a result,",I pushed the gas pedal.,"As a result,",The car accelerated.,The car door opened.,0
+"I pulled on the knob. As a result,",I pulled on the knob.,"As a result,",The car door opened.,The car accelerated.,0
+My car was towed. It is because,My car was towed.,It is because,I jumped the battery.,I parked illegally.,1
+My car was rejuvenated. It is because,My car was rejuvenated.,It is because,I parked illegally.,I jumped the battery.,1
+The woman got away with the crime. It is because,The woman got away with the crime.,It is because,She destroyed the evidence.,Her accomplice was apprehended.,0
+The woman got charged with the crime. It is because,The woman got charged with the crime.,It is because,Her accomplice was apprehended.,She destroyed the evidence.,0
+The dust came off the desk. It is because,The dust came off the desk.,It is because,I removed the books from the desk.,I wiped the desk with a cloth.,1
+The desk was light. It is because,The desk was light.,It is because,I wiped the desk with a cloth.,I removed the books from the desk.,1
+"The motorcyclist twisted the throttle. As a result,",The motorcyclist twisted the throttle.,"As a result,",The motorcycle shot forward.,The motorcycle coasted to a halt.,0
+"The motorcyclist let go of the throttle. As a result,",The motorcyclist let go of the throttle.,"As a result,",The motorcycle coasted to a halt.,The motorcycle shot forward.,0
+"The teacher caught the student chewing gum. As a result,",The teacher caught the student chewing gum.,"As a result,",The student spit out the gum.,The gum stuck to the student's shoe.,0
+"The teacher threw the chewing gum at the student. As a result,",The teacher threw the chewing gum at the student.,"As a result,",The student spit out the gum.,The gum stuck to the student's shoe.,1
+"The host served dinner to his guests. As a result,",The host served dinner to his guests.,"As a result,",His guests were gracious.,His guests went hungry.,0
+"The host served nothing to his guests. As a result,",The host served nothing to his guests.,"As a result,",His guests went hungry.,His guests were gracious.,0
+The boy climbed the tree. It is because,The boy climbed the tree.,It is because,A bird built a nest in the tree.,A cat got stuck in the tree.,1
+The boy avoided the tree. It is because,The boy avoided the tree.,It is because,A bird built a nest in the tree.,A cat got stuck in the tree.,0
+The chair squeaked. It is because,The chair squeaked.,It is because,The man carried the chair to his office.,The man scooted the chair closer to his desk.,1
+The chair fell. It is because,The chair fell.,It is because,The man carried the chair to his office.,The man scooted the chair closer to his desk.,0
+The father shut off the children's television. It is because,The father shut off the children's television.,It is because,It was bedtime for the children.,The children were watching cartoons.,0
+The father laughed at the children's television. It is because,The father laughed at the children's television.,It is because,The children were watching cartoons.,It was bedtime for the children.,0
+The man held his breath. It is because,The man held his breath.,It is because,He treaded water.,He went underwater.,1
+The man exhaled his breath. It is because,The man exhaled his breath.,It is because,He treaded water.,He went underwater.,0
+"I clumsily bumped into the stranger. As a result,",I clumsily bumped into the stranger.,"As a result,",I ran away.,I apologized to him.,1
+"I intentionally bumped into the stranger. As a result,",I intentionally bumped into the stranger.,"As a result,",I ran away.,I apologized to him.,0
+The boat capsized. It is because,The boat capsized.,It is because,It was caught in a hurricane.,The captain raised the sail.,0
+The boat moved. It is because,The boat moved.,It is because,It was caught in a hurricane.,The captain raised the sail.,1
+The mother suspected that her son was lying. It is because,The mother suspected that her son was lying.,It is because,He refused to talk to her.,He avoided making eye contact with her.,1
+The mother suspected that her son was upset. It is because,The mother suspected that her son was upset.,It is because,He refused to talk to her.,He avoided making eye contact with her.,0
+The young woman was denied entrance into the bar. It is because,The young woman was denied entrance into the bar.,It is because,Her friends stood her up.,She forgot her ID.,1
+The young woman entered the bar alone. It is because,The young woman entered the bar alone.,It is because,Her friends stood her up.,She forgot her ID.,0
+A crater formed on the moon. It is because,A crater formed on the moon.,It is because,A comet passed by the moon.,A comet collided with the moon.,1
+A crater did not form on the moon. It is because,A crater did not form on the moon.,It is because,A comet collided with the moon.,A comet passed by the moon.,1
+"I planted the seeds in the soil. As a result,",I planted the seeds in the soil.,"As a result,",The seeds sprouted.,I watered the soil.,0
+"The soil was dry. As a result,",The soil was dry.,"As a result,",I watered the soil.,The seeds sprouted.,0
+The benefactor requested to stay anonymous. It is because,The benefactor requested to stay anonymous.,It is because,He supported the cause behind his donation.,He wanted to maintain his privacy.,1
+The benefactor looked extremely excited. It is because,The benefactor looked extremely excited.,It is because,He supported the cause behind his donation.,He wanted to maintain his privacy.,0
+"The woman felt ashamed of scar on her face. As a result,",The woman felt ashamed of scar on her face.,"As a result,",She hid the scar with makeup.,She explained the scar to strangers.,0
+"The woman was questioned about the scar on her face. As a result,",The woman was questioned about the scar on her face.,"As a result,",She hid the scar with makeup.,She explained the scar to strangers.,1
+"The doctor x-rayed the patient's arm. As a result,",The doctor x-rayed the patient's arm.,"As a result,",He put the patient's arm in a cast.,He discovered that the patient's arm was broken.,1
+"The doctor discovered the patient's arm was broken. As a result,",The doctor discovered the patient's arm was broken.,"As a result,",He discovered that the patient's arm was broken.,He put the patient's arm in a cast.,1
+The boy filled the bucket with sand. It is because,The boy filled the bucket with sand.,It is because,He was building a sand castle.,He was collecting seashells in the sand.,0
+The boy cut his hand in the sand. It is because,The boy cut his hand in the sand.,It is because,He was building a sand castle.,He was collecting seashells in the sand.,1
+"The woman upgraded her computer hardware. As a result,",The woman upgraded her computer hardware.,"As a result,",She deleted old files on the computer.,She installed new software on the computer.,1
+"The woman wanted to sell her computer hardware. As a result,",The woman wanted to sell her computer hardware.,"As a result,",She installed new software on the computer.,She deleted old files on the computer.,1
+"The girl performed in a dance recital. As a result,",The girl performed in a dance recital.,"As a result,",Her parents came to watch the recital.,Her parents showed her how to dance.,0
+"The girl never learned to dance. As a result,",The girl never learned to dance.,"As a result,",Her parents came to watch the recital.,Her parents showed her how to dance.,1
+"The baby was wailing in his crib. As a result,",The baby was wailing in his crib.,"As a result,",The mother picked up the baby.,The baby crawled to the mother.,0
+"The baby's name was called. As a result,",The baby's name was called.,"As a result,",The mother picked up the baby.,The baby crawled to the mother.,1
+"The woman had a religious awakening. As a result,",The woman had a religious awakening.,"As a result,",She began going to church.,She began travelling abroad.,0
+"The woman wanted to change her environment. As a result,",The woman wanted to change her environment.,"As a result,",She began travelling abroad.,She began going to church.,0
+"The bureau drawers were cluttered. As a result,",The bureau drawers were cluttered.,"As a result,",I locked the drawers shut.,I threw away unnecessary contents.,1
+"The buerau drawers were opened. As a result,",The buerau drawers were opened.,"As a result,",I threw away unnecessary contents.,I locked the drawers shut.,1
+The student flaunted his test grade to his classmates. It is because,The student flaunted his test grade to his classmates.,It is because,He feigned interest in the class.,He received a perfect score.,1
+The student hid his test grade from his classmates. It is because,The student hid his test grade from his classmates.,It is because,He received a perfect score.,He feigned interest in the class.,1
+The boy felt homesick. It is because,The boy felt homesick.,It is because,He went away to camp.,He bickered with his sister.,0
+The boy felt exhausted. It is because,The boy felt exhausted.,It is because,He bickered with his sister.,He went away to camp.,0
+The rocket flew up into the sky. It is because,The rocket flew up into the sky.,It is because,The girl designed it.,The girl launched it.,1
+The rocket looked pretty. It is because,The rocket looked pretty.,It is because,The girl designed it.,The girl launched it.,0
+"The boy murmured his reply to his mother. As a result,",The boy murmured his reply to his mother.,"As a result,",His mother told him to whisper.,His mother told him to speak up.,1
+"The boy yelled his reply to his mother. As a result,",The boy yelled his reply to his mother.,"As a result,",His mother told him to speak up.,His mother told him to whisper.,1
+My flight got delayed. It is because,My flight got delayed.,It is because,Tornadoes were sighted in the area.,I was held up at airport security.,0
+My flight got rescheduled. It is because,My flight got rescheduled.,It is because,Tornadoes were sighted in the area.,I was held up at airport security.,1
+The smoke alarm went off. It is because,The smoke alarm went off.,It is because,I lit a candle.,I burnt my dinner.,1
+The room became bright. It is because,The room became bright.,It is because,I lit a candle.,I burnt my dinner.,0
+"The vase broke. As a result,",The vase broke.,"As a result,",I stenciled it.,I glued it back together.,1
+"The vase had a nice shape. As a result,",The vase had a nice shape.,"As a result,",I glued it back together.,I stenciled it.,1
+The woman felt an electric shock. It is because,The woman felt an electric shock.,It is because,She pounded on the door.,She grabbed the doorknob.,1
+The woman felt extremely fatigued. It is because,The woman felt extremely fatigued.,It is because,She grabbed the doorknob.,She pounded on the door.,1
+The man had lipstick on his cheek. It is because,The man had lipstick on his cheek.,It is because,The woman made him blush.,The woman kissed him.,1
+The man had a grin on his face. It is because,The man had a grin on his face.,It is because,The woman kissed him.,The woman made him blush.,1
+I jumped instinctively in fright. It is because,I jumped instinctively in fright.,It is because,I heard people chuckling in the adjacent room.,I sensed someone approaching me from behind.,1
+I woke up. It is because,I woke up.,It is because,I heard people chuckling in the adjacent room.,I sensed someone approaching me from behind.,0
+"The gardener wanted his plants to flourish. As a result,",The gardener wanted his plants to flourish.,"As a result,",He planted a variety of seeds.,He put fertilizer in the soil.,1
+"The gardener wanted more plants to flourish. As a result,",The gardener wanted more plants to flourish.,"As a result,",He put fertilizer in the soil.,He planted a variety of seeds.,1
+A water pipe in the house burst. It is because,A water pipe in the house burst.,It is because,The water was unsanitary.,The pipe froze.,1
+A water pipe in the house was leaking. It is because,A water pipe in the house was leaking.,It is because,The water was unsanitary.,The pipe froze.,0
+"The waistband on my pants was loose. As a result,",The waistband on my pants was loose.,"As a result,",I put on a belt.,I put on a hat.,0
+"The sun shined so bright. As a result,",The sun shined so bright.,"As a result,",I put on a belt.,I put on a hat.,1
+The company lost money. It is because,The company lost money.,It is because,Its products received positive consumer reviews.,Some of its products were manufactured defectively.,1
+The company sold more products. It is because,The company sold more products.,It is because,Its products received positive consumer reviews.,Some of its products were manufactured defectively.,0
+The tenants were evicted from the apartment. It is because,The tenants were evicted from the apartment.,It is because,They neglected to pay their rent.,They got along with their landlord.,0
+The tenants lease for the apartment was extended. It is because,The tenants lease for the apartment was extended.,It is because,They got along with their landlord.,They neglected to pay their rent.,0
+"The man woke up with a toothache. As a result,",The man woke up with a toothache.,"As a result,",He missed an appointment with the dentist.,He made an appointment with the dentist.,1
+"The man woke up late. As a result,",The man woke up late.,"As a result,",He missed an appointment with the dentist.,He made an appointment with the dentist.,0
+The team lost the game. It is because,The team lost the game.,It is because,Their coach pumped them up.,Their best player was injured.,1
+The team won the game. It is because,The team won the game.,It is because,Their best player was injured.,Their coach pumped them up.,1
+The parents forbade their children from watching the movie.  It is because,The parents forbade their children from watching the movie. ,It is because,The movie was rated R.,The movie was animated.,0
+The parents allowed their children to watch the movie. It is because,The parents allowed their children to watch the movie.,It is because,The movie was rated R.,The movie was animated.,1
+The woman deleted the email. It is because,The woman deleted the email.,It is because,The sender tried to solicit money from her.,The sender requested a response from her.,0
+The woman read the email. It is because,The woman read the email.,It is because,The sender tried to solicit money from her.,The sender requested a response from her.,1
+The police eliminated the woman from the list of suspects. It is because,The police eliminated the woman from the list of suspects.,It is because,The police interrogated her.,Her alibi checked out.,1
+The police kept the woman on the list of suspects. It is because,The police kept the woman on the list of suspects.,It is because,Her alibi checked out.,The police interrogated her.,1
+"The climbers reached the peak of the mountain. As a result,",The climbers reached the peak of the mountain.,"As a result,",They congratulated each other.,They encountered an avalanche.,0
+"The climbers failed to reach the peak of the mountain. As a result,",The climbers failed to reach the peak of the mountain.,"As a result,",They congratulated each other.,They encountered an avalanche.,1
+"The vandals threw a rock at the window. As a result,",The vandals threw a rock at the window.,"As a result,",The window cracked.,The window fogged up.,0
+"The vandals blew cold air at the window. As a result,",The vandals blew cold air at the window.,"As a result,",The window cracked.,The window fogged up.,1
+"The fortune teller's revelations were convincing. As a result,",The fortune teller's revelations were convincing.,"As a result,",She received many returning customers.,Many customers asked for refunds.,0
+"The fortune teller's revelations were false. As a result,",The fortune teller's revelations were false.,"As a result,",Many customers asked for refunds.,She received many returning customers.,0
+The woman's makeup smeared. It is because,The woman's makeup smeared.,It is because,She brushed her hair.,She wiped her eyes.,1
+The woman's head looked nice. It is because,The woman's head looked nice.,It is because,She brushed her hair.,She wiped her eyes.,0
+"The company's profits started to level off. As a result,",The company's profits started to level off.,"As a result,",It increased its marketing efforts for new products.,It moved its headquarters to a suburban location.,0
+"The company was seeking highly specialized talent. As a result,",The company was seeking highly specialized talent.,"As a result,",It moved its headquarters to a suburban location.,It increased its marketing efforts for new products.,0
+"The student's answer on the exam was incorrect. As a result,",The student's answer on the exam was incorrect.,"As a result,",The teacher subtracted points off the student's grade.,The teacher added bonus points to the student's grade.,0
+"The student's answer on the exam was extraordinary. As a result,",The student's answer on the exam was extraordinary.,"As a result,",The teacher subtracted points off the student's grade.,The teacher added bonus points to the student's grade.,1
+"The girl wanted to demonstrate proper etiquette. As a result,",The girl wanted to demonstrate proper etiquette.,"As a result,",She put her napkin on her lap before eating.,She threw away her napkin after eating.,0
+"The girl demonstrated poor etiquette. As a result,",The girl demonstrated poor etiquette.,"As a result,",She threw away her napkin after eating.,She put her napkin on her lap before eating.,0
+"The detective flashed his badge to the police officer. As a result,",The detective flashed his badge to the police officer.,"As a result,",The police officer confiscated the detective's badge.,The police officer let the detective enter the crime scene.,1
+"The detective flashed his fake badge to the police officer. As a result,",The detective flashed his fake badge to the police officer.,"As a result,",The police officer confiscated the detective's badge.,The police officer let the detective enter the crime scene.,0
+"The girl wanted to make her mother happy. As a result,",The girl wanted to make her mother happy.,"As a result,",The girl picked a flower for her mother.,The girl ate the cookies her mother baked.,0
+"The girl wanted to make her mother happy for her effort. As a result,",The girl wanted to make her mother happy for her effort.,"As a result,",The girl picked a flower for her mother.,The girl ate the cookies her mother baked.,1
+"The toddler started crying. As a result,",The toddler started crying.,"As a result,",Her parents took away her toy.,Her parents gave her a toy.,1
+"The toddler started being naught. As a result,",The toddler started being naught.,"As a result,",Her parents gave her a toy.,Her parents took away her toy.,1
+"The stranger cried out to me in a foreign language. As a result,",The stranger cried out to me in a foreign language.,"As a result,",I stopped to chat with him.,I stared blankly at him.,1
+"The stranger shouted insults at me in a foreign language. As a result,",The stranger shouted insults at me in a foreign language.,"As a result,",I stared blankly at him.,I stopped to chat with him.,1
+"The man uncovered incriminating evidence against his enemy. As a result,",The man uncovered incriminating evidence against his enemy.,"As a result,",The man avoided his enemy.,The man blackmailed his enemy.,1
+"The man discovered his enemy uncovered incriminating evidence against him. As a result,",The man discovered his enemy uncovered incriminating evidence against him.,"As a result,",The man avoided his enemy.,The man blackmailed his enemy.,0
+"The girl pushed herself off the top of the slide. As a result,",The girl pushed herself off the top of the slide.,"As a result,",She glided down the slide.,She crawled up the slide.,0
+"The girl wanted to get on top of the slide. As a result,",The girl wanted to get on top of the slide.,"As a result,",She glided down the slide.,She crawled up the slide.,1
+My jaw dropped open. It is because,My jaw dropped open.,It is because,I was shocked.,I was unhappy.,0
+My face dropped. It is because,My face dropped.,It is because,I was shocked.,I was unhappy.,1
+"The child disobeyed her parents. As a result,",The child disobeyed her parents.,"As a result,",Her parents punished her.,Her parents hugged her.,0
+"The child obeyed her parents. As a result,",The child obeyed her parents.,"As a result,",Her parents hugged her.,Her parents punished her.,0
+"The car looked filthy. As a result,",The car looked filthy.,"As a result,",He owner took it in for a paint job.,The owner took it to the car wash.,1
+"The car looked keyed. As a result,",The car looked keyed.,"As a result,",He owner took it in for a paint job.,The owner took it to the car wash.,0
+"My friend paid for my ticket. As a result,",My friend paid for my ticket.,"As a result,",I paid her back.,I sought a refund.,0
+"I paid for friend's my ticket. As a result,",I paid for friend's my ticket.,"As a result,",I paid her back.,I sought a refund.,1
+The woman was wrongly convicted for the crime. It is because,The woman was wrongly convicted for the crime.,It is because,She was framed.,The jury was fair.,0
+The woman was correctly convicted for the crime. It is because,The woman was correctly convicted for the crime.,It is because,The jury was fair.,She was framed.,0
+"The girl applied the scissors to the paper. As a result,",The girl applied the scissors to the paper.,"As a result,",The paper crinkled.,The paper sliced apart.,1
+"The girl clenched the paper her in her fist. As a result,",The girl clenched the paper her in her fist.,"As a result,",The paper crinkled.,The paper sliced apart.,0
+The woman visited her family. It is because,The woman visited her family.,It is because,She distrusted them.,She missed them.,1
+The woman refused to visit her family. It is because,The woman refused to visit her family.,It is because,She distrusted them.,She missed them.,0
+"I burst into a fit of laughter. As a result,",I burst into a fit of laughter.,"As a result,",My teeth began to chatter.,My eyes welled up with tears.,1
+"I burst into a cold room. As a result,",I burst into a cold room.,"As a result,",My teeth began to chatter.,My eyes welled up with tears.,0
+"The school principal implemented a dress code. As a result,",The school principal implemented a dress code.,"As a result,",Students were expelled from school.,Students protested the decision.,1
+"The school principal effected the honor code. As a result,",The school principal effected the honor code.,"As a result,",Students were expelled from school.,Students protested the decision.,0
+The balloon expanded. It is because,The balloon expanded.,It is because,I blew into it.,I pricked it.,0
+The balloon poped. It is because,The balloon poped.,It is because,I pricked it.,I blew into it.,0
+"I wanted to lighten the mood of the conversation. As a result,",I wanted to lighten the mood of the conversation.,"As a result,",I remained quiet.,I told a joke.,1
+"I wanted to tense up the mood of the conversation. As a result,",I wanted to tense up the mood of the conversation.,"As a result,",I remained quiet.,I told a joke.,0
+The man broke his toe. It is because,The man broke his toe.,It is because,He got a hole in his sock.,He dropped a hammer on his foot.,1
+The man hid his feet. It is because,The man hid his feet.,It is because,He got a hole in his sock.,He dropped a hammer on his foot.,0
+"The man had an attack of conscience. As a result,",The man had an attack of conscience.,"As a result,",He manipulated his friend.,He admitted his indiscretion.,1
+"The man had a dead conscience. As a result,",The man had a dead conscience.,"As a result,",He manipulated his friend.,He admitted his indiscretion.,0
+"A fistfight broke out in the hall of the school. As a result,",A fistfight broke out in the hall of the school.,"As a result,",The principal suspended the students involved.,The principal called off classes for the day.,0
+"A gas tank burst in the hall of the school. As a result,",A gas tank burst in the hall of the school.,"As a result,",The principal called off classes for the day.,The principal suspended the students involved.,0
+The photo albums collected dust in the attic. It is because,The photo albums collected dust in the attic.,It is because,The family reminisced over the photos.,They remained untouched for years.,1
+The photo album collection was treasured. It is because,The photo album collection was treasured.,It is because,The family reminisced over the photos.,They remained untouched for years.,0
+I got distracted from my conversation with the woman. It is because,I got distracted from my conversation with the woman.,It is because,Everyone in the room was talking.,The woman was telling a funny story.,0
+I got hooked to my conversation with the woman. It is because,I got hooked to my conversation with the woman.,It is because,The woman was telling a funny story.,Everyone in the room was talking.,0
+"I put coins in the washing machine at the laundromat. As a result,",I put coins in the washing machine at the laundromat.,"As a result,",I ran out of laundry detergent.,The machine powered on.,1
+"I had too many clothes to wash at the laundromat. As a result,",I had too many clothes to wash at the laundromat.,"As a result,",The machine powered on.,I ran out of laundry detergent.,1
+The family postponed the barbeque. It is because,The family postponed the barbeque.,It is because,The forecast called for storms.,It was a holiday weekend.,0
+The family had the barbeque. It is because,The family had the barbeque.,It is because,The forecast called for storms.,It was a holiday weekend.,1
+Air leaked out of the beach ball. It is because,Air leaked out of the beach ball.,It is because,It was inflated.,There was a hole in it.,1
+The beach ball bounced. It is because,The beach ball bounced.,It is because,There was a hole in it.,It was inflated.,1
+"Our group's conversation gradually lulled to silence. As a result,",Our group's conversation gradually lulled to silence.,"As a result,",I felt awkward.,I became enraged.,0
+"Our group's conversation gradually escalated. As a result,",Our group's conversation gradually escalated.,"As a result,",I felt awkward.,I became enraged.,1
+"I clenched the candy wrapper in my fist. As a result,",I clenched the candy wrapper in my fist.,"As a result,",The wrapper crinkled.,The wrapper ripped.,0
+"I pulled apart the candy wrapper with my hands. As a result,",I pulled apart the candy wrapper with my hands.,"As a result,",The wrapper ripped.,The wrapper crinkled.,0
+"The woman pressed down on the piano key. As a result,",The woman pressed down on the piano key.,"As a result,",The key got stuck.,A sound played.,1
+"The woman dropped syrup on the piano. As a result,",The woman dropped syrup on the piano.,"As a result,",A sound played.,The key got stuck.,1
+"The girl met her favorite actor. As a result,",The girl met her favorite actor.,"As a result,",She asked him for his autograph.,She went to see his new film.,0
+"The girl saw a trailer of her favorite actor. As a result,",The girl saw a trailer of her favorite actor.,"As a result,",She went to see his new film.,She asked him for his autograph.,0
+The vehicles travelled slowly. It is because,The vehicles travelled slowly.,It is because,It was foggy.,It was cloudy.,0
+The people carried the umbrellas. It is because,The people carried the umbrellas.,It is because,It was cloudy.,It was foggy.,0
+The chandelier shattered on the floor. It is because,The chandelier shattered on the floor.,It is because,The chandelier's lights flickered on and off.,The chandelier dropped from the ceiling.,1
+The chandelier was removed from the ceiling. It is because,The chandelier was removed from the ceiling.,It is because,The chandelier's lights flickered on and off.,The chandelier dropped from the ceiling.,0
+The cat purred. It is because,The cat purred.,It is because,It scratched me.,I petted it.,1
+I snapped at the cat. It is because,I snapped at the cat.,It is because,It scratched me.,I petted it.,0
+"The boy pushed his sister. As a result,",The boy pushed his sister.,"As a result,",They played hide and seek.,His sister tattled on him.,1
+"The boy found his sister. As a result,",The boy found his sister.,"As a result,",They played hide and seek.,His sister tattled on him.,0
+"The man gained weight. As a result,",The man gained weight.,"As a result,",He got his suit altered.,He got his shoes shined.,0
+"The man stepped in the mud. As a result,",The man stepped in the mud.,"As a result,",He got his suit altered.,He got his shoes shined.,1
+"The clouds looked dark. As a result,",The clouds looked dark.,"As a result,",I brought my umbrella to work.,I brought my laptop to work.,0
+"The cloud computer was blocked. As a result,",The cloud computer was blocked.,"As a result,",I brought my umbrella to work.,I brought my laptop to work.,1
+"The engine of the airplane was faulty. As a result,",The engine of the airplane was faulty.,"As a result,",The airplane crashed.,The pilot made an error.,0
+"The passenger on the airplane made a distracting noise. As a result,",The passenger on the airplane made a distracting noise.,"As a result,",The airplane crashed.,The pilot made an error.,1
+Cars moved to the shoulder of the road. It is because,Cars moved to the shoulder of the road.,It is because,A screaming ambulance approached.,The traffic light turned green.,0
+Cars moved to the intersection of the road. It is because,Cars moved to the intersection of the road.,It is because,The traffic light turned green.,A screaming ambulance approached.,0
+The boy lost hold of the bar of soap. It is because,The boy lost hold of the bar of soap.,It is because,The bar was slippery.,The bar emitted a fragrance.,0
+The boy lost sniffed the bar of soap. It is because,The boy lost sniffed the bar of soap.,It is because,The bar emitted a fragrance.,The bar was slippery.,0
+"The button on my shirt fell off. As a result,",The button on my shirt fell off.,"As a result,",I sewed the button back on.,I glued the button back on.,0
+"The button on my laptop fell off. As a result,",The button on my laptop fell off.,"As a result,",I sewed the button back on.,I glued the button back on.,1
+The celebrity wore sunglasses. It is because,The celebrity wore sunglasses.,It is because,She wanted to avoid recognition.,She wanted to thank her fans.,0
+The celebrity took off her sunglasses. It is because,The celebrity took off her sunglasses.,It is because,She wanted to avoid recognition.,She wanted to thank her fans.,1
+"My grandmother passed away. As a result,",My grandmother passed away.,"As a result,",My family held a reunion.,My family held a funeral.,1
+"My grandmother passed by. As a result,",My grandmother passed by.,"As a result,",My family held a reunion.,My family held a funeral.,0
+"The police officer pulled over the celebrity. As a result,",The police officer pulled over the celebrity.,"As a result,",The celebrity sued the police officer.,The celebrity offered the officer a bribe.,1
+"The police officer pulled the celebrity by the wrist. As a result,",The police officer pulled the celebrity by the wrist.,"As a result,",The celebrity offered the officer a bribe.,The celebrity sued the police officer.,1
+The man revealed personal information to the therapist. It is because,The man revealed personal information to the therapist.,It is because,He trusted the therapist.,He disagreed with the therapist.,0
+The man withheld personal information from the therapist. It is because,The man withheld personal information from the therapist.,It is because,He trusted the therapist.,He disagreed with the therapist.,1
+The man fell unconscious. It is because,The man fell unconscious.,It is because,The assailant took the man's wallet.,The assailant struck the man in the head.,1
+The man lost the credit card. It is because,The man lost the credit card.,It is because,The assailant struck the man in the head.,The assailant took the man's wallet.,1
+I approached the man. It is because,I approached the man.,It is because,He looked familiar.,He looked busy.,0
+I did not approach the man. It is because,I did not approach the man.,It is because,He looked familiar.,He looked busy.,1
+The leader received praise. It is because,The leader received praise.,It is because,He fought poverty.,He raised taxes.,0
+The leader received opposition. It is because,The leader received opposition.,It is because,He fought poverty.,He raised taxes.,1
+"The man read the cartoon in the newspaper. As a result,",The man read the cartoon in the newspaper.,"As a result,",He chuckled.,He sipped coffee.,0
+"The man felt cold while reading the newspaper. As a result,",The man felt cold while reading the newspaper.,"As a result,",He chuckled.,He sipped coffee.,1
+My mailbox was overflowing with letters. It is because,My mailbox was overflowing with letters.,It is because,I went on vacation for two weeks.,The lid on the mailbox broke.,0
+The letters were blown from my mailbox. It is because,The letters were blown from my mailbox.,It is because,The lid on the mailbox broke.,I went on vacation for two weeks.,0
+"The bananas ripened. As a result,",The bananas ripened.,"As a result,",We ate them.,We squeezed them.,0
+"The pimples ripened. As a result,",The pimples ripened.,"As a result,",We squeezed them.,We ate them.,0
+"The chef pressed down on the dough. As a result,",The chef pressed down on the dough.,"As a result,",The dough flattened.,The dough crumbled.,0
+"The chef pressed down on the dry dough. As a result,",The chef pressed down on the dry dough.,"As a result,",The dough flattened.,The dough crumbled.,1
+The clay hardened. It is because,The clay hardened.,It is because,The potter put the clay in the oven.,The potter rolled the clay into a ball.,0
+The clay took shape. It is because,The clay took shape.,It is because,The potter put the clay in the oven.,The potter rolled the clay into a ball.,1
+My feet were blistered. It is because,My feet were blistered.,It is because,I went swimming.,I went hiking.,1
+My skin was dry. It is because,My skin was dry.,It is because,I went hiking.,I went swimming.,1
+"The woman betrayed her friend. As a result,",The woman betrayed her friend.,"As a result,",Her friend cut off contact with her.,Her friend sent her a greeting card.,0
+"The woman stood by her friend. As a result,",The woman stood by her friend.,"As a result,",Her friend cut off contact with her.,Her friend sent her a greeting card.,1
+The man took notice of the woman. It is because,The man took notice of the woman.,It is because,He caught a whiff of her perfume.,He had his back turned to her.,0
+The man never noticed the woman. It is because,The man never noticed the woman.,It is because,He had his back turned to her.,He caught a whiff of her perfume.,0
+"The woman and her boyfriend got into a fight. As a result,",The woman and her boyfriend got into a fight.,"As a result,",They planned a vacation together.,They stopped seeing each other.,1
+"The woman and her boyfriend got engaged. As a result,",The woman and her boyfriend got engaged.,"As a result,",They stopped seeing each other.,They planned a vacation together.,1
+"The bully stuck his foot out in front of his classmate. As a result,",The bully stuck his foot out in front of his classmate.,"As a result,",The bully picked up his classmate.,The bully's classmate tripped.,1
+"The bully stuck did not like his classmate. As a result,",The bully stuck did not like his classmate.,"As a result,",The bully picked up his classmate.,The bully's classmate tripped.,0
+"The man wanted to get revenge on his enemy. As a result,",The man wanted to get revenge on his enemy.,"As a result,",The man declared a truce with his enemy.,The man framed his enemy for a crime.,1
+"The man wanted to get peace with his enemy. As a result,",The man wanted to get peace with his enemy.,"As a result,",The man declared a truce with his enemy.,The man framed his enemy for a crime.,0
+"I drank a cup of coffee. As a result,",I drank a cup of coffee.,"As a result,",I nodded off to sleep.,My yawning ceased.,1
+"I drank a glass of whisky. As a result,",I drank a glass of whisky.,"As a result,",My yawning ceased.,I nodded off to sleep.,1
+The woman was mistaken for her sister. It is because,The woman was mistaken for her sister.,It is because,The woman was close with her sister.,The woman looked like her sister.,1
+The woman invited her sister for coffee. It is because,The woman invited her sister for coffee.,It is because,The woman looked like her sister.,The woman was close with her sister.,1
+The man made an error in his calculations. It is because,The man made an error in his calculations.,It is because,He checked his work.,His work was hasty.,1
+The man never made an error in his calculations. It is because,The man never made an error in his calculations.,It is because,His work was hasty.,He checked his work.,1
+The woman's eyeglasses fogged up. It is because,The woman's eyeglasses fogged up.,It is because,She entered the sauna.,She reclined by the pool.,0
+The woman left her eyeglasses on. It is because,The woman left her eyeglasses on.,It is because,She reclined by the pool.,She entered the sauna.,0
+"The shopper wondered about the cost of the item. As a result,",The shopper wondered about the cost of the item.,"As a result,",He decided to buy it.,He checked its price tag.,1
+"The shopper won a discount on the cost of the item. As a result,",The shopper won a discount on the cost of the item.,"As a result,",He decided to buy it.,He checked its price tag.,0
+The host of the trivia show called on the contestant for an answer. It is because,The host of the trivia show called on the contestant for an answer.,It is because,The contestant rang the buzzer.,The contestant was in the lead.,0
+The host of the trivia show called on the contestant to pick a category. It is because,The host of the trivia show called on the contestant to pick a category.,It is because,The contestant rang the buzzer.,The contestant was in the lead.,1
+The boy was afraid to go to bed. It is because,The boy was afraid to go to bed.,It is because,He watched a horror movie.,He turned on his nightlight.,0
+The boy was struggling to fall asleep. It is because,The boy was struggling to fall asleep.,It is because,He turned on his nightlight.,He watched a horror movie.,0
+"The woman wanted to be a doctor. As a result,",The woman wanted to be a doctor.,"As a result,",She visited the hospital.,She went to medical school.,1
+"The woman wanted to see a doctor. As a result,",The woman wanted to see a doctor.,"As a result,",She went to medical school.,She visited the hospital.,1
+"The boy found the television show boring. As a result,",The boy found the television show boring.,"As a result,",He recorded it.,He shut it off.,1
+"The boy found the television show interesting. As a result,",The boy found the television show interesting.,"As a result,",He shut it off.,He recorded it.,1
+"My daughter suffered an allergy attack. As a result,",My daughter suffered an allergy attack.,"As a result,",I took her to the emergency room.,I encouraged her to take deep breaths.,0
+"My daughter suffered an panic attack. As a result,",My daughter suffered an panic attack.,"As a result,",I encouraged her to take deep breaths.,I took her to the emergency room.,0
+"The boy had trouble buttoning his shirt. As a result,",The boy had trouble buttoning his shirt.,"As a result,",He refused to wear the shirt.,He asked his mother for help.,1
+"The boy had trouble buttoning his tight shirt. As a result,",The boy had trouble buttoning his tight shirt.,"As a result,",He asked his mother for help.,He refused to wear the shirt.,1
+I spit out my chewing gum. It is because,I spit out my chewing gum.,It is because,I blew a bubble with the gum.,The gum lost its flavor.,1
+I enjoyed my chewing gum. It is because,I enjoyed my chewing gum.,It is because,The gum lost its flavor.,I blew a bubble with the gum.,1
+"The boy painted a picture for his mother. As a result,",The boy painted a picture for his mother.,"As a result,",His mother sold the picture to a gallery.,His mother hung the picture on the wall.,1
+"The mother no longer needed her son's picture. As a result,",The mother no longer needed her son's picture.,"As a result,",His mother sold the picture to a gallery.,His mother hung the picture on the wall.,0
+"The competition ended. As a result,",The competition ended.,"As a result,",The teams shook hands.,The teams got pumped up.,0
+"The finals were approaching. As a result,",The finals were approaching.,"As a result,",The teams shook hands.,The teams got pumped up.,1
+The girl politely declined the hamburger. It is because,The girl politely declined the hamburger.,It is because,She liked fast food.,She was a vegetarian.,1
+The girl politely accepted the hamburger. It is because,The girl politely accepted the hamburger.,It is because,She was a vegetarian.,She liked fast food.,1
+"I scrubbed the stain on the floor. As a result,",I scrubbed the stain on the floor.,"As a result,",I got rid of the stain.,I got dirt on the floor.,0
+"I smeared the stain on the floor. As a result,",I smeared the stain on the floor.,"As a result,",I got rid of the stain.,I got dirt on the floor.,1
+"The documents contained important information. As a result,",The documents contained important information.,"As a result,",I kept them in a secure place.,I paper clipped them together.,0
+"The documents were loose. As a result,",The documents were loose.,"As a result,",I paper clipped them together.,I kept them in a secure place.,0
+The egg splattered. It is because,The egg splattered.,It is because,I dropped it.,I boiled it.,0
+The egg hardened. It is because,The egg hardened.,It is because,I dropped it.,I boiled it.,1
+"The girl pushed her friend. As a result,",The girl pushed her friend.,"As a result,",Her friend choked.,Her friend fell over.,1
+"The girl strangled her friend. As a result,",The girl strangled her friend.,"As a result,",Her friend choked.,Her friend fell over.,0
+"A group of teenagers crashed the party. As a result,",A group of teenagers crashed the party.,"As a result,",The host of the party kicked them out.,The host of the party invited them in.,0
+"A group of teenagers helped organizing the party. As a result,",A group of teenagers helped organizing the party.,"As a result,",The host of the party kicked them out.,The host of the party invited them in.,1
+The man took a shower. It is because,The man took a shower.,It is because,He opened a new bar of soap.,He was sweaty from working out.,1
+The man felt clean. It is because,The man felt clean.,It is because,He was sweaty from working out.,He opened a new bar of soap.,1
+The screen on the laptop went black. It is because,The screen on the laptop went black.,It is because,The laptop's warranty expired.,The laptop's battery died.,1
+The manufacturer wouldn't fix the screen on the laptop after it went black. It is because,The manufacturer wouldn't fix the screen on the laptop after it went black.,It is because,The laptop's warranty expired.,The laptop's battery died.,0
+"The book became a huge bestseller. As a result,",The book became a huge bestseller.,"As a result,",The author faded into obscurity.,It was adapted into a movie.,1
+"The book became a huge failure. As a result,",The book became a huge failure.,"As a result,",The author faded into obscurity.,It was adapted into a movie.,0
+The man felt thankful to be alive. It is because,The man felt thankful to be alive.,It is because,He was cured of cancer.,His wife was diagnosed with cancer.,0
+The man felt depressed. It is because,The man felt depressed.,It is because,His wife was diagnosed with cancer.,He was cured of cancer.,0
+The woman wrote a check to the gas company. It is because,The woman wrote a check to the gas company.,It is because,She received her monthly bill.,She preferred paying by cash.,0
+The woman never used her credit card. It is because,The woman never used her credit card.,It is because,She received her monthly bill.,She preferred paying by cash.,1
+The woman felt reluctant to switch careers. It is because,The woman felt reluctant to switch careers.,It is because,She made a lot of money in her current occupation.,She endured a lot of stress in her current occupation.,0
+The woman quit her job recently. It is because,The woman quit her job recently.,It is because,She made a lot of money in her current occupation.,She endured a lot of stress in her current occupation.,1
+The woman filed a restraining order against the man. It is because,The woman filed a restraining order against the man.,It is because,The man stalked her.,The man called her.,0
+The woman answered the phone. It is because,The woman answered the phone.,It is because,The man called her.,The man stalked her.,0
+"The ocean tide was dangerous. As a result,",The ocean tide was dangerous.,"As a result,",The swimmers put on more sunscreen.,The swimmers returned towards the shore.,1
+"The sun shined very brightly. As a result,",The sun shined very brightly.,"As a result,",The swimmers put on more sunscreen.,The swimmers returned towards the shore.,0
+The woman refused a second beer. It is because,The woman refused a second beer.,It is because,She was familiar with the bartender.,She was the designated driver for the night.,1
+The woman stayed late in the bar. It is because,The woman stayed late in the bar.,It is because,She was familiar with the bartender.,She was the designated driver for the night.,0
+I ran out of breath. It is because,I ran out of breath.,It is because,I climbed several flights of stairs.,I read several chapters of the book.,0
+I understood the story. It is because,I understood the story.,It is because,I read several chapters of the book.,I climbed several flights of stairs.,0
+"The woman was deemed mentally ill. As a result,",The woman was deemed mentally ill.,"As a result,",She was sent to a psychiatric institution.,She sought a career as a psychiatrist.,0
+"The woman studied mental disorder treatment. As a result,",The woman studied mental disorder treatment.,"As a result,",She was sent to a psychiatric institution.,She sought a career as a psychiatrist.,1
+"The sun emerged from the clouds. As a result,",The sun emerged from the clouds.,"As a result,",The woman glanced at her watch.,The woman took her sweater off.,1
+"The woman worried whether she would be late. As a result,",The woman worried whether she would be late.,"As a result,",The woman took her sweater off.,The woman glanced at her watch.,1
+The football coach lost his voice after the game. It is because,The football coach lost his voice after the game.,It is because,He whistled whenever a player scored a touchdown.,He yelled whenever a player fumbled the ball.,1
+"The players called their coach ""The Flute"". It is because","The players called their coach ""The Flute"".",It is because,He whistled whenever a player scored a touchdown.,He yelled whenever a player fumbled the ball.,0
+"The woman complimented the man. As a result,",The woman complimented the man.,"As a result,",He blushed.,He sneezed.,0
+"The man caught a cold. As a result,",The man caught a cold.,"As a result,",He sneezed.,He blushed.,0
+"I applied pressure to the cut on my arm. As a result,",I applied pressure to the cut on my arm.,"As a result,",It healed.,It stopped bleeding.,1
+"I applied ointment on my wound regularly. As a result,",I applied ointment on my wound regularly.,"As a result,",It stopped bleeding.,It healed.,1
+"The woman had an infection. As a result,",The woman had an infection.,"As a result,",She washed her hands.,She took antibiotics.,1
+"The woman was about to cook. As a result,",The woman was about to cook.,"As a result,",She took antibiotics.,She washed her hands.,1
+"The woman was summoned for jury duty. As a result,",The woman was summoned for jury duty.,"As a result,",She contacted her lawyer.,She cancelled her appointments.,1
+"The woman wanted a divorce.  As a result,",The woman wanted a divorce. ,"As a result,",She cancelled her appointments.,She contacted her lawyer.,1
+The woman fanned herself with her hand. It is because,The woman fanned herself with her hand.,It is because,She installed the air conditioner in the room.,The air conditioner in the room broke.,1
+The woman's room is always cold. It is because,The woman's room is always cold.,It is because,The air conditioner in the room broke.,She installed the air conditioner in the room.,1
+The doctors amputated the patient's leg. It is because,The doctors amputated the patient's leg.,It is because,It was badly bruised.,It was severely infected.,1
+The doctor put an ice pack on the leg. It is because,The doctor put an ice pack on the leg.,It is because,It was badly bruised.,It was severely infected.,0
+The girl stared at herself in the mirror. It is because,The girl stared at herself in the mirror.,It is because,She felt self-conscious.,The mirror was smudged.,0
+The girl could barely see her reflection. It is because,The girl could barely see her reflection.,It is because,She felt self-conscious.,The mirror was smudged.,1
+The man was bitten by mosquitoes. It is because,The man was bitten by mosquitoes.,It is because,He fell asleep on his couch.,He went camping in the woods.,1
+The man felt unrested in the morning. It is because,The man felt unrested in the morning.,It is because,He went camping in the woods.,He fell asleep on his couch.,1
+"The woman presented her brother with a gift. As a result,",The woman presented her brother with a gift.,"As a result,",Her brother unwrapped the gift.,Her brother refused to accept the gift.,0
+"The woman's brother did not like the gift. As a result,",The woman's brother did not like the gift.,"As a result,",Her brother unwrapped the gift.,Her brother refused to accept the gift.,1
+"The administrator cleared her throat. As a result,",The administrator cleared her throat.,"As a result,",The meeting was postponed.,The meeting commenced.,1
+"Most members were unable to join. As a result,",Most members were unable to join.,"As a result,",The meeting was postponed.,The meeting commenced.,0
+The children ran through the sprinkler. It is because,The children ran through the sprinkler.,It is because,They were hot.,They ate popsicles.,0
+The children had a toothache. It is because,The children had a toothache.,It is because,They ate popsicles.,They were hot.,0
+"The man needed coins to fill the parking meter. As a result,",The man needed coins to fill the parking meter.,"As a result,",He begged people on the street for loose change.,He searched under his car seats for loose change.,1
+"The poor man recently lost his job. As a result,",The poor man recently lost his job.,"As a result,",He searched under his car seats for loose change.,He begged people on the street for loose change.,1
+"The customer thought the souvenir was overpriced. As a result,",The customer thought the souvenir was overpriced.,"As a result,",The vender sold it to him.,He bargained with the vendor.,1
+"The customer had enough money for the souvenir. As a result,",The customer had enough money for the souvenir.,"As a result,",He bargained with the vendor.,The vender sold it to him.,1
+The scientist gained recognition. It is because,The scientist gained recognition.,It is because,She discovered a new species.,She received tenure at the university.,0
+The scientist continued with her ongoing research. It is because,The scientist continued with her ongoing research.,It is because,She received tenure at the university.,She discovered a new species.,0
+"The car stopped at the crosswalk. As a result,",The car stopped at the crosswalk.,"As a result,",The pedestrian crossed the road.,The pedestrian waited on the sidewalk.,0
+"The pedestrian crossing signal turned red. As a result,",The pedestrian crossing signal turned red.,"As a result,",The pedestrian waited on the sidewalk.,The pedestrian crossed the road.,0
+The boy giggled uncontrollably. It is because,The boy giggled uncontrollably.,It is because,His brother tickled him.,His brother kicked him.,0
+The boy started crying loudly. It is because,The boy started crying loudly.,It is because,His brother kicked him.,His brother tickled him.,0
+"My knees buckled on the stairs. As a result,",My knees buckled on the stairs.,"As a result,",I caught myself on the railing.,The railing came loose from the wall.,0
+"I pulled too hard on the railing. As a result,",I pulled too hard on the railing.,"As a result,",The railing came loose from the wall.,I caught myself on the railing.,0
+I went to bed. It is because,I went to bed.,It is because,It was a clear night.,It was late.,1
+I saw the stars. It is because,I saw the stars.,It is because,It was a clear night.,It was late.,0
+"My friend was recovering from surgery. As a result,",My friend was recovering from surgery.,"As a result,",I dropped her off at the hospital.,I brought her a card and flowers.,1
+"My friend had to go for a health checkup. As a result,",My friend had to go for a health checkup.,"As a result,",I brought her a card and flowers.,I dropped her off at the hospital.,1
+"The DJ turned the music on. As a result,",The DJ turned the music on.,"As a result,",People began to dance.,People left the party.,0
+"The DJ did not play good music. As a result,",The DJ did not play good music.,"As a result,",People began to dance.,People left the party.,1
+The security guard replayed the surveillance footage. It is because,The security guard replayed the surveillance footage.,It is because,The surveillance camera was out of focus.,He noticed some suspicious activity.,1
+The security guard could not identify the thief. It is because,The security guard could not identify the thief.,It is because,The surveillance camera was out of focus.,He noticed some suspicious activity.,0
+I lingered in bed upon awakening. It is because,I lingered in bed upon awakening.,It is because,I was hungry.,It was Saturday.,1
+My stomache started growling. It is because,My stomache started growling.,It is because,It was Saturday.,I was hungry.,1
+"The man lifted the heavy box. As a result,",The man lifted the heavy box.,"As a result,",He scratched his back.,He put out his back.,1
+"The man was bitten by insects. As a result,",The man was bitten by insects.,"As a result,",He scratched his back.,He put out his back.,0
+The woman's purse was missing. It is because,The woman's purse was missing.,It is because,It contained a lot of junk.,She left it unsupervised.,1
+The woman emptied her mailbox. It is because,The woman emptied her mailbox.,It is because,It contained a lot of junk.,She left it unsupervised.,0
+The woman suffered amnesia. It is because,The woman suffered amnesia.,It is because,She had an allergic reaction.,She got into a car accident.,1
+The woman got a body rash. It is because,The woman got a body rash.,It is because,She had an allergic reaction.,She got into a car accident.,0
+"I needed to get cash. As a result,",I needed to get cash.,"As a result,",I went to the bank.,I bought a wallet.,0
+"I needed to carry cash. As a result,",I needed to carry cash.,"As a result,",I went to the bank.,I bought a wallet.,1
+The rider fell to the ground. It is because,The rider fell to the ground.,It is because,The bull bucked the rider.,The bull chased the rider.,0
+The rider ran at full speed. It is because,The rider ran at full speed.,It is because,The bull bucked the rider.,The bull chased the rider.,1
+"The boy wanted to be muscular. As a result,",The boy wanted to be muscular.,"As a result,",He played computer games.,He lifted weights.,1
+"The boy loved staying in his room. As a result,",The boy loved staying in his room.,"As a result,",He lifted weights.,He played computer games.,1
+"The scientist conducted an experiment. As a result,",The scientist conducted an experiment.,"As a result,",She fabricated her data.,She validated her theory.,1
+"The scientist could not finish her experiments on time. As a result,",The scientist could not finish her experiments on time.,"As a result,",She fabricated her data.,She validated her theory.,0
+The milk stayed cold. It is because,The milk stayed cold.,It is because,I stored it in the refrigerator.,It was pasteurized.,0
+The honey lasted longer. It is because,The honey lasted longer.,It is because,I stored it in the refrigerator.,It was pasteurized.,1
+The fussy baby calmed down. It is because,The fussy baby calmed down.,It is because,The parents shook a rattle in front of the baby.,The parents picked out a name for the baby.,0
+The parents received a birth certificate. It is because,The parents received a birth certificate.,It is because,The parents picked out a name for the baby.,The parents shook a rattle in front of the baby.,0
+"I put ice cubes in the hot soup. As a result,",I put ice cubes in the hot soup.,"As a result,",The soup became thick.,The soup cooled down.,1
+"I put flour in the soup. As a result,",I put flour in the soup.,"As a result,",The soup became thick.,The soup cooled down.,0
+The girl shared her lunch with her friend. It is because,The girl shared her lunch with her friend.,It is because,Her friend sat next to her at lunch.,Her friend forgot to bring his lunch.,1
+The girl kept talking to her friend. It is because,The girl kept talking to her friend.,It is because,Her friend forgot to bring his lunch.,Her friend sat next to her at lunch.,1
+The police closed the investigation. It is because,The police closed the investigation.,It is because,They apprehended the suspect.,The victim recovered.,0
+The police continued the investigation. It is because,The police continued the investigation.,It is because,They apprehended the suspect.,The victim recovered.,1
+"The rain subsided. As a result,",The rain subsided.,"As a result,",I went for a walk.,I browsed the internet.,0
+"I wanted to check the weather forecast. As a result,",I wanted to check the weather forecast.,"As a result,",I went for a walk.,I browsed the internet.,1
+"The cup of tea was scalding hot. As a result,",The cup of tea was scalding hot.,"As a result,",I poured it out.,I blew on it.,1
+"The water in tank was dirty. As a result,",The water in tank was dirty.,"As a result,",I poured it out.,I blew on it.,0
+The photograph faded. It is because,The photograph faded.,It is because,It was fake.,It was old.,1
+The photograph was worthless. It is because,The photograph was worthless.,It is because,It was fake.,It was old.,0
+The boy got a black eye. It is because,The boy got a black eye.,It is because,The bully mocked the boy.,The bully punched the boy.,1
+The boy felt humiliated. It is because,The boy felt humiliated.,It is because,The bully mocked the boy.,The bully punched the boy.,0
+"I misplaced my wallet. As a result,",I misplaced my wallet.,"As a result,",I retraced my steps.,I retrieved my phone.,0
+"I needed to call someone. As a result,",I needed to call someone.,"As a result,",I retraced my steps.,I retrieved my phone.,1
+"The hunter ran out of ammunition. As a result,",The hunter ran out of ammunition.,"As a result,",He reloaded the gun.,He aimed at the deer.,0
+"He wanted to show me antlers. As a result,",He wanted to show me antlers.,"As a result,",He reloaded the gun.,He aimed at the deer.,1
+Marine life diminished. It is because,Marine life diminished.,It is because,Boats sailed through the ocean.,Oil spilled into the ocean.,1
+New countries were discovered. It is because,New countries were discovered.,It is because,Oil spilled into the ocean.,Boats sailed through the ocean.,1
+"I ran the ice cube under warm water. As a result,",I ran the ice cube under warm water.,"As a result,",The ice cube vanished.,The ice cube stuck to my fingers.,0
+"I touched the ice cube. As a result,",I touched the ice cube.,"As a result,",The ice cube stuck to my fingers.,The ice cube vanished.,0
+The customer came into the boutique. It is because,The customer came into the boutique.,It is because,The window display caught her eye.,She left her wallet at home.,0
+The customer was embarassed at the cash register. It is because,The customer was embarassed at the cash register.,It is because,The window display caught her eye.,She left her wallet at home.,1
+The man drank water with his meal. It is because,The man drank water with his meal.,It is because,His meal was spicy.,His meal was cold.,0
+The man asked the waiter to reheat his meal. It is because,The man asked the waiter to reheat his meal.,It is because,His meal was cold.,His meal was spicy.,0
+The woman stayed away from public places. It is because,The woman stayed away from public places.,It is because,She was intoxicated.,She was contagious.,1
+The woman was not allowed to drive her car. It is because,The woman was not allowed to drive her car.,It is because,She was contagious.,She was intoxicated.,1
+"The putrid odor filled the room. As a result,",The putrid odor filled the room.,"As a result,",I clamped my hand over my nose.,I put the rubber gloves on.,0
+"I got ready to clean the room. As a result,",I got ready to clean the room.,"As a result,",I put the rubber gloves on.,I clamped my hand over my nose.,0
+The employee missed work. It is because,The employee missed work.,It is because,Her family got in touch with her.,There was a death in her family.,1
+The woman reconnected with distant relatives. It is because,The woman reconnected with distant relatives.,It is because,Her family got in touch with her.,There was a death in her family.,0
+"The magnet attracted the paperclip. As a result,",The magnet attracted the paperclip.,"As a result,",The paperclip dropped from the magnet.,The paperclip stuck to the magnet.,1
+"The magnet was too weak to attract the paperclip. As a result,",The magnet was too weak to attract the paperclip.,"As a result,",The paperclip stuck to the magnet.,The paperclip dropped from the magnet.,1
+"The gardener pulled the weeds. As a result,",The gardener pulled the weeds.,"As a result,",The weeds produced seeds.,The weeds came out of the soil.,1
+"The gardener did not pull out the weeds. As a result,",The gardener did not pull out the weeds.,"As a result,",The weeds came out of the soil.,The weeds produced seeds.,1
+"We ordered a pizza. As a result,",We ordered a pizza.,"As a result,",The pizza got cold.,The pizza was delivered.,1
+"We ordered a pizza but did not eat it all. As a result,",We ordered a pizza but did not eat it all.,"As a result,",The pizza got cold.,The pizza was delivered.,0
+The teenager grew taller than his father. It is because,The teenager grew taller than his father.,It is because,He went through a growth spurt.,He joined the basketball team.,0
+The teenager made many new friends. It is because,The teenager made many new friends.,It is because,He joined the basketball team.,He went through a growth spurt.,0
+The patient underwent the risky medical procedure. It is because,The patient underwent the risky medical procedure.,It is because,The procedure was costly.,Specialists recommended the procedure.,1
+The patient could not afford the medical procedure. It is because,The patient could not afford the medical procedure.,It is because,The procedure was costly.,Specialists recommended the procedure.,0
+"The man caught his shirtsleeve on the rungs of the fence. As a result,",The man caught his shirtsleeve on the rungs of the fence.,"As a result,",He hopped the fence.,The sleeve ripped.,1
+"The man wearing a short-sleeved shirt ran away but there was a fence. As a result,",The man wearing a short-sleeved shirt ran away but there was a fence.,"As a result,",He hopped the fence.,The sleeve ripped.,0
+The investigators deemed the man's death a suicide. It is because,The investigators deemed the man's death a suicide.,It is because,He left a note.,He had children.,0
+The investigators notified the family of the man's death. It is because,The investigators notified the family of the man's death.,It is because,He had children.,He left a note.,0
+The computer crashed. It is because,The computer crashed.,It is because,I downloaded a virus.,I backed up my files.,0
+I did not worry about my computer crashing. It is because,I did not worry about my computer crashing.,It is because,I backed up my files.,I downloaded a virus.,0
+The girl's mouth ached. It is because,The girl's mouth ached.,It is because,She lost a tooth.,She swallowed her gum.,0
+The girl worried about a clogged gut. It is because,The girl worried about a clogged gut.,It is because,She lost a tooth.,She swallowed her gum.,1
+"The room was dim. As a result,",The room was dim.,"As a result,",I opened the blinds.,I washed the windows.,0
+"The room was dirty. As a result,",The room was dirty.,"As a result,",I opened the blinds.,I washed the windows.,1
+The father put his daughter in her stroller. It is because,The father put his daughter in her stroller.,It is because,He was tired of carrying her.,She learned to walk.,0
+The father took his daughter out of her stroller. It is because,The father took his daughter out of her stroller.,It is because,She learned to walk.,He was tired of carrying her.,0
+The spy discovered the enemy's location. It is because,The spy discovered the enemy's location.,It is because,The spy was hired by the government.,The spy bugged the enemy's phone.,1
+The spy had many fake passports. It is because,The spy had many fake passports.,It is because,The spy bugged the enemy's phone.,The spy was hired by the government.,1
+The glasses on the table spilled. It is because,The glasses on the table spilled.,It is because,The child yanked the tablecloth.,The child drew on the table.,0
+The tablecloth needed to be washed. It is because,The tablecloth needed to be washed.,It is because,The child yanked the tablecloth.,The child drew on the table.,1
+"The water in the teapot started to boil. As a result,",The water in the teapot started to boil.,"As a result,",The teapot whistled.,The teapot cooled.,0
+"We forgot the water in the teapot. As a result,",We forgot the water in the teapot.,"As a result,",The teapot whistled.,The teapot cooled.,1
+The city re-elected the mayor. It is because,The city re-elected the mayor.,It is because,The mayor fulfilled his promises.,The city cut its budget.,0
+The city had spent too much money. It is because,The city had spent too much money.,It is because,The city cut its budget.,The mayor fulfilled his promises.,0
+The woman exaggerated the details of the story. It is because,The woman exaggerated the details of the story.,It is because,She felt shy.,She wanted attention.,1
+The woman did not tell the story to anyone. It is because,The woman did not tell the story to anyone.,It is because,She felt shy.,She wanted attention.,0
+"The woman hit a midlife crisis. As a result,",The woman hit a midlife crisis.,"As a result,",She went sky diving.,She retired.,0
+"The woman did not want to work anymore. As a result,",The woman did not want to work anymore.,"As a result,",She went sky diving.,She retired.,1
+"The man went into denial about the tragedy. As a result,",The man went into denial about the tragedy.,"As a result,",He got over it easily.,He refused to talk about it.,1
+"The man dealt well with the tragedy. As a result,",The man dealt well with the tragedy.,"As a result,",He refused to talk about it.,He got over it easily.,1
+The man grieved. It is because,The man grieved.,It is because,His mother passed away.,His wife criticized him.,0
+The man yelled at her. It is because,The man yelled at her.,It is because,His wife criticized him.,His mother passed away.,0
+The girl had a phobia of dogs. It is because,The girl had a phobia of dogs.,It is because,She was bitten by a dog.,She rescued an abandoned dog.,0
+The girl got yet another dog. It is because,The girl got yet another dog.,It is because,She was bitten by a dog.,She rescued an abandoned dog.,1
+"I made a resolution to eat a healthy diet. As a result,",I made a resolution to eat a healthy diet.,"As a result,",I attended a yoga class.,I bought fruits and vegetables.,1
+"I made a resolution to become fitter. As a result,",I made a resolution to become fitter.,"As a result,",I attended a yoga class.,I bought fruits and vegetables.,0
+The patient went into a coma. It is because,The patient went into a coma.,It is because,He suffered brain damage.,He suffered emotional trauma.,0
+The patient went into a fugue state. It is because,The patient went into a fugue state.,It is because,He suffered emotional trauma.,He suffered brain damage.,0
+"The friends' dinnertime conversation turned to politics. As a result,",The friends' dinnertime conversation turned to politics.,"As a result,",The conversation quieted down.,A debate erupted.,1
+"The friends' ran out of things to talk about. As a result,",The friends' ran out of things to talk about.,"As a result,",The conversation quieted down.,A debate erupted.,0
+The woman spotted her friend from across the room. It is because,The woman spotted her friend from across the room.,It is because,The woman escaped.,The woman waved.,1
+The woman was not arrested by police. It is because,The woman was not arrested by police.,It is because,The woman escaped.,The woman waved.,0
+"The mother needed help looking after her children. As a result,",The mother needed help looking after her children.,"As a result,",She sent the children to daycare.,She gave up custody of the children.,0
+"The mother needed help looking after her children. As a result,",The mother needed help looking after her children.,"As a result,",She sent the children to daycare.,She gave up custody of the children.,1
+The driver honked her horn. It is because,The driver honked her horn.,It is because,Another car swerved into her lane.,She made a right turn at the light.,0
+The driver check her rear mirror for cyclists. It is because,The driver check her rear mirror for cyclists.,It is because,Another car swerved into her lane.,She made a right turn at the light.,1
+"The man wanted to save money. As a result,",The man wanted to save money.,"As a result,",He cut back on making frivolous purchases.,He withdrew money from his savings account.,0
+"The man wanted to spend money. As a result,",The man wanted to spend money.,"As a result,",He cut back on making frivolous purchases.,He withdrew money from his savings account.,1
+I put shoes on. It is because,I put shoes on.,It is because,The floor contained broken glass.,The paint on the walls was wet.,0
+The windows were left open. It is because,The windows were left open.,It is because,The paint on the walls was wet.,The floor contained broken glass.,0
+The librarian located the book in the stacks. It is because,The librarian located the book in the stacks.,It is because,I requested the librarian's help.,The book was checked out.,0
+The librarian told me that I couldn't borrow the book. It is because,The librarian told me that I couldn't borrow the book.,It is because,The book was checked out.,I requested the librarian's help.,0
+The mother became eye level with her son. It is because,The mother became eye level with her son.,It is because,She held his hand.,She squatted down.,1
+The son had to walk as fast as his mother. It is because,The son had to walk as fast as his mother.,It is because,She held his hand.,She squatted down.,0
+I packed up my belongings. It is because,I packed up my belongings.,It is because,I was hunting for a new apartment.,I was moving out of my apartment.,1
+I called several realtors. It is because,I called several realtors.,It is because,I was hunting for a new apartment.,I was moving out of my apartment.,0
+The boy mimicked his older brother. It is because,The boy mimicked his older brother.,It is because,The boy looked up to his older brother.,The boy wrestled with his older brother.,0
+The boy broke his arm. It is because,The boy broke his arm.,It is because,The boy looked up to his older brother.,The boy wrestled with his older brother.,1
+"The girl desired her parent's approval. As a result,",The girl desired her parent's approval.,"As a result,",She ran away from home.,She obeyed her parent's rules.,1
+"The girl hated her parents. As a result,",The girl hated her parents.,"As a result,",She obeyed her parent's rules.,She ran away from home.,1
+"The truck crashed into the motorcycle on the bridge. As a result,",The truck crashed into the motorcycle on the bridge.,"As a result,",The motorcyclist died.,The bridge collapsed.,0
+"The truck crashed into the main pillar of the bridge. As a result,",The truck crashed into the main pillar of the bridge.,"As a result,",The bridge collapsed.,The motorcyclist died.,0
+The retail shop shut down. It is because,The retail shop shut down.,It is because,It renewed its lease.,Its sales were lagging.,1
+The retail shop stayed open for another year. It is because,The retail shop stayed open for another year.,It is because,It renewed its lease.,Its sales were lagging.,0
+"The swimmer won the race. As a result,",The swimmer won the race.,"As a result,",Her team lost the meet.,She received a gold medal.,1
+"The swimmer did not win the race. As a result,",The swimmer did not win the race.,"As a result,",Her team lost the meet.,She received a gold medal.,0
+Air pollution in the city worsened. It is because,Air pollution in the city worsened.,It is because,Factories increased their production.,Factories shut down.,0
+Air qualtity in the city improved. It is because,Air qualtity in the city improved.,It is because,Factories increased their production.,Factories shut down.,1
+The mother scolded her daughter. It is because,The mother scolded her daughter.,It is because,Her daughter set the kitchen table.,Her daughter burped at the kitchen table.,1
+The mother praised her daughter. It is because,The mother praised her daughter.,It is because,Her daughter set the kitchen table.,Her daughter burped at the kitchen table.,0
+I excused myself from the group. It is because,I excused myself from the group.,It is because,I turned off my phone.,My phone rang.,1
+I did not get any calls. It is because,I did not get any calls.,It is because,I turned off my phone.,My phone rang.,0
+The skier slipped on the slope. It is because,The skier slipped on the slope.,It is because,She dropped her ski poles.,She hit a patch of ice.,1
+The skier balanced only with her body. It is because,The skier balanced only with her body.,It is because,She dropped her ski poles.,She hit a patch of ice.,0
+"The print on the brochure was tiny. As a result,",The print on the brochure was tiny.,"As a result,",The man retrieved a pen from his pocket.,The man put his glasses on.,1
+"The man wanted to make a note. As a result,",The man wanted to make a note.,"As a result,",The man retrieved a pen from his pocket.,The man put his glasses on.,0
+"I flipped the light switch up and down. As a result,",I flipped the light switch up and down.,"As a result,",The light faded.,The light flickered.,1
+"I turned the light switch off. As a result,",I turned the light switch off.,"As a result,",The light faded.,The light flickered.,0
+"The man's watch was broken. As a result,",The man's watch was broken.,"As a result,",He waited at the bus stop.,He asked a stranger for the time.,1
+"The man arrived early. As a result,",The man arrived early.,"As a result,",He waited at the bus stop.,He asked a stranger for the time.,0
+The soldiers were concealed in the brush. It is because,The soldiers were concealed in the brush.,It is because,They were armed with rifles.,They wore camouflage uniforms.,1
+The soldiers had a lot of ammunition. It is because,The soldiers had a lot of ammunition.,It is because,They were armed with rifles.,They wore camouflage uniforms.,0
+"The man turned on the faucet. As a result,",The man turned on the faucet.,"As a result,",Water flowed from the spout.,The toilet filled with water.,0
+"The man flushed repeatedly. As a result,",The man flushed repeatedly.,"As a result,",The toilet filled with water.,Water flowed from the spout.,0
+"The girl found a bug in her cereal. As a result,",The girl found a bug in her cereal.,"As a result,",She lost her appetite.,She poured milk in the bowl.,0
+"The girl wanted to eat cereal. As a result,",The girl wanted to eat cereal.,"As a result,",She lost her appetite.,She poured milk in the bowl.,1
+"The woman retired. As a result,",The woman retired.,"As a result,",She paid off her mortgage.,She received her pension.,1
+"The woman won the lottery. As a result,",The woman won the lottery.,"As a result,",She received her pension.,She paid off her mortgage.,1
+"I wanted to conserve energy. As a result,",I wanted to conserve energy.,"As a result,",I swept the floor in the unoccupied room.,I shut off the light in the unoccupied room.,1
+"My friend wanted to stay overnight. As a result,",My friend wanted to stay overnight.,"As a result,",I swept the floor in the unoccupied room.,I shut off the light in the unoccupied room.,0
+The hamburger meat browned. It is because,The hamburger meat browned.,It is because,The cook froze it.,The cook grilled it.,1
+The hamburger meat can be stored for a long time. It is because,The hamburger meat can be stored for a long time.,It is because,The cook grilled it.,The cook froze it.,1
+"I doubted the salesman's pitch. As a result,",I doubted the salesman's pitch.,"As a result,",I turned his offer down.,He persuaded me to buy the product.,0
+"I salesman's pitch was very good. As a result,",I salesman's pitch was very good.,"As a result,",He persuaded me to buy the product.,I turned his offer down.,0
+I decided to stay home for the night. It is because,I decided to stay home for the night.,It is because,My friends urged me to go out.,The forecast called for storms.,1
+I decided not to stay home. It is because,I decided not to stay home.,It is because,My friends urged me to go out.,The forecast called for storms.,0
+My eyes became red and puffy. It is because,My eyes became red and puffy.,It is because,I was laughing.,I was sobbing.,1
+My cheeks became red and puffy. It is because,My cheeks became red and puffy.,It is because,I was sobbing.,I was laughing.,1
+The flame on the candle went out. It is because,The flame on the candle went out.,It is because,I put a match to the wick.,I blew on the wick.,1
+The candle lit up. It is because,The candle lit up.,It is because,I blew on the wick.,I put a match to the wick.,1
+"The man drank heavily at the party. As a result,",The man drank heavily at the party.,"As a result,",He had a headache the next day.,He had a runny nose the next day.,0
+"The man caught a cold on his way home. As a result,",The man caught a cold on his way home.,"As a result,",He had a headache the next day.,He had a runny nose the next day.,1
+The bowling ball knocked over the bowling pins. It is because,The bowling ball knocked over the bowling pins.,It is because,The man rolled the bowling ball down the alley.,The man dropped the bowling ball on his foot.,0
+The bowling ball did not knock over any bowling pins. It is because,The bowling ball did not knock over any bowling pins.,It is because,The man dropped the bowling ball on his foot.,The man rolled the bowling ball down the alley.,0
+The community learned of the man's death. It is because,The community learned of the man's death.,It is because,His obituary appeared in the newspaper.,His family buried him in the cemetery.,0
+The man did not get the burial at sea he wanted. It is because,The man did not get the burial at sea he wanted.,It is because,His family buried him in the cemetery.,His obituary appeared in the newspaper.,0
+"My computer crashed. As a result,",My computer crashed.,"As a result,",I installed new speakers.,I lost all my data.,1
+"My computer's sound didn't work. As a result,",My computer's sound didn't work.,"As a result,",I installed new speakers.,I lost all my data.,0
+The woman resigned from her job. It is because,The woman resigned from her job.,It is because,She believed her superiors were acting unethically.,She aspired to hold an executive position in the firm.,0
+The woman acquired an additional qualification for her job. It is because,The woman acquired an additional qualification for her job.,It is because,She believed her superiors were acting unethically.,She aspired to hold an executive position in the firm.,1
+The player caught the ball. It is because,The player caught the ball.,It is because,Her opponent tried to intercept it.,Her teammate threw it to her.,1
+The player could not see the ball. It is because,The player could not see the ball.,It is because,Her opponent tried to intercept it.,Her teammate threw it to her.,0
+The judge pounded the gavel. It is because,The judge pounded the gavel.,It is because,The jury announced its verdict.,The courtroom broke into uproar.,1
+The defendant listened anxiously. It is because,The defendant listened anxiously.,It is because,The courtroom broke into uproar.,The jury announced its verdict.,1
+The woman banished the children from her property. It is because,The woman banished the children from her property.,It is because,The children trampled through her garden.,The children hit a ball into her yard.,0
+The children rang the bell at the woman's house. It is because,The children rang the bell at the woman's house.,It is because,The children trampled through her garden.,The children hit a ball into her yard.,1
+The kidnappers released the hostage. It is because,The kidnappers released the hostage.,It is because,They escaped from jail.,They accepted ransom money.,1
+There was a nationwide manhunt for the kidnappers. It is because,There was a nationwide manhunt for the kidnappers.,It is because,They accepted ransom money.,They escaped from jail.,1
+The cook's eyes watered. It is because,The cook's eyes watered.,It is because,He ran out of onions.,He cut an onion.,1
+The cook went to the market. It is because,The cook went to the market.,It is because,He ran out of onions.,He cut an onion.,0
+The woman ran her finger under cold water. It is because,The woman ran her finger under cold water.,It is because,She burned her finger on the toaster.,She put a diamond ring on her finger.,0
+The woman got ready for a night out. It is because,The woman got ready for a night out.,It is because,She put a diamond ring on her finger.,She burned her finger on the toaster.,0
+"The student misspelled the word. As a result,",The student misspelled the word.,"As a result,",The teacher dismissed her.,The teacher corrected her.,1
+"The student felt sick and wanted to go home. As a result,",The student felt sick and wanted to go home.,"As a result,",The teacher corrected her.,The teacher dismissed her.,1
+I regained composure from my fit of anger. It is because,I regained composure from my fit of anger.,It is because,I took deep breaths.,My heart pounded.,0
+I noticed that I was very nervous. It is because,I noticed that I was very nervous.,It is because,I took deep breaths.,My heart pounded.,1
+"I put my hands under the running faucet. As a result,",I put my hands under the running faucet.,"As a result,",The water splashed in my face.,The soap rinsed off my hands.,1
+"I put my head under the running faucet. As a result,",I put my head under the running faucet.,"As a result,",The soap rinsed off my hands.,The water splashed in my face.,1
+The man dressed in his best suit. It is because,The man dressed in his best suit.,It is because,He scheduled a meeting with an important client.,His wife bought him a new tie.,0
+The man was disappointed about his birthday present. It is because,The man was disappointed about his birthday present.,It is because,He scheduled a meeting with an important client.,His wife bought him a new tie.,1
+"The man confessed his love for the woman. As a result,",The man confessed his love for the woman.,"As a result,",The woman envied him.,The woman rejected him.,1
+"The man showed his new car to the woman. As a result,",The man showed his new car to the woman.,"As a result,",The woman rejected him.,The woman envied him.,1
+The driver got a flat tire. It is because,The driver got a flat tire.,It is because,He went over the speed limit.,He ran over a nail.,1
+The driver got a ticket. It is because,The driver got a ticket.,It is because,He went over the speed limit.,He ran over a nail.,0
+My view of the movie screen was blocked. It is because,My view of the movie screen was blocked.,It is because,The couple behind me was whispering.,A tall person was sitting in front of me.,1
+I could not enjoy the movie's beautiful soundtrack. It is because,I could not enjoy the movie's beautiful soundtrack.,It is because,A tall person was sitting in front of me.,The couple behind me was whispering.,1
+The driver turned on the car's headlights. It is because,The driver turned on the car's headlights.,It is because,The sun went down.,He heard thunder.,0
+The driver pulled up the roof of his convertible. It is because,The driver pulled up the roof of his convertible.,It is because,The sun went down.,He heard thunder.,1
+"The girl refused to eat her vegetables. As a result,",The girl refused to eat her vegetables.,"As a result,",Her father told her to drink her milk.,Her father took away her dessert.,1
+"The girl was thirsty. As a result,",The girl was thirsty.,"As a result,",Her father took away her dessert.,Her father told her to drink her milk.,1
+The woman covered her mouth with her hand. It is because,The woman covered her mouth with her hand.,It is because,She sneezed.,She exhaled.,0
+The woman's friend noticed her bad breath. It is because,The woman's friend noticed her bad breath.,It is because,She exhaled.,She sneezed.,0
+"The secretary put the caller on hold. As a result,",The secretary put the caller on hold.,"As a result,",The caller waited on the line.,The caller's phone lost reception.,0
+"The caller drove through a long tunnel. As a result,",The caller drove through a long tunnel.,"As a result,",The caller's phone lost reception.,The caller waited on the line.,0
+The woman walked with crutches. It is because,The woman walked with crutches.,It is because,She broke her leg.,She shaved her legs.,0
+The woman's legs were smooth. It is because,The woman's legs were smooth.,It is because,She shaved her legs.,She broke her leg.,0
+I coughed. It is because,I coughed.,It is because,I inhaled smoke.,I lowered my voice.,0
+Only the person next to me could hear me speak. It is because,Only the person next to me could hear me speak.,It is because,I lowered my voice.,I inhaled smoke.,0
+The clock chimed. It is because,The clock chimed.,It is because,It was the top of the hour.,The hour seemed to drag on.,0
+He was tired and stared at the clock. It is because,He was tired and stared at the clock.,It is because,It was the top of the hour.,The hour seemed to drag on.,1
+"The chef hit the egg on the side of the bowl. As a result,",The chef hit the egg on the side of the bowl.,"As a result,",The egg cracked.,The egg rotted.,0
+"The chef forgot to put the egg in the fridge. As a result,",The chef forgot to put the egg in the fridge.,"As a result,",The egg rotted.,The egg cracked.,0
+The police searched the offender's car. It is because,The police searched the offender's car.,It is because,They were looking for illegal drugs.,They were trying to elicit a confession.,0
+The police tortured the suspect. It is because,The police tortured the suspect.,It is because,They were looking for illegal drugs.,They were trying to elicit a confession.,1
+The couple travelled south for the winter. It is because,The couple travelled south for the winter.,It is because,They were separated.,They were retired.,1
+The couple did not live together. It is because,The couple did not live together.,It is because,They were retired.,They were separated.,1
+The man felt obligated to attend the event. It is because,The man felt obligated to attend the event.,It is because,He promised his friend that he would go.,He turned down his friend's invitation to go.,0
+The friend was anggry at the man. It is because,The friend was anggry at the man.,It is because,He turned down his friend's invitation to go.,He promised his friend that he would go.,0
+"The bride got cold feet before the wedding. As a result,",The bride got cold feet before the wedding.,"As a result,",The wedding guests brought gifts.,She called the wedding off.,1
+"The bride made a wishlist. As a result,",The bride made a wishlist.,"As a result,",The wedding guests brought gifts.,She called the wedding off.,0
+"The man grew old. As a result,",The man grew old.,"As a result,",He sold his belongings.,His hair turned gray.,1
+"The man grew tired of having so many things. As a result,",The man grew tired of having so many things.,"As a result,",He sold his belongings.,His hair turned gray.,0
+"The friends decided to share the hamburger. As a result,",The friends decided to share the hamburger.,"As a result,",They ordered fries with the hamburger.,They cut the hamburger in half.,1
+"The son told his parents that a hamburger is not enough. As a result,",The son told his parents that a hamburger is not enough.,"As a result,",They ordered fries with the hamburger.,They cut the hamburger in half.,0
+"I twisted the cap off the soda bottle. As a result,",I twisted the cap off the soda bottle.,"As a result,",The soda leaked out.,The soda fizzed.,1
+"The soda bottle had a hole. As a result,",The soda bottle had a hole.,"As a result,",The soda fizzed.,The soda leaked out.,1
+The pair of students came under scrutiny by the teacher. It is because,The pair of students came under scrutiny by the teacher.,It is because,The students both received excellent grades.,Their responses on the assignment were identical.,1
+The teacher praised the pair of students. It is because,The teacher praised the pair of students.,It is because,The students both received excellent grades.,Their responses on the assignment were identical.,0
+"The student was in a rush to get to school on time. As a result,",The student was in a rush to get to school on time.,"As a result,",He left his assignment at home.,He brought his lunch to school.,0
+"The student enjoyed cooking. As a result,",The student enjoyed cooking.,"As a result,",He brought his lunch to school.,He left his assignment at home.,0
+The journalist wrote a biography about the humanitarian's life. It is because,The journalist wrote a biography about the humanitarian's life.,It is because,The humanitarian was difficult for the journalist to interview.,The journalist was intrigued by the humanitarian's work.,1
+The journalist did not write about the humanitarian. It is because,The journalist did not write about the humanitarian.,It is because,The humanitarian was difficult for the journalist to interview.,The journalist was intrigued by the humanitarian's work.,0
+"The man defied the authorities of the church. As a result,",The man defied the authorities of the church.,"As a result,",He was excommunicated from the church.,He donated money to the church.,0
+"The man is a long-time member of the church. As a result,",The man is a long-time member of the church.,"As a result,",He donated money to the church.,He was excommunicated from the church.,0
+"The woman's hair fell in her face. As a result,",The woman's hair fell in her face.,"As a result,",She lathered shampoo into her hair.,She pulled her hair back with a clip.,1
+"The woman began to wash her hair. As a result,",The woman began to wash her hair.,"As a result,",She lathered shampoo into her hair.,She pulled her hair back with a clip.,0
+The ring on my finger got stuck. It is because,The ring on my finger got stuck.,It is because,I chipped my fingernail.,My finger swelled.,1
+I cut my nails. It is because,I cut my nails.,It is because,I chipped my fingernail.,My finger swelled.,0
+"I pulled the rubber band. As a result,",I pulled the rubber band.,"As a result,",It stretched.,It flung across the room.,0
+"I shot the rubber band. As a result,",I shot the rubber band.,"As a result,",It stretched.,It flung across the room.,1
+"I pressed my hand into the wet cement. As a result,",I pressed my hand into the wet cement.,"As a result,",Cracks emerged in the cement.,My handprint dried in the cement.,1
+"The hot sun shined onto the cement all summer. As a result,",The hot sun shined onto the cement all summer.,"As a result,",Cracks emerged in the cement.,My handprint dried in the cement.,0
+My skin broke out into a rash. It is because,My skin broke out into a rash.,It is because,I brushed against poison ivy in my yard.,I eradicated the poison ivy from my yard.,0
+I no longer broke out into a rash. It is because,I no longer broke out into a rash.,It is because,I eradicated the poison ivy from my yard.,I brushed against poison ivy in my yard.,0
+"My subscription to the magazine expired. As a result,",My subscription to the magazine expired.,"As a result,",I discarded the new issue.,I stopped receiving new issues.,1
+"I already received a copy of the new magazine. As a result,",I already received a copy of the new magazine.,"As a result,",I stopped receiving new issues.,I discarded the new issue.,1
+"The detective revealed an anomaly in the case. As a result,",The detective revealed an anomaly in the case.,"As a result,",He scrapped his theory.,He finalized his theory.,0
+"The detective found the last piece of evidence in the case. As a result,",The detective found the last piece of evidence in the case.,"As a result,",He finalized his theory.,He scrapped his theory.,0
+The boy threw a temper tantrum. It is because,The boy threw a temper tantrum.,It is because,He shared his toys with his brother.,His brother took his toys from him.,1
+The boy had someone to play with. It is because,The boy had someone to play with.,It is because,His brother took his toys from him.,He shared his toys with his brother.,1
+The child learned how to read. It is because,The child learned how to read.,It is because,He skipped a grade in school.,He began attending school.,1
+The child was much smaller than his classmates. It is because,The child was much smaller than his classmates.,It is because,He began attending school.,He skipped a grade in school.,1
+The boy skipped dinner. It is because,The boy skipped dinner.,It is because,He ate a big lunch.,His mother cooked his favorite meal.,0
+The boy rushed home for dinner. It is because,The boy rushed home for dinner.,It is because,He ate a big lunch.,His mother cooked his favorite meal.,1
+The woman lavished her friend with flattery. It is because,The woman lavished her friend with flattery.,It is because,She was irritated with her friend's whining.,She wanted to ask her friend for a favor.,1
+The woman yelled at her friend. It is because,The woman yelled at her friend.,It is because,She wanted to ask her friend for a favor.,She was irritated with her friend's whining.,1
+The key was missing from my pants pocket. It is because,The key was missing from my pants pocket.,It is because,The pants were new.,The pocket had a hole.,1
+The pants had no defects. It is because,The pants had no defects.,It is because,The pants were new.,The pocket had a hole.,0
+The man fainted. It is because,The man fainted.,It is because,He ran a marathon.,He took a nap.,0
+The man felt refreshed. It is because,The man felt refreshed.,It is because,He ran a marathon.,He took a nap.,1
+The man lost the competition. It is because,The man lost the competition.,It is because,The competition was sabotaged.,He intimidated his competitors.,0
+The man won the competition. It is because,The man won the competition.,It is because,The competition was sabotaged.,He intimidated his competitors.,1
+The mother called an ambulance. It is because,The mother called an ambulance.,It is because,Her son lost his cat.,Her son fell out of his bed.,1
+The mother called all neighbors. It is because,The mother called all neighbors.,It is because,Her son fell out of his bed.,Her son lost his cat.,1
+The driver slammed on his brakes. It is because,The driver slammed on his brakes.,It is because,The car radio shut off.,A deer appeared on the road.,1
+Everybody in the car stopped singing along. It is because,Everybody in the car stopped singing along.,It is because,The car radio shut off.,A deer appeared on the road.,0
+The lock opened. It is because,The lock opened.,It is because,I turned the key in the lock.,I made a duplicate of the key.,0
+I was less worried about losing the key. It is because,I was less worried about losing the key.,It is because,I turned the key in the lock.,I made a duplicate of the key.,1
+I put rubber gloves on. It is because,I put rubber gloves on.,It is because,I was preparing to clean the bathroom.,I was preparing to wash my hands.,0
+I took off the rubber gloves. It is because,I took off the rubber gloves.,It is because,I was preparing to clean the bathroom.,I was preparing to wash my hands.,1
+The animal species became endangered. It is because,The animal species became endangered.,It is because,Their habitat was destroyed.,Their predators went extinct.,0
+The animal species became populous. It is because,The animal species became populous.,It is because,Their habitat was destroyed.,Their predators went extinct.,1
+The man perceived that the woman looked different. It is because,The man perceived that the woman looked different.,It is because,The woman got her hair cut.,The woman wore a bracelet.,0
+The man noticed that the woman likes jewelry. It is because,The man noticed that the woman likes jewelry.,It is because,The woman got her hair cut.,The woman wore a bracelet.,1
+"The student forgot to do her assignment. As a result,",The student forgot to do her assignment.,"As a result,",She made up an excuse to tell the teacher.,The teacher promoted her to the next grade.,0
+"The student got full points on all exams. As a result,",The student got full points on all exams.,"As a result,",She made up an excuse to tell the teacher.,The teacher promoted her to the next grade.,1
+The dog barked. It is because,The dog barked.,It is because,The cat lounged on the couch.,A knock sounded at the door.,1
+The visitor used the old door knocker instead of the door bell. It is because,The visitor used the old door knocker instead of the door bell.,It is because,The cat lounged on the couch.,A knock sounded at the door.,0
+"Plans were announced to replace a local park with a shopping mall. As a result,",Plans were announced to replace a local park with a shopping mall.,"As a result,",Environmentalists started a petition.,Environmentalists produced a documentary.,0
+"An old coal mine was turned into a beautiful park. As a result,",An old coal mine was turned into a beautiful park.,"As a result,",Environmentalists started a petition.,Environmentalists produced a documentary.,1
+"The couple was happy to see each other. As a result,",The couple was happy to see each other.,"As a result,",They rested.,They kissed.,1
+"The couple was very tired. As a result,",The couple was very tired.,"As a result,",They rested.,They kissed.,0
+The woman asked the man to leave. It is because,The woman asked the man to leave.,It is because,He insulted her.,He thanked her.,0
+The woman made the man a compliment. It is because,The woman made the man a compliment.,It is because,He thanked her.,He insulted her.,0
+"The tree branch landed in the river. As a result,",The tree branch landed in the river.,"As a result,",The river's current became stronger.,The branch moved downstream.,1
+"It rained a lot in the area around the river. As a result,",It rained a lot in the area around the river.,"As a result,",The river's current became stronger.,The branch moved downstream.,0
+"The teacher assigned homework to the students. As a result,",The teacher assigned homework to the students.,"As a result,",The students passed notes.,The students groaned.,1
+"The teacher turned his back to the class. As a result,",The teacher turned his back to the class.,"As a result,",The students passed notes.,The students groaned.,0
+"The seasons changed from summer to autumn. As a result,",The seasons changed from summer to autumn.,"As a result,",Leaves fell from the trees.,People evacuated their homes.,0
+"There was a big flood last autumn. As a result,",There was a big flood last autumn.,"As a result,",Leaves fell from the trees.,People evacuated their homes.,1
+"The politician was convicted of fraud. As a result,",The politician was convicted of fraud.,"As a result,",He campaigned for re-election.,He was removed from office.,1
+"The politician was very popular. As a result,",The politician was very popular.,"As a result,",He was removed from office.,He campaigned for re-election.,1
+"I pushed the wagon. As a result,",I pushed the wagon.,"As a result,",The wagon wheels spun forward.,The objects in the wagon fell out.,0
+"I opened the door of the wagon. As a result,",I opened the door of the wagon.,"As a result,",The objects in the wagon fell out.,The wagon wheels spun forward.,0
+"The lobbyist persuaded the legislature to support the bill. As a result,",The lobbyist persuaded the legislature to support the bill.,"As a result,",The president vetoed the bill.,The legislature passed the bill.,1
+"The lobbyist persuaded the president that the bill was bad for business. As a result,",The lobbyist persuaded the president that the bill was bad for business.,"As a result,",The president vetoed the bill.,The legislature passed the bill.,0
+"My closet was messy. As a result,",My closet was messy.,"As a result,",I decorated it.,I organized it.,1
+"My room looked boring. As a result,",My room looked boring.,"As a result,",I decorated it.,I organized it.,0
+"I stayed up late. As a result,",I stayed up late.,"As a result,",I was tired in the morning.,I had vivid dreams that night.,0
+"I saw a scary movie. As a result,",I saw a scary movie.,"As a result,",I was tired in the morning.,I had vivid dreams that night.,1
+The man's pocket jingled as he walked. It is because,The man's pocket jingled as he walked.,It is because,He sewed the hole in his pocket.,His pocket was filled with coins.,1
+The man did not lose coins in his pocket anymore. It is because,The man did not lose coins in his pocket anymore.,It is because,His pocket was filled with coins.,He sewed the hole in his pocket.,1
+Everyone in the class turned to stare at the student. It is because,Everyone in the class turned to stare at the student.,It is because,The student's phone rang.,The student took notes.,0
+The teacher covered a lot of material. It is because,The teacher covered a lot of material.,It is because,The student's phone rang.,The student took notes.,1
+The horse bucked. It is because,The horse bucked.,It is because,A fly bit the horse.,The rider stroked the horse.,0
+The horse calmed down. It is because,The horse calmed down.,It is because,The rider stroked the horse.,A fly bit the horse.,0
+"The jewelry thieves were caught. As a result,",The jewelry thieves were caught.,"As a result,",The stolen jewelry was returned to its owners.,The cost of the stolen jewelry was calculated.,0
+"The jewelry thieves were never caught. As a result,",The jewelry thieves were never caught.,"As a result,",The stolen jewelry was returned to its owners.,The cost of the stolen jewelry was calculated.,1
+"Political violence broke out in the nation. As a result,",Political violence broke out in the nation.,"As a result,",Many citizens took refuge in other territories.,Many citizens relocated to the capitol.,0
+"Political violence finally ended in the nation. As a result,",Political violence finally ended in the nation.,"As a result,",Many citizens relocated to the capitol.,Many citizens took refuge in other territories.,0
+The woman was arrested. It is because,The woman was arrested.,It is because,She committed assault.,She checked into rehab.,0
+The woman was an alcoholic. It is because,The woman was an alcoholic.,It is because,She checked into rehab.,She committed assault.,0
+"The woman read the newspaper. As a result,",The woman read the newspaper.,"As a result,",She casted a vote in the election.,She discovered the outcome of the election.,1
+"The woman went to the polling station. As a result,",The woman went to the polling station.,"As a result,",She casted a vote in the election.,She discovered the outcome of the election.,0
+"The sick child coughed on his friend. As a result,",The sick child coughed on his friend.,"As a result,",His friend got sick.,His friend sneezed.,0
+"The child sprinkled pepper in his friend's face. As a result,",The child sprinkled pepper in his friend's face.,"As a result,",His friend sneezed.,His friend got sick.,0
+"The couple got engaged. As a result,",The couple got engaged.,"As a result,",They took some time apart.,They planned a wedding.,1
+"The couple had a big fight. As a result,",The couple had a big fight.,"As a result,",They took some time apart.,They planned a wedding.,0
+The woman contacted the real estate agent. It is because,The woman contacted the real estate agent.,It is because,The woman planned to buy a condo.,The woman needed to clean her house.,0
+The woman contacted the maid service. It is because,The woman contacted the maid service.,It is because,The woman needed to clean her house.,The woman planned to buy a condo.,0
+"The man won the lottery. As a result,",The man won the lottery.,"As a result,",He owed money.,He became rich.,1
+"The man bought more than he could afford. As a result,",The man bought more than he could afford.,"As a result,",He owed money.,He became rich.,0
+"I lit the candle. As a result,",I lit the candle.,"As a result,",Wax dripped off the candle.,The wax on the candle hardened.,0
+"The candle burned out some time ago. As a result,",The candle burned out some time ago.,"As a result,",The wax on the candle hardened.,Wax dripped off the candle.,0
+"I spent the day at the pool. As a result,",I spent the day at the pool.,"As a result,",I sprained my ankle.,My face got sunburned.,1
+"I slipped at the pool. As a result,",I slipped at the pool.,"As a result,",My face got sunburned.,I sprained my ankle.,1
+The man received a parking ticket. It is because,The man received a parking ticket.,It is because,He parallel parked on the street.,The parking meter expired.,1
+The man saw an empty parking spot. It is because,The man saw an empty parking spot.,It is because,The parking meter expired.,He parallel parked on the street.,1
+"The woman became famous. As a result,",The woman became famous.,"As a result,",Her family avoided her.,Photographers followed her.,1
+"The woman became senile. As a result,",The woman became senile.,"As a result,",Photographers followed her.,Her family avoided her.,1
+"The girl wanted to wear earrings. As a result,",The girl wanted to wear earrings.,"As a result,",She got her ears pierced.,She got a tattoo.,0
+"The girl wanted to have a symbol on her arm. As a result,",The girl wanted to have a symbol on her arm.,"As a result,",She got a tattoo.,She got her ears pierced.,0
+My ears were ringing. It is because,My ears were ringing.,It is because,I went to a museum.,I went to a concert.,1
+My mind was full of paintings. It is because,My mind was full of paintings.,It is because,I went to a concert.,I went to a museum.,1
+I tidied up my house. It is because,I tidied up my house.,It is because,I was swamped with work.,I was expecting company.,1
+I did not clean up my house. It is because,I did not clean up my house.,It is because,I was expecting company.,I was swamped with work.,1
+"The airline mishandled my luggage. As a result,",The airline mishandled my luggage.,"As a result,",They cancelled my flight.,They offered me compensation.,1
+"The airline went bankrupt. As a result,",The airline went bankrupt.,"As a result,",They cancelled my flight.,They offered me compensation.,0
+"The computer was expensive to fix. As a result,",The computer was expensive to fix.,"As a result,",I bought a new one.,I got it repaired.,0
+"The computer was cheap to fix. As a result,",The computer was cheap to fix.,"As a result,",I got it repaired.,I bought a new one.,0
+"The woman was in a bad mood. As a result,",The woman was in a bad mood.,"As a result,",She engaged in small talk with her friend.,She told her friend to leave her alone.,1
+"The woman was in a good mood. As a result,",The woman was in a good mood.,"As a result,",She told her friend to leave her alone.,She engaged in small talk with her friend.,1
