@@ -1,4 +1,5 @@
 import numpy as np
+import xml.etree.ElementTree as ET
 
 
 def lower_nth(s, n):
@@ -101,3 +102,82 @@ def get_atomic_relation_map(return_modified_templates=False):
             'xReason': ['because', 0, 'event'],
             'xWant': ['As a result, PersonX wants', 1, 'social']
         }
+
+
+def convert_copa(file_path):
+    """
+    Converting Choice of Plausible Alternatives (COPA)-formatted data to multiple formats for following tasks:
+    - sequence classification
+    - multiple choice
+
+    :param file_path: full path of the file we want to convert the samples from
+    Current list of the supported files:
+    - copa-all.xml: all samples (dev+test) from COPA
+    - copa-dev.xml: only dev samples from COPA
+    - copa-test.xml: only test samples from COPA
+    - BCOPA-CE.xml: all samples (1000) of BCOPA-CE (this data is only for TEST, neither train nor dev)
+    - balanced-copa-dev-all.xml: all samples (1000) of BCOPA (this data is only for TRAIN/DEV)
+    :return:
+    - data: in data, "cause" is NOT necessarily always the first argument
+    - data_cause_effect: here, "cause" IS always the first argument. (order: cause-effect)
+    - data_multi_choice: for each instance, we have two records: one with premise and the correct hypothesis and
+    the other one with premise and the incorrect hypothesis.
+    """
+
+    # in data_cause_effect, we assume the first and second arguments are cause and effect, respectively.
+    # and of course, there always can be wrong cause and effect, but the order does not change
+    data = []
+    data_cause_effect = []
+    data_multi_choice = []
+
+    def create_record(r_id, premise, hypothesis, label):
+        return {'id': r_id, 'sent1': premise, 'sent2': hypothesis, 'label': label}
+
+    try:
+        parser = ET.XMLParser(encoding="utf-8")
+        tree = ET.parse(file_path, parser=parser)
+        root = tree.getroot()
+
+        # each item has (Premise, Hypothesis_1, Hypothesis_2) and a question type (asks-for)
+        for item in root.findall("./item"):
+            # item[0]: premise
+            # item[1]: hypothesis 1
+            # item[2]: hypothesis 2
+            spans = {0: item[0].text, 1: item[1].text, 2: item[2].text}
+
+            span1_premise = spans[0]
+            span2_correct = spans[int(item.attrib["most-plausible-alternative"])]
+            span2_incorrect = spans[2] if int(item.attrib["most-plausible-alternative"]) == 1 else spans[1]
+
+            # ----------------------------------------------------------------------------------------
+            # for data, we ignore the order meaning the first argument could be either cause or effect
+            data.append(create_record('{}-1'.format(str(item.attrib["id"])), span1_premise, span2_correct, 1))
+            data.append(create_record('{}-2'.format(str(item.attrib["id"])), span1_premise, span2_incorrect, 0))
+
+            # ----------------------------------------------------------------------------------------
+            # for data_cause_effect, cause (either right or wrong cause) is always first
+            if item.attrib["asks-for"] == "cause":
+                data_cause_effect.append(
+                    create_record('{}-1'.format(str(item.attrib["id"])), span2_correct, span1_premise, 1))
+                data_cause_effect.append(
+                    create_record('{}-2'.format(str(item.attrib["id"])), span2_incorrect, span1_premise, 0))
+            elif item.attrib["asks-for"] == "effect":
+                data_cause_effect.append(
+                    create_record('{}-1'.format(str(item.attrib["id"])), span1_premise, span2_correct, 1))
+                data_cause_effect.append(
+                    create_record('{}-2'.format(str(item.attrib["id"])), span1_premise, span2_incorrect, 0))
+
+            # ----------------------------------------------------------------------------------------
+            # data_multi_choice
+            label = int(item.attrib["most-plausible-alternative"])
+            data_multi_choice.append({'id': item.attrib["id"],
+                                      'premise': spans[0],
+                                      'question': 'What is the {}?'.format(item.attrib["asks-for"]),
+                                      'choice0': spans[1],
+                                      'choice1': spans[2],
+                                      'label': label - 1})
+
+    except Exception as e:
+        print("[crest-log] copa2bert. Detail: {}".format(e))
+
+    return data, data_cause_effect, data_multi_choice
