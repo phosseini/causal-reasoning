@@ -15,7 +15,7 @@
   "num_train_epochs": 4,
   "tuning_num_train_epochs": [4],
   "tuning_per_device_train_batch_size": [16, 24],
-  "learning_rate": 3e-5,
+  "learning_rate": [5e-5, 4e-5, 3e-5, 2e-5],
   "learning_rate_range": 1,
   "learning_rate_start": 2e-5,
   "learning_rate_end": 5e-5,

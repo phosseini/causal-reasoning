@@ -79,7 +79,7 @@ def normalize_for_grammar_check(text_in):
 rel_map = get_atomic_relation_map(return_modified_templates=True)
 
 # there are three splits for ATOMIC-2020: train.tsv, dev.tsv, test.tsv
-data_path = 'data/atomic2020_data-feb2021'
+data_path = '../data/atomic2020_data-feb2021'
 data_splits = ['train']
 
 pattern = re.compile("([P|p]erson[A-Z|a-z])")
@@ -100,7 +100,7 @@ logging_step = 20000  # using just to show progress
 
 tmp = set()  # using as a temporary memory to check duplicate rows
 
-with open('data/pretraining.txt', 'w') as txt_file, open('data/pretraining.csv', 'w') as csv_file:
+with open('data/pretraining.txt', 'w') as txt_file, open('../data/pretraining.csv', 'w') as csv_file:
     csv_writer = csv.writer(csv_file)
 
     for data_split in data_splits:

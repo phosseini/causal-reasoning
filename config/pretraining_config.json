@@ -2,10 +2,14 @@
   "pretraining_method": "mlm",
   "tokenizer_name": "bert-large-cased",
   "model_name": "bert-large-cased",
-  "pretraining_input": "data/pretraining.csv",
-  "output_dir": "models/training_output",
+  "pretraining_input": "../data/pretraining.csv",
+  "output_dir": "../models/training_output",
   "max_length": 32,
-  "relation_category": ["event", "social", "physical"],
+  "relation_category": [
+    "event",
+    "social",
+    "physical"
+  ],
   "num_train_epochs": 25,
   "learning_rate": 2e-5,
   "save_steps": 5000,

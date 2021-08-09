@@ -1,5 +1,6 @@
 import json
 import torch
+# torch_xla.* is related to using TPU (we used Google Colab TPU v2)
 import torch_xla
 import torch_xla.core.xla_model as xm
 import torch_xla.debug.metrics as met
@@ -16,12 +17,11 @@ from transformers import TextDatasetForNextSentencePrediction, AutoModelForMaske
 from transformers import DataCollatorForLanguageModeling, DataCollatorForWholeWordMask
 
 tpu_device = xm.xla_device()
-
 print(tpu_device)
 
 # ------------------------------
 # loading parameters
-with open('fine_tuning_config.json') as f:
+with open('../config/fine_tuning_config.json') as f:
     params = json.load(f)
 
 model_name = params['model_name']
@@ -46,7 +46,9 @@ elif pretraining_method == 'mlm_nsp':
     model = BertForPreTraining.from_pretrained(model_name)
 
 """
-input file format: every line is a sentence from a document. Documents are separated by an empty line. For example,
+If using Next Sentence Prediction (NSP) too, for now use an input TXT file, instead of the CSV file, with the following format: 
+every line is a sentence from a document. Documents are separated by an empty line. For example:
+
 sentence 1.1
 sentence 1.2
 [empty line]

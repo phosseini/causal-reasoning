@@ -19,7 +19,7 @@ from utils import compute_metrics, lower_nth
 
 # ------------------------------
 # loading parameters
-with open('fine_tuning_config.json') as f:
+with open('../config/fine_tuning_config.json') as f:
     params = json.load(f)
 
 task_type = params['task_type']
@@ -131,10 +131,9 @@ encoded_datasets.set_format(type='torch', columns=columns_to_return)
 
 
 def tune_config_optuna(trial):
-    optuna_config = {}
-    optuna_config["num_train_epochs"] = trial.suggest_int("num_train_epochs", 3, 4, 5)
-    optuna_config["per_device_train_batch_size"] = trial.suggest_categorical("per_device_train_batch_size",
-                                                                             params['per_device_train_batch_size'])
+    optuna_config = {"num_train_epochs": trial.suggest_int("num_train_epochs", 3, 4, 5),
+                     "per_device_train_batch_size": trial.suggest_categorical("per_device_train_batch_size",
+                                                                              params['per_device_train_batch_size'])}
     if params['learning_rate_range'] == 1:
         optuna_config["learning_rate"] = trial.suggest_float("learning_rate", params['learning_rate_start'],
                                                              params['learning_rate_end'], log=True)
@@ -153,6 +152,8 @@ def tune_config_ray(trial):
     return ray_config
 
 
+# if we want to use PBT for hyperparameter (HP) fine-tuning
+# we ended up using just grid search for HP tuning since in our case PBT did not help much
 pbt_scheduler = PopulationBasedTraining(
     metric='eval_accuracy',
     mode='max',
@@ -200,10 +201,7 @@ def run_hyperparameter_tuning(data_train, data_dev):
             compute_metrics=compute_metrics,
         )
 
-    # Defaut objective is the sum of all metrics when metrics are provided, so we have to maximize it.
-    # best_trial = trainer.hyperparameter_search(direction="maximize", hp_space=tune_config_optuna)
-
-    # if we want to specify hyperparameters: pass hp_space=tune_config_ray
+    # Default objective is the sum of all metrics when metrics are provided, so we have to maximize it.
     best_trial = trainer.hyperparameter_search(hp_space=tune_config_ray,
                                                backend=params['tuning_backend'],
                                                direction='maximize',
@@ -215,7 +213,8 @@ def run_hyperparameter_tuning(data_train, data_dev):
     return best_trial
 
 
-# since we don't have training set in COPA, we run cross-validation for hyperparameter tuning
+# since we don't have separate train and dev sets in COPA and we only have a dev set,
+# we run cross-validation on the dev set for hyperparameter tuning
 # obviously, we DON'T do the hyperparameter tuning on test set to avoid leakage
 
 if params['hyperparameter_search'] == 1:
