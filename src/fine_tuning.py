@@ -275,9 +275,8 @@ if params['hyperparameter_search'] == 1:
 
 random_seed_results = []
 
-# shuffling train and test before running with random seeds
+# shuffling the train set before running with random seeds
 shuffled_train = encoded_datasets['train'].shuffle(seed=42)
-shuffled_test = encoded_datasets['test'].shuffle(seed=42)
 
 # now, fine-tuning the model with the best set of hyperparameters and evaluate it on the test set
 for random_seed in random_seeds:
@@ -297,7 +296,7 @@ for random_seed in random_seeds:
             model_init=model_init,
             args=args,
             train_dataset=shuffled_train if args.do_train else None,
-            eval_dataset=shuffled_test if args.do_eval else None,
+            eval_dataset=encoded_datasets['test'] if args.do_eval else None,
             tokenizer=tokenizer,
             data_collator=DataCollatorForMultipleChoice(tokenizer),
             compute_metrics=compute_metrics,
@@ -307,7 +306,7 @@ for random_seed in random_seeds:
             model_init=model_init,
             args=args,
             train_dataset=shuffled_train if args.do_train else None,
-            eval_dataset=shuffled_test if args.do_eval else None,
+            eval_dataset=encoded_datasets['test'] if args.do_eval else None,
             tokenizer=tokenizer,
             data_collator=DataCollatorWithPadding(tokenizer),
             compute_metrics=compute_metrics,
