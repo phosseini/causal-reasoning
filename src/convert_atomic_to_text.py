@@ -34,7 +34,7 @@ def normalize_string(a, replace_with_special_tokens=False):
                     'person x': 'PersonX', 'person y': 'PersonY', 'Person x': 'PersonX', 'Person y': 'PersonY',
                     'person X': 'PersonX', 'person Y': 'PersonY', 'Person X': 'PersonX', 'Person Y': 'PersonY',
                     'personX': 'PersonX', 'personY': 'PersonY', 'personx': 'PersonX', 'persony': 'PersonY',
-                    ' X ': ' PersonX ', ' Y ': ' PersonY '}
+                    ' X ': ' PersonX ', ' Y ': ' PersonY ', ' x ': ' PersonX ', ' y ': ' PersonY '}
 
     for k, v in replacements.items():
         a = re.sub(k, v, a)
@@ -80,6 +80,8 @@ rel_map = get_atomic_relation_map(return_modified_templates=True)
 
 # there are three splits for ATOMIC-2020: train.tsv, dev.tsv, test.tsv
 data_path = '../data/atomic2020_data-feb2021'
+output_txt_file_path = '../data/atomic2020.txt'
+output_csv_file_path = '../data/atomic2020.csv'
 data_splits = ['train']
 
 pattern = re.compile("([P|p]erson[A-Z|a-z])")
@@ -100,7 +102,7 @@ logging_step = 20000  # using just to show progress
 
 tmp = set()  # using as a temporary memory to check duplicate rows
 
-with open('data/pretraining.txt', 'w') as txt_file, open('../data/pretraining.csv', 'w') as csv_file:
+with open(output_txt_file_path, 'w') as txt_file, open(output_csv_file_path, 'w') as csv_file:
     csv_writer = csv.writer(csv_file)
 
     for data_split in data_splits:
@@ -112,13 +114,13 @@ with open('data/pretraining.txt', 'w') as txt_file, open('../data/pretraining.cs
         df = pd.read_csv('{}/{}.tsv'.format(data_path, data_split), sep='\t', header=None)
         df = df.sample(frac=1)
 
-        print('data is loaded from {} split.'.format(data_split))
+        print('data is loaded successfully from {} splits.'.format(data_split))
 
-        # file header
+        # csv file header
         csv_writer.writerow(["text", "relation_category", "relation_type", "modified"])
 
         # ---------------------------------------------------
-        for idx, row in df.iterrows():
+        for idx, row in df[:100].iterrows():
             row = [str(r) for r in row]
             relation_type = copy.deepcopy(row[1])
             relation_category = rel_map[row[1]][2]
@@ -211,7 +213,7 @@ with open('data/pretraining.txt', 'w') as txt_file, open('../data/pretraining.cs
 
                     # TODO: adding a flag for the output format
                     # writing into the text file
-                    # txt_file.write(example)
+                    txt_file.write(example)
 
                     # writing into the csv file
                     csv_writer.writerow([example, rel_map[relations[j]][2], relations[j], modified])
@@ -225,3 +227,8 @@ with open('data/pretraining.txt', 'w') as txt_file, open('../data/pretraining.cs
 
             if j % logging_step == 0:
                 print('step {}'.format(j))
+
+print('ATOMIC2020-to-text conversion is done successfully.')
+print('output files: \n{}\n{}'.format(output_txt_file_path, output_csv_file_path))
+print('number of all converted triples: {}'.format(num_records))
+print('number of found duplicates (final output is deduplicated): {}'.format(count_duplicates))
