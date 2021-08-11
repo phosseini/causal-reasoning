@@ -76,7 +76,7 @@ def normalize_for_grammar_check(text_in):
     return capitalize_nth(text_in, 0)
 
 
-rel_templates = get_atomic_relation_templates(return_modified_templates=True)
+rel_templates = get_atomic_relation_templates()
 
 # there are three splits for ATOMIC-2020: train.tsv, dev.tsv, test.tsv
 data_path = '../data/atomic2020_data-feb2021'
