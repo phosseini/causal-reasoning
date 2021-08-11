@@ -8,7 +8,7 @@ import spacy
 import pandas as pd
 import language_tool_python
 
-from utils import get_atomic_relation_map
+from utils import get_atomic_relation_templates
 
 nlp = spacy.load("en_core_web_sm")
 grammar_tool = language_tool_python.LanguageTool('en-US')
@@ -76,7 +76,7 @@ def normalize_for_grammar_check(text_in):
     return capitalize_nth(text_in, 0)
 
 
-rel_map = get_atomic_relation_map(return_modified_templates=True)
+rel_templates = get_atomic_relation_templates(return_modified_templates=True)
 
 # there are three splits for ATOMIC-2020: train.tsv, dev.tsv, test.tsv
 data_path = '../data/atomic2020_data-feb2021'
@@ -120,10 +120,10 @@ with open(output_txt_file_path, 'w') as txt_file, open(output_csv_file_path, 'w'
         csv_writer.writerow(["text", "relation_category", "relation_type", "modified"])
 
         # ---------------------------------------------------
-        for idx, row in df[:100].iterrows():
+        for idx, row in df.iterrows():
             row = [str(r) for r in row]
             relation_type = copy.deepcopy(row[1])
-            relation_category = rel_map[row[1]][2]
+            relation_category = rel_templates[row[1]][3]
 
             if row[2].strip() != 'none' \
                     and not any(item.isupper() for item in row) \
@@ -134,7 +134,7 @@ with open(output_txt_file_path, 'w') as txt_file, open(output_csv_file_path, 'w'
 
                 # normalizing triple elements
                 row[0] = normalize_string(row[0], replace_with_special_tokens=False)
-                row[1] = normalize_string(rel_map[row[1]][0], replace_with_special_tokens=False)
+                row[1] = normalize_string(rel_templates[row[1]][1], replace_with_special_tokens=False)
                 row[2] = normalize_string(row[2], replace_with_special_tokens=False)
 
                 # checking duplicate values
@@ -188,9 +188,9 @@ with open(output_txt_file_path, 'w') as txt_file, open(output_csv_file_path, 'w'
 
                     # ------------------------------------------------------------------------------
                     # check the grammar to make sure sentences are most likely grammatically correct
-                    if rel_map[relations[j]][1] == 0:
+                    if rel_templates[relations[j]][2] == 0:
                         example = '{} {}\n\n'.format(sent_1, sent_2)
-                    elif rel_map[relations[j]][1] == 1:
+                    elif rel_templates[relations[j]][2] == 1:
                         example = sent_1 + '. ' + capitalize_nth(sent_2, 0) + '.\n\n'
 
                     # correct possible grammatical errors
@@ -216,7 +216,7 @@ with open(output_txt_file_path, 'w') as txt_file, open(output_csv_file_path, 'w'
                     txt_file.write(example)
 
                     # writing into the csv file
-                    csv_writer.writerow([example, rel_map[relations[j]][2], relations[j], modified])
+                    csv_writer.writerow([example, rel_templates[relations[j]][3], relations[j], modified])
 
                     num_records += 1
 
