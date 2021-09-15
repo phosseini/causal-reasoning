@@ -22,10 +22,5 @@
   "learning_rate": 3e-5,
   "per_device_train_batch_size": 16,
   "resources_per_trial": {"cpu": 4, "gpu": 0},
-  "random_seeds": [107, 117, 127, 137,
-                   822, 832, 842, 852,
-                   727, 737, 747, 757,
-                   409, 419, 429, 439,
-                   426, 436, 446, 456
-  ]
+  "random_seeds": [107, 117, 127, 137]
 }
