@@ -1,6 +1,3 @@
-# prerequisite
-# ! pip install --upgrade language_tool_python
-
 import re
 import csv
 import copy

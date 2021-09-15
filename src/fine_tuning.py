@@ -17,14 +17,13 @@ from sklearn.model_selection import KFold
 
 from utils import compute_metrics, lower_nth
 
-# ------------------------------
 # loading parameters
-with open('../config/fine_tuning_config.json') as f:
+with open('./config/fine_tuning_config.json') as f:
     params = json.load(f)
 
 task_type = params['task_type']
 n_fold = params['n_fold']
-tuning_output_path = params['hp_tuning_output_path']
+tuning_output_path = params['tuning_output_path']
 running_output_path = params['running_output_path']
 random_seeds = params['random_seeds']
 
@@ -39,7 +38,6 @@ splits = DatasetDict()
 splits['train'] = Dataset.from_csv(params['train_data_path'])
 splits['test'] = Dataset.from_csv(params['test_data_path'])
 
-# ------------------------------
 # loading the model and tokenizer
 model_name = params['model_name']
 tokenizer_name = params['tokenizer_name']
@@ -54,7 +52,7 @@ elif task_type == 'nsp':
 tokenizer = AutoTokenizer.from_pretrained(tokenizer_name, use_fast=True)
 
 
-def preprocess_function(examples, prompt=True, task=params['task_type']):
+def preprocess_function_with_prompt(examples, task=params['task_type']):
     # checking task value:
     if task not in ['seq', 'multi', 'nsp']:
         print("Task value should be one of the following: \'seq\' or \'multi\' or \'nsp\'")
@@ -65,12 +63,40 @@ def preprocess_function(examples, prompt=True, task=params['task_type']):
         first_sentences = [[context] * 2 for context in examples["sent1"]]
         # Grab all second sentences possible for each context.
         question_headers = examples["sent2"]
-        if prompt:
-            second_sentences = [[f"{header} {lower_nth(examples[end][i], 0)}" for end in ending_names] for i, header in
-                                enumerate(question_headers)]
-        else:
-            second_sentences = [[f"{examples[end][i]}" for end in ending_names] for i, header in
-                                enumerate(question_headers)]
+        second_sentences = [[f"{header} {lower_nth(examples[end][i], 0)}" for end in ending_names] for i, header in
+                            enumerate(question_headers)]
+    elif task in ['seq', 'nsp']:
+        first_sentences = [examples["sent1"]]
+        second_sentences = [examples["sent2"]]
+
+    # Flatten everything
+    first_sentences = sum(first_sentences, [])
+    second_sentences = sum(second_sentences, [])
+
+    # Un-flatten
+    if task == 'multi':
+        tokenized_examples = tokenizer(first_sentences, second_sentences, max_length=params['max_length'],
+                                       truncation=True)
+        return {k: [v[i:i + 2] for i in range(0, len(v), 2)] for k, v in tokenized_examples.items()}
+    elif task in ['seq', 'nsp']:
+        tokenized_examples = tokenizer(first_sentences, second_sentences, max_length=params['max_length'],
+                                       truncation=True)
+        return tokenized_examples
+
+
+def preprocess_function(examples, task=params['task_type']):
+    # checking task value:
+    if task not in ['seq', 'multi', 'nsp']:
+        print("Task value should be one of the following: \'seq\' or \'multi\' or \'nsp\'")
+        return
+
+    if task == 'multi':
+        # Repeat each first sentence two times to go with the two possibilities of second sentences.
+        first_sentences = [[context] * 2 for context in examples["sent1"]]
+        # Grab all second sentences possible for each context.
+        question_headers = examples["sent2"]
+        second_sentences = [[f"{examples[end][i]}" for end in ending_names] for i, header in
+                            enumerate(question_headers)]
     elif task in ['seq', 'nsp']:
         first_sentences = [examples["sent1"]]
         second_sentences = [examples["sent2"]]
@@ -125,15 +151,11 @@ class DataCollatorForMultipleChoice:
         return batch
 
 
-encoded_datasets = splits.map(preprocess_function, batched=True)
-columns_to_return = ['input_ids', 'label', 'attention_mask', 'token_type_ids']
-encoded_datasets.set_format(type='torch', columns=columns_to_return)
-
-
 def tune_config_optuna(trial):
-    optuna_config = {"num_train_epochs": trial.suggest_int("num_train_epochs", 3, 4, 5),
-                     "per_device_train_batch_size": trial.suggest_categorical("per_device_train_batch_size",
-                                                                              params['per_device_train_batch_size'])}
+    optuna_config = {}
+    optuna_config["num_train_epochs"] = trial.suggest_int("num_train_epochs", 3, 4, 5)
+    optuna_config["per_device_train_batch_size"] = trial.suggest_categorical("per_device_train_batch_size",
+                                                                             params['per_device_train_batch_size'])
     if params['learning_rate_range'] == 1:
         optuna_config["learning_rate"] = trial.suggest_float("learning_rate", params['learning_rate_start'],
                                                              params['learning_rate_end'], log=True)
@@ -142,22 +164,15 @@ def tune_config_optuna(trial):
 
 def tune_config_ray(trial):
     ray_config = {}
-    if params['learning_rate_range'] == 1:
-        ray_config["learning_rate"] = tune.loguniform(params['learning_rate_start'], params['learning_rate_end'])
+    if params['tuning_learning_rate_do_range'] == 1:
+        ray_config["learning_rate"] = tune.loguniform(params['tuning_learning_rate_start'],
+                                                      params['tuning_learning_rate_end'])
     else:
-        ray_config["learning_rate"] = tune.choice(params['tuning_learning_rate'])
+        ray_config["learning_rate"] = tune.grid_search(params['tuning_learning_rate'])
 
     ray_config["num_train_epochs"] = tune.choice(params['tuning_num_train_epochs'])
     ray_config["per_device_train_batch_size"] = tune.choice(params['tuning_per_device_train_batch_size'])
     return ray_config
-
-
-# if we want to use PBT for hyperparameter (HP) fine-tuning
-# we ended up using just grid search for HP tuning since in our case PBT did not help much
-pbt_scheduler = PopulationBasedTraining(
-    metric='eval_accuracy',
-    mode='max',
-)
 
 
 def model_init():
@@ -201,7 +216,10 @@ def run_hyperparameter_tuning(data_train, data_dev):
             compute_metrics=compute_metrics,
         )
 
-    # Default objective is the sum of all metrics when metrics are provided, so we have to maximize it.
+    # Defaut objective is the sum of all metrics when metrics are provided, so we have to maximize it.
+    # best_trial = trainer.hyperparameter_search(direction="maximize", hp_space=tune_config_optuna)
+
+    # if we want to specify hyperparameters: pass hp_space=tune_config_ray
     best_trial = trainer.hyperparameter_search(hp_space=tune_config_ray,
                                                backend=params['tuning_backend'],
                                                direction='maximize',
@@ -213,8 +231,23 @@ def run_hyperparameter_tuning(data_train, data_dev):
     return best_trial
 
 
-# since we don't have separate train and dev sets in COPA and we only have a dev set,
-# we run cross-validation on the dev set for hyperparameter tuning
+# to preprocess examples, we can choose between preprocess_function and preprocess_function_with_prompt
+# preprocess_function_with_prompt follows the same preprocessing as preprocess_function except that it also
+# adds a short predefined prompt to the examples. By default, we use preprocess_function to keep the original examples
+encoded_datasets = DatasetDict()
+encoded_datasets['train'] = splits['train'].map(preprocess_function, batched=True)
+encoded_datasets['test'] = splits['test'].map(preprocess_function, batched=True)
+columns_to_return = ['input_ids', 'label', 'attention_mask', 'token_type_ids']
+encoded_datasets.set_format(type='torch', columns=columns_to_return)
+
+# if we want to use PBT for hyperparameter (HP) fine-tuning
+# we ended up using just grid search for HP tuning since in our case PBT did not help much
+pbt_scheduler = PopulationBasedTraining(
+    metric='eval_accuracy',
+    mode='max',
+)
+
+# since we don't have training set in COPA, we run cross-validation for hyperparameter tuning
 # obviously, we DON'T do the hyperparameter tuning on test set to avoid leakage
 
 if params['hyperparameter_search'] == 1:
