@@ -1,5 +1,8 @@
 # Commonsense Causal Reasoning
 
+<p align="center">
+  <img src='data/method.png' width='400' height='400' style="vertical-align:middle;margin:100px 50px">
+</p>
 
 ## Converting ATOMIC-to-Text
 Triples in ATOMIC are stored in form of: `(subject, relation, target)`. We convert (verbalize) these triples to natural language text to later use them in training/fine-tuning some Pretrained Language Models (PLMs).
