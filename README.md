@@ -20,7 +20,8 @@ Once we converted the ATOMIC triples to text, we can continually pretrain a Pret
 * Runnig the pretraining code: [`src/pretraining.py`](https://github.com/phosseini/causal-reasoning/blob/main/src/pretraining.py)
 
 ## Fine-tuning
-After pretraining the PLM with the new data, it is time to fine-tune and evaluate its performance on downstream tasks. Similar to pretraining, there are two steps for running the experiments related to model fine-tuning and evaluation:
+After pretraining the PLM with the new data, it is time to fine-tune and evaluate its performance on downstream tasks. There are three steps for running the experiments related to model fine-tuning and evaluation:
+* Running the [`src/convert_copa.py`](https://github.com/phosseini/causal-reasoning/blob/main/src/convert_copa.py) to generate all the required COPA-related data files (`train/test`) for fine-tuning.
 * Setting the parameters in [`config/fine_tuning_config.json`](https://github.com/phosseini/causal-reasoning/blob/main/config/fine_tuning_config.json). Description of some parameters:
   * `tuning_backend`: For choosing the hyperparameter tuning backend, `ray` or `optuna`
   * `hyperparameter_search`: Whether to run hyperparameter search or not. `1` for running and `0` for not running, respectively.
