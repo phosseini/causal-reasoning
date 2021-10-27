@@ -10,6 +10,19 @@ from utils import get_atomic_relation_templates
 nlp = spacy.load("en_core_web_sm")
 grammar_tool = language_tool_python.LanguageTool('en-US')
 
+special_tokens = {'PersonX': '[unused1]', 'PersonY': '[unused2]'}
+
+
+def get_special_token(w):
+    """
+    this method is taken from SpanBERT's repo: https://github.com/facebookresearch/SpanBERT/blob/main/code/run_tacred.py#L120
+    :param w: a token/word
+    :return:
+    """
+    if w not in special_tokens:
+        special_tokens[w] = "[unused%d]" % (len(special_tokens) + 1)
+    return special_tokens[w]
+
 
 def check_pos(doc, pos_list=[]):
     for token in doc:
@@ -53,8 +66,8 @@ def normalize_string(a, replace_with_special_tokens=False):
         # Based on Jacob Devlin's recommendation (https://github.com/google-research/bert/issues/9),
         # we use these [unused*] tokens since they are randomly initialized and may be a good replacement
         # for PersonX and PersonY that are not in BERT's vocabulary.
-        a = re.sub('PersonX', '[unused1]', a)
-        a = re.sub('PersonY', '[unused2]', a)
+        a = re.sub('PersonX', special_tokens['PersonX'], a)
+        a = re.sub('PersonY', special_tokens['PersonY'], a)
 
     return a.strip()
 
@@ -89,7 +102,7 @@ relation_type_filter = []
 relation_category_filter = ['event', 'social', 'physical']
 rels = {}
 
-check_grammar = True
+check_grammar = False
 check_pos_flag = False
 
 num_records = 0
@@ -105,6 +118,7 @@ with open(output_txt_file_path, 'w') as txt_file, open(output_csv_file_path, 'w'
     for data_split in data_splits:
         sents_1 = []
         sents_2 = []
+        triple_texts = []
         relations = []
 
         # loading data (triples) from ATOMIC
@@ -114,7 +128,8 @@ with open(output_txt_file_path, 'w') as txt_file, open(output_csv_file_path, 'w'
         print('data is loaded successfully from {} splits.'.format(data_split))
 
         # csv file header
-        csv_writer.writerow(["text", "relation_category", "relation_type", "modified"])
+        csv_writer.writerow(
+            ["original_text", "modified_text", "triple_text", "relation_category", "relation_type", "modified"])
 
         # ---------------------------------------------------
         for idx, row in df.iterrows():
@@ -129,6 +144,11 @@ with open(output_txt_file_path, 'w') as txt_file, open(output_csv_file_path, 'w'
                     and (len(relation_type_filter) == 0 or (
                     len(relation_type_filter) != 0 and relation_type in relation_type_filter)):
 
+                # triple_text will be used when we want to do MLM only using the triples with no KG-to-text conversion
+                triple_text = '{} {} {}'.format(normalize_string(row[0], replace_with_special_tokens=True),
+                                                get_special_token(row[1]),
+                                                normalize_string(row[2], replace_with_special_tokens=True))
+
                 # normalizing triple elements
                 row[0] = normalize_string(row[0], replace_with_special_tokens=False)
                 row[1] = normalize_string(rel_templates[row[1]][1], replace_with_special_tokens=False)
@@ -140,6 +160,7 @@ with open(output_txt_file_path, 'w') as txt_file, open(output_csv_file_path, 'w'
                     relations.append(relation_type)
                     sents_1.append('{}'.format(capitalize_nth(row[0], 0)))
                     sents_2.append('{} {}'.format(row[1], lower_nth(row[2], 0)))
+                    triple_texts.append(triple_text)
                 else:
                     count_duplicates += 1
 
@@ -162,6 +183,9 @@ with open(output_txt_file_path, 'w') as txt_file, open(output_csv_file_path, 'w'
         # free the memory since we don't need these two lists any more
         del sents_1
         del sents_2
+
+        assert len(docs_1) == len(triple_texts)
+        assert len(docs_2) == len(triple_texts)
 
         for j in range(len(docs_1)):
             if not check_pos_flag:
@@ -186,21 +210,17 @@ with open(output_txt_file_path, 'w') as txt_file, open(output_csv_file_path, 'w'
                     # ------------------------------------------------------------------------------
                     # check the grammar to make sure sentences are most likely grammatically correct
                     if rel_templates[relations[j]][2] == 0:
-                        example = '{} {}\n\n'.format(sent_1, sent_2)
+                        original_text = '{} {}\n\n'.format(sent_1, sent_2)
                     elif rel_templates[relations[j]][2] == 1:
-                        example = sent_1 + '. ' + capitalize_nth(sent_2, 0) + '.\n\n'
+                        original_text = sent_1 + '. ' + capitalize_nth(sent_2, 0) + '.\n\n'
 
                     # correct possible grammatical errors
-                    if check_grammar:
-                        corrected_example = grammar_tool.correct(example)
-                    else:
-                        corrected_example = copy.deepcopy(example)
+                    modified_text = grammar_tool.correct(original_text) if check_grammar else ""
 
                     modified = 0  # to flag grammatically corrected examples
 
-                    if example != corrected_example:
+                    if modified_text != "" and original_text != modified_text:
                         modified = 1
-                        example = copy.deepcopy(corrected_example)
                     # ------------------------------------------------------------------------------
 
                     if relations[j] in rels:
@@ -210,10 +230,12 @@ with open(output_txt_file_path, 'w') as txt_file, open(output_csv_file_path, 'w'
 
                     # TODO: adding a flag for the output format
                     # writing into the text file
-                    txt_file.write(example)
+                    txt_file.write(original_text)
 
                     # writing into the csv file
-                    csv_writer.writerow([example, rel_templates[relations[j]][3], relations[j], modified])
+                    csv_writer.writerow(
+                        [original_text, modified_text, triple_texts[j], rel_templates[relations[j]][3], relations[j],
+                         modified])
 
                     num_records += 1
 
@@ -225,7 +247,13 @@ with open(output_txt_file_path, 'w') as txt_file, open(output_csv_file_path, 'w'
             if j % logging_step == 0:
                 print('step {}'.format(j))
 
+# writing the special tokens into a file
+special_tokens_txt_file_path = '../data/special_tokens.txt'
+with open(special_tokens_txt_file_path, 'w') as out_file:
+    for token, special_token in special_tokens.items():
+        out_file.write(special_token + '\n')
+
 print('ATOMIC2020-to-text conversion is done successfully.')
-print('output files: \n{}\n{}'.format(output_txt_file_path, output_csv_file_path))
+print('output files: \n{}\n{}\n{}'.format(output_txt_file_path, output_csv_file_path, special_tokens_txt_file_path))
 print('number of all converted triples: {}'.format(num_records))
 print('number of found duplicates (final output is deduplicated): {}'.format(count_duplicates))
