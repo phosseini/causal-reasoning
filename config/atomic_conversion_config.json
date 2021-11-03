@@ -1,0 +1,16 @@
+{
+  "data_path": "../data/atomic2020_data-feb2021",
+  "output_txt_file_path": "../data/atomic2020.txt",
+  "output_csv_file_path": "../data/atomic2020.csv",
+  "data_splits": [
+    "train"
+  ],
+  "relation_category_filter": [
+    "event",
+    "social",
+    "physical"
+  ],
+  "saving_step": 10000,
+  "logging_step": 20000,
+  "sample_size": 0
+}
