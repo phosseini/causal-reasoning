@@ -113,28 +113,24 @@ with open(output_txt_file_path, 'w') as txt_file, open(output_csv_file_path, 'w'
         ["verbalized_text", "modified_text", "triple_text", "relation_category", "relation_type", "grammar_modified"])
 
     for data_split in data_splits:
-        raw_triples = []
-        verbalized_triples = []
-        modified_triples = []
-        relations = []
-
         # loading data (triples) from ATOMIC
         df = pd.read_csv('{}/{}.tsv'.format(data_path, data_split), sep='\t', header=None)
         df = df.sample(frac=1)
 
         print('data is loaded successfully from [{}] splits.'.format(data_split))
-        # ---------------------------------------------------
+
+        i = 1
         for idx, row in df.iterrows():
             row = [str(r) for r in row]
-            relation = copy.deepcopy(row[1])
-            relation_category = relation_templates[row[1]][3]
+            relation_type = copy.deepcopy(row[1])
+            relation_category = relation_templates[relation_type][3]
 
             if row[2].strip() != 'none' \
                     and not any(item.isupper() for item in row) \
                     and (len(relation_category_filter) == 0 or (
                     len(relation_category_filter) != 0 and relation_category in relation_category_filter)) \
                     and (len(relation_filter) == 0 or (
-                    len(relation_filter) != 0 and relation in relation_filter)):
+                    len(relation_filter) != 0 and relation_type in relation_filter)):
 
                 start_exception = ['PersonX', 'PersonY', 'PersonZ']
 
@@ -149,7 +145,6 @@ with open(output_txt_file_path, 'w') as txt_file, open(output_csv_file_path, 'w'
                 # checking duplicate values
                 if str(triple_text) not in tmp:
                     tmp.add(str(triple_text))
-                    relations.append(relation)
 
                     # verbalizing the triple
                     segment_a = '{}'.format(capitalize_nth(head, 0))
@@ -158,57 +153,53 @@ with open(output_txt_file_path, 'w') as txt_file, open(output_csv_file_path, 'w'
                     else:
                         segment_b = '{} {}'.format(verbalized_relation, lower_nth(tail, 0))
 
-                    if relation_templates[relation][2] == 0:
+                    if relation_templates[relation_type][2] == 0:
                         verbalized_triple = '{} {}\n\n'.format(segment_a, segment_b)
-                    elif relation_templates[relation][2] == 1:
+                    elif relation_templates[relation_type][2] == 1:
                         verbalized_triple = segment_a + '. ' + capitalize_nth(segment_b, 0) + '.\n\n'
 
-                    verbalized_triples.append(verbalized_triple)
-                    raw_triples.append(triple_text)
+                    # modifying the verbalized triple (e.g., grammar correction, etc.)
+                    modified_text = copy.deepcopy(verbalized_triple)
+
+                    # replacing the names
+                    for token, name_replacement in names_replacement.items():
+                        modified_text = modified_text.replace(token, name_replacement)
+
+                    if pattern.search(modified_text) is None:
+                        if relation_type in relations_count:
+                            relations_count[relation_type] += 1
+                        else:
+                            relations_count[relation_type] = 1
+
+                        # applying simple rules to fix some grammar errors
+                        modified_text = modified_text.replace("As a result, Riley or others will Riley",
+                                                              "As a result, Riley")
+
+                        # writing into the text file
+                        txt_file.write(modified_text)
+
+                        # writing into the csv file
+                        csv_writer.writerow(
+                            [verbalized_triple.strip(), modified_text.strip(), triple_text.strip(), relation_category,
+                             relation_type, 0])
+
+                        num_records += 1
+
+                        # saving records every saving_step steps
+                        if num_records % saving_step == 0:
+                            txt_file.flush()
+                            csv_file.flush()
                 else:
                     count_duplicates += 1
+
+            if i % logging_step == 0:
+                print('step {}'.format(i))
+            i += 1
             # in case we do not want to convert ALL triples and only want a small sample of converted triples
-            if max_samples > 0 and len(verbalized_triples) > max_samples:
+            if 0 < max_samples < num_records:
                 break
+
         del tmp
-
-        assert len(verbalized_triples) == len(raw_triples)
-
-        for j in range(len(verbalized_triples)):
-            modified_text = verbalized_triples[j]
-
-            # replacing the names
-            for token, name_replacement in names_replacement.items():
-                modified_text = modified_text.replace(token, name_replacement)
-
-            if pattern.search(modified_text) is None:
-                if relations[j] in relations_count:
-                    relations_count[relations[j]] += 1
-                else:
-                    relations_count[relations[j]] = 1
-
-                # applying simple rules to fix some grammar errors
-                modified_text = modified_text.replace("As a result, Riley or others will Riley", "As a result, Riley")
-
-                # writing into the text file
-                # txt_file.write(verbalized_triples[j])
-                txt_file.write(modified_text)
-                # txt_file.write('\n')
-
-                # writing into the csv file
-                csv_writer.writerow(
-                    [verbalized_triples[j], modified_text, raw_triples[j], relation_templates[relations[j]][3],
-                     relations[j], 0])
-
-                num_records += 1
-
-                # saving records every saving_step steps
-                if num_records % saving_step == 0:
-                    txt_file.flush()
-                    csv_file.flush()
-
-            if j % logging_step == 0:
-                print('step {}'.format(j))
 
 # writing the special tokens into a file
 special_tokens_file_path = "../data/special_tokens.txt"
