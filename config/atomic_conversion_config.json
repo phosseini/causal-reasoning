@@ -5,12 +5,13 @@
   "data_splits": [
     "train"
   ],
+  "relation_filter": [],
   "relation_category_filter": [
     "event",
     "social",
     "physical"
   ],
-  "saving_step": 10000,
-  "logging_step": 20000,
-  "sample_size": 0
+  "saving_step": 20000,
+  "logging_step": 50000,
+  "max_samples": 0
 }
