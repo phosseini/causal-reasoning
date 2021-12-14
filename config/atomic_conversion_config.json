@@ -1,9 +1,9 @@
 {
   "data_path": "../data/atomic2020_data-feb2021",
-  "output_txt_file_path": "../data/atomic2020.txt",
-  "output_csv_file_path": "../data/atomic2020.csv",
+  "output_file_directory": "../data/",
   "data_splits": [
-    "train"
+    "train",
+    "dev"
   ],
   "relation_filter": [],
   "relation_category_filter": [
@@ -13,5 +13,6 @@
   ],
   "saving_step": 20000,
   "logging_step": 50000,
-  "max_samples": 0
+  "max_samples": 0,
+  "check_grammar": 1
 }

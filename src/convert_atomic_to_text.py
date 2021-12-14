@@ -25,18 +25,16 @@ pattern = re.compile("([P|p]erson[A-Z|a-z])")
 
 max_samples = params['max_samples']  # will be considered only if greater than 0
 data_path = params['data_path']
+check_grammar = params['check_grammar']
 saving_step = params['saving_step']  # using to flush data into the csv/txt files
 logging_step = params['logging_step']  # using just to show progress
-output_txt_file_path = params['output_txt_file_path']
-output_csv_file_path = params[
-    'output_csv_file_path']  # there are three splits for ATOMIC-2020: train.tsv, dev.tsv, test.tsv
-data_splits = params['data_splits']  # three possible categories: event, physical, social
+output_file_directory = params['output_file_directory']
+data_splits = params['data_splits']  # ATOMIC-2020 has three splits: train.tsv, dev.tsv, test.tsv
 relation_filter = params['relation_filter']
-relation_category_filter = params['relation_category_filter']
+relation_category_filter = params['relation_category_filter']  # three possible categories: event, physical, social
 
 num_records = 0
 count_duplicates = 0
-check_grammar_flag = False
 relations_count = {}
 grammar_errors = []
 names_replacement = {'PersonX': 'Tracy', 'PersonY': 'Riley', 'PersonZ': 'Jordan'}
@@ -99,20 +97,23 @@ relation_templates = get_atomic_relation_templates()
 
 tmp = set()  # using as a temporary memory to check duplicate rows
 
-with open(output_txt_file_path, 'w') as txt_file, open(output_csv_file_path, 'w') as csv_file:
-    csv_writer = csv.writer(csv_file)
-    # csv file header
-    # all *_text fields are created by concatenating head, relation, and tail in a knowledge graph triple
-    # verbalized_text: verbalized KG triple
-    # modified_text: the modified verbalized_text. Modification includes grammar correction, token replacement, etc.
-    # triple_text: non-verbalized triple (simple concatenation of head, relation, and tail)
-    # relation_category: one of the following categories: ['event', 'social', 'physical']
-    # relation_type: relation type in ATOMIC 2020
-    # grammar_modified: whether the text is grammatically corrected (1) or not (0)
-    csv_writer.writerow(
-        ["verbalized_text", "modified_text", "triple_text", "relation_category", "relation_type", "grammar_modified"])
+for data_split in data_splits:
+    with open(output_file_directory + "atomic2020_{}.txt".format(data_split), 'w') as txt_file, open(
+            output_file_directory + "atomic2020_{}.csv".format(data_split),
+            'w') as csv_file:
+        csv_writer = csv.writer(csv_file)
+        # csv file header
+        # all *_text fields are created by concatenating head, relation, and tail in a knowledge graph triple
+        # verbalized_text: verbalized KG triple
+        # modified_text: the modified verbalized_text. Modification includes grammar correction, token replacement, etc.
+        # triple_text: non-verbalized triple (simple concatenation of head, relation, and tail)
+        # relation_category: one of the following categories: ['event', 'social', 'physical']
+        # relation_type: relation type in ATOMIC 2020
+        # grammar_modified: whether the text is grammatically corrected (1) or not (0)
 
-    for data_split in data_splits:
+        csv_writer.writerow(["verbalized_text", "modified_text", "triple_text", "relation_category", "relation_type",
+                             "corrected_grammar"])
+
         # loading data (triples) from ATOMIC
         df = pd.read_csv('{}/{}.tsv'.format(data_path, data_split), sep='\t', header=None)
         df = df.sample(frac=1)
@@ -171,17 +172,21 @@ with open(output_txt_file_path, 'w') as txt_file, open(output_csv_file_path, 'w'
                         else:
                             relations_count[relation_type] = 1
 
-                        # applying simple rules to fix some grammar errors
-                        modified_text = modified_text.replace("As a result, Riley or others will Riley",
-                                                              "As a result, Riley")
+                        # ------------------------------------------------------------------------------
+                        # correct possible grammatical errors
+                        corrected_text = grammar_tool.correct(modified_text) if check_grammar == 1 else modified_text
+
+                        # flag grammatically corrected examples
+                        corrected = 1 if corrected_text != modified_text else 0
+                        # ------------------------------------------------------------------------------
 
                         # writing into the text file
-                        txt_file.write(modified_text)
+                        txt_file.write(corrected_text)
 
                         # writing into the csv file
                         csv_writer.writerow(
-                            [verbalized_triple.strip(), modified_text.strip(), triple_text.strip(), relation_category,
-                             relation_type, 0])
+                            [verbalized_triple.strip(), corrected_text.strip(), triple_text.strip(), relation_category,
+                             relation_type, corrected])
 
                         num_records += 1
 
@@ -217,7 +222,5 @@ with open(relations_count_file_path, 'w') as out_file:
     out_file.write('\ntotal: {}\n'.format(sum(relations_count.values())))
 
 print('ATOMIC2020-to-text conversion is done successfully.')
-print('output files: \n{}\n{}\n{}\n{}'.format(output_txt_file_path, output_csv_file_path, special_tokens_file_path,
-                                              relations_count_file_path))
 print('number of all converted triples: {}'.format(num_records))
 print('number of duplicates (final output is deduplicated): {}'.format(count_duplicates))
