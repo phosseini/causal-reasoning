@@ -95,9 +95,9 @@ def replace_tokens(text):
 
 relation_templates = get_atomic_relation_templates()
 
-tmp = set()  # using as a temporary memory to check duplicate rows
-
 for data_split in data_splits:
+    tmp = set()  # using as a temporary memory to check duplicate rows
+    
     with open(output_file_directory + "atomic2020_{}.txt".format(data_split), 'w') as txt_file, open(
             output_file_directory + "atomic2020_{}.csv".format(data_split),
             'w') as csv_file:
