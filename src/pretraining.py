@@ -1,33 +1,21 @@
 import json
-import torch
-# torch_xla.* is related to using TPU (we used Google Colab TPU v2)
-import torch_xla
-import torch_xla.core.xla_model as xm
-import torch_xla.debug.metrics as met
-import torch_xla.debug.profiler as xp
-import torch_xla.distributed.parallel_loader as pl
-import torch_xla.distributed.xla_multiprocessing as xmp
-import torch_xla.utils.utils as xu
-
-import pandas as pd
-from datasets import load_dataset, Dataset, DatasetDict
-from transformers import Trainer, TrainingArguments
-from transformers import BertTokenizer, AutoTokenizer, BertForPreTraining, BertForMaskedLM
-from transformers import TextDatasetForNextSentencePrediction, AutoModelForMaskedLM
+from datasets import Dataset, DatasetDict
+from transformers import Trainer, TrainingArguments, EarlyStoppingCallback
+from transformers import AutoModelForMaskedLM, AutoTokenizer, RobertaForCausalLM
 from transformers import DataCollatorForLanguageModeling, DataCollatorForWholeWordMask
 
-tpu_device = xm.xla_device()
-print(tpu_device)
-
-# ------------------------------
 # loading parameters
-with open('../config/fine_tuning_config.json') as f:
+with open('../config/pretraining_config.json') as f:
     params = json.load(f)
+# special tokens used when converting KG-to-Text
+with open('../data/special_tokens.txt', 'r') as in_file:
+    special_tokens = [line.strip() for line in in_file.readlines()]
 
-model_name = params['model_name']
+model_name = params['model_checkpoint']
 tokenizer_name = params['tokenizer_name']
 pretraining_method = params['pretraining_method']
-pretraining_input = params['pretraining_input']
+train_data = params['train_data']
+dev_data = params['dev_data']
 max_length = params['max_length']
 output_dir = params['output_dir']
 relation_category = params['relation_category']
@@ -36,59 +24,52 @@ learning_rate = params['learning_rate']
 save_steps = params['save_steps']
 logging_steps = params['logging_steps']
 per_device_train_batch_size = params['per_device_train_batch_size']
+early_stopping_patience = params['early_stopping_patience']
 
 tokenizer = AutoTokenizer.from_pretrained(tokenizer_name, use_fast=True)
-tokenizer.add_special_tokens({"additional_special_tokens": ["[unused0]", "[unused1]"]})
+tokenizer.add_special_tokens({"additional_special_tokens": special_tokens})
 
-if pretraining_method == 'mlm':
-    model = AutoModelForMaskedLM.from_pretrained(model_name)
-elif pretraining_method == 'mlm_nsp':
-    model = BertForPreTraining.from_pretrained(model_name)
+text_field_name = 'modified_text'
 
-"""
-If using Next Sentence Prediction (NSP) too, for now use an input TXT file, instead of the CSV file, with the following format: 
-every line is a sentence from a document. Documents are separated by an empty line. For example:
 
-sentence 1.1
-sentence 1.2
-[empty line]
-sentence 2.1
-sentence 2.2
-[empty line]
-...
-"""
+def model_init():
+    if pretraining_method == 'mlm':
+        return AutoModelForMaskedLM.from_pretrained(model_name)
+    elif pretraining_method == "clm":
+        return RobertaForCausalLM.from_pretrained(model_name)
+
+
+def remove_newline(example):
+    example[text_field_name] = example[text_field_name].replace('\n', '')
+    return example
+
+
+def encode(examples):
+    # since the data collator (DataCollatorForLanguageModeling) dynamically pads the input examples,
+    # we skip padding when we are tokenizing the input examples and only do the truncation
+    return tokenizer(examples[text_field_name], max_length=max_length, truncation=True)
+
 
 # preparing the data for pretraining
-if pretraining_method == 'mlm_nsp':
-    dataset = TextDatasetForNextSentencePrediction(
-        tokenizer=tokenizer,
-        file_path=pretraining_input,
-        block_size=max_length,
-    )
-elif pretraining_method == 'mlm':
-    def remove_newline(example):
-        example['text'] = example['text'].replace('\n', '')
-        return example
+dataset = DatasetDict()
+dataset['train'] = Dataset.from_csv(train_data)
+dataset['dev'] = Dataset.from_csv(dev_data)
+dataset = dataset.filter(lambda example: example['relation_category'] in relation_category and example[
+    text_field_name] != '' and "[MASK]" not in example[text_field_name])
 
+# train and dev have the same column names
+remove_columns = dataset['train'].column_names  # saving column names before tokenizations
+dataset = dataset.map(remove_newline)
+dataset = dataset.map(encode, batched=True)
+dataset = dataset.remove_columns(remove_columns)
 
-    def encode(examples):
-        # since the data collator (DataCollatorForLanguageModeling) dynamically pads the input examples,
-        # we skip padding when we are tokenizing the input examples and only do the truncation
-        return tokenizer(examples['text'], max_length=max_length, truncation=True)
+# shuffle and select
+dataset = dataset.shuffle(seed=42)
 
-
-    dataset = Dataset.from_csv(pretraining_input)
-    dataset = dataset.filter(
-        lambda example: example['relation_category'] in relation_category and example['text'] != '' and "[MASK]" not in
-                        example['text'])
-    dataset = dataset.map(remove_newline)
-    dataset = dataset.map(encode, batched=True)
-    dataset = dataset.remove_columns(['text', 'relation_category', 'relation_type', 'modified'])
-
-    if 'roberta' in model_name:
-        dataset.set_format(type='torch', columns=['input_ids', 'attention_mask'])
-    else:
-        dataset.set_format(type='torch', columns=['input_ids', 'token_type_ids', 'attention_mask'])
+if 'roberta' in model_name:
+    dataset.set_format(type='torch', columns=['input_ids', 'attention_mask'])
+else:
+    dataset.set_format(type='torch', columns=['input_ids', 'token_type_ids', 'attention_mask'])
 
 data_collator_lm = DataCollatorForLanguageModeling(
     tokenizer=tokenizer,
@@ -102,28 +83,32 @@ data_collator_wwm = DataCollatorForWholeWordMask(
     mlm_probability=0.15,
 )
 
-# ==========================================
-# ========== starting pretraining ==========
-# ==========================================
-
-shuffled_dataset = dataset.shuffle(seed=42)
-
 training_args = TrainingArguments(
     output_dir=output_dir,
+    do_train=True,
+    do_eval=True,
     num_train_epochs=num_train_epochs,
     learning_rate=learning_rate,
+    evaluation_strategy='steps',
+    save_strategy='steps',
     save_steps=save_steps,
-    logging_steps=logging_steps,
     per_device_train_batch_size=per_device_train_batch_size,
     prediction_loss_only=True,
+    load_best_model_at_end=True
 )
 
+# if we want to split either train or dev further
+train_eval = dataset["train"].train_test_split(test_size=0.1)
+# for now, we did not use ATOMIC's dev set, and we split the train set into train and dev
+# if we want to use ATOMIC's dev set, we replace train_eval["test"] with dataset['dev'] in trainer
+
 trainer = Trainer(
-    model=model,
+    model_init=model_init,
     args=training_args,
-    train_dataset=shuffled_dataset,
-    tokenizer=tokenizer,
+    train_dataset=train_eval["train"],
+    eval_dataset=train_eval["test"],
     data_collator=data_collator_lm,
+    callbacks=[EarlyStoppingCallback(early_stopping_patience=early_stopping_patience)]
 )
 
 trainer.train()
