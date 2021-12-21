@@ -11,7 +11,7 @@ with open('../config/pretraining_config.json') as f:
 with open('../data/special_tokens.txt', 'r') as in_file:
     special_tokens = [line.strip() for line in in_file.readlines()]
 
-model_name = params['model_checkpoint']
+model_checkpoint = params['model_checkpoint']
 tokenizer_name = params['tokenizer_name']
 pretraining_method = params['pretraining_method']
 train_data = params['train_data']
@@ -34,9 +34,9 @@ text_field_name = 'modified_text'
 
 def model_init():
     if pretraining_method == 'mlm':
-        return AutoModelForMaskedLM.from_pretrained(model_name)
+        return AutoModelForMaskedLM.from_pretrained(model_checkpoint)
     elif pretraining_method == "clm":
-        return RobertaForCausalLM.from_pretrained(model_name)
+        return RobertaForCausalLM.from_pretrained(model_checkpoint)
 
 
 def remove_newline(example):
@@ -66,7 +66,7 @@ dataset = dataset.remove_columns(remove_columns)
 # shuffle and select
 dataset = dataset.shuffle(seed=42)
 
-if 'roberta' in model_name:
+if 'roberta' in model_checkpoint:
     dataset.set_format(type='torch', columns=['input_ids', 'attention_mask'])
 else:
     dataset.set_format(type='torch', columns=['input_ids', 'token_type_ids', 'attention_mask'])
