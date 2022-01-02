@@ -28,4 +28,15 @@ After pretraining the PLM with the new data, it is time to fine-tune and evaluat
   * `hyperparameter_search`: Whether to run hyperparameter search or not. `1` for running and `0` for not running, respectively.
   * `cross_validation`: Whether running the cross-validation on development set or not. If the `hyperparameter_search` is `0`, this parameter will be ignored since if we do not want to fine-tune the model with a known set of hyperparameters there is no need to run cross-validation on the development set.
   * `tuning_*`: All parameters related to hyperparameter tuning. `tuning_learning_rate_do_range` is set to `1` when we want to search learning rates within a range instead of a predefined list of learning rate values. `tuning_learning_rate_start` and `tuning_learning_rate_end` are to specify the start and end of such a range. Alternatively, we can set the `tuning_learning_rate_do_range` to `0` and learning rates for hyperparameter tuning will be selected from the `tuning_learning_rate` list.
- * Running the fine-tuning code: [`src/fine_tuning.py`](https://github.com/phosseini/causal-reasoning/blob/main/src/fine_tuning.py) 
+ * Running the fine-tuning code: [`src/fine_tuning.py`](https://github.com/phosseini/causal-reasoning/blob/main/src/fine_tuning.py)
+
+### Using our continually pretrained model on HuggingFace🤗
+Our model is deployed on the [HuggingFace's model hub](https://huggingface.co/models). Here is an example of how you can load the model:
+
+```python
+from transformers import AutoTokenizer, AutoModel
+
+tokenizer = AutoTokenizer.from_pretrained("bert-large-cased")
+
+model = AutoModel.from_pretrained("phosseini/atomic-bert-v1")
+```
