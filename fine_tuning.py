@@ -185,6 +185,7 @@ def run_tuning(data_train, data_dev):
         do_eval=True,
         evaluation_strategy=IntervalStrategy.EPOCH,
         disable_tqdm=True,
+        seed=42,
     )
 
     tuning_trainer = Trainer(
@@ -224,7 +225,7 @@ if params['hyperparameter_search'] == 1:
             dev_set = torch.utils.data.dataset.Subset(encoded_datasets['train'], dev_index)
             run_tuning(train_set, dev_set)
     else:
-        encoded_datasets = encoded_datasets['train'].train_test_split(test_size=0.1)
+        encoded_datasets = encoded_datasets['train'].train_test_split(test_size=0.1, shuffle=True, seed=42)
         train_set = encoded_datasets['train']
         dev_set = encoded_datasets['test']
         run_tuning(train_set, dev_set)
