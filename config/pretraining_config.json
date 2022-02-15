@@ -1,21 +1,28 @@
 {
   "pretraining_method": "mlm",
-  "tokenizer_name": "bert-base-cased",
-  "model_checkpoint": "bert-base-cased",
-  "train_data": "../data/atomic2020_train.csv",
-  "dev_data": "../data/atomic2020_dev.csv",
-  "output_dir": "../models/train_output/",
+  "tokenizer_name": "bert-large-cased",
+  "model_checkpoint": "bert-large-cased",
+  "kg_name": "atomic",
+  "text_field": "corrected_text",
+  "train_data": "data/atomic_glucose.csv",
+  "dev_data": "data/atomic2020_dev.csv",
+  "output_dir": "models/checkpoints/",
+  "eval_save_strategy": "steps",
   "max_length": 32,
-  "block_size": 16,
+  "min_length": 0,
+  "block_size": 128,
+  "batch_size": 128,
   "relation_category": [
-    "event",
-    "social",
-    "physical"
+    "event"
   ],
-  "num_train_epochs": 50,
+  "num_train_epochs": 20,
   "learning_rate": 2e-5,
+  "weight_decay": 0,
   "save_steps": 4000,
-  "logging_steps": 2000,
-  "early_stopping_patience": 10,
-  "per_device_train_batch_size": 32
+  "logging_steps": 50,
+  "early_stopping_patience": 20,
+  "use_tpu": 0,
+  "create_dev": 1,
+  "batch_training": 0,
+  "gradient_accumulation_steps": 2
 }
