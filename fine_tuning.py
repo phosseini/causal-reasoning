@@ -5,19 +5,14 @@ from ray import tune
 from typing import Optional, Union
 from dataclasses import dataclass
 from datasets import (DatasetDict, Dataset)
-from transformers import (AutoModelForSequenceClassification, AutoModelForMultipleChoice,
-                          AutoModelForNextSentencePrediction, DataCollatorWithPadding,
-                          AutoTokenizer, TrainingArguments, Trainer, PreTrainedTokenizerBase, EarlyStoppingCallback)
+from transformers import (AutoModelForMultipleChoice, PreTrainedTokenizerBase,
+                          AutoTokenizer, TrainingArguments, Trainer, set_seed)
 from transformers.tokenization_utils_base import PaddingStrategy
-from transformers.trainer_utils import IntervalStrategy
-from ray.tune.schedulers import PopulationBasedTraining
-from sklearn.model_selection import KFold
 
 from utils import lower_nth
 
 
 def compute_metrics(eval_predictions):
-    # predictions, label_ids = eval_predictions
     predictions = eval_predictions.predictions[0] if isinstance(eval_predictions.predictions,
                                                                 tuple) else eval_predictions.predictions
     label_ids = eval_predictions.label_ids
@@ -29,7 +24,6 @@ def compute_metrics(eval_predictions):
 with open('config/fine_tuning_config.json') as f:
     params = json.load(f)
 
-n_fold = params['n_fold']
 task_type = params['task_type']
 model_checkpoint = params['model_checkpoint']
 random_seeds = params['random_seeds']
@@ -43,9 +37,8 @@ ending_names = ["ending0", "ending1"]
 
 output = []
 random_seed_results = []
-tuning_vars = {'best_tuning_objective': 0,
-               'best_tuning_trials': [],
-               'best_tuning_params': {}}
+
+set_seed(42)
 
 tokenizer = AutoTokenizer.from_pretrained(tokenizer_name, use_fast=True)
 
@@ -86,38 +79,6 @@ def preprocess_function(examples, task=params['task_type'], prompt=params['add_p
         return tokenized_examples
 
 
-def tune_config_optuna(trial):
-    optuna_config = {}
-    optuna_config["num_train_epochs"] = trial.suggest_int("num_train_epochs", 3, 4, 5)
-    optuna_config["per_device_train_batch_size"] = trial.suggest_categorical("per_device_train_batch_size",
-                                                                             params['batch_size'])
-    if params['learning_rate_range'] == 1:
-        optuna_config["learning_rate"] = trial.suggest_float("learning_rate", params['learning_rate_start'],
-                                                             params['learning_rate_end'], log=True)
-    return optuna_config
-
-
-def tune_config_ray(trial):
-    ray_config = {}
-    if params['learning_rate_range'] == 1:
-        ray_config["learning_rate"] = tune.loguniform(params['learning_rate_start'], params['learning_rate_end'])
-    else:
-        ray_config["learning_rate"] = tune.grid_search(params['tuning_learning_rate'])
-
-    ray_config["num_train_epochs"] = tune.grid_search(params['tuning_num_train_epochs'])
-    ray_config["per_device_train_batch_size"] = tune.grid_search(params['tuning_batch_size'])
-    return ray_config
-
-
-def model_init():
-    if task_type == 'multi':
-        return AutoModelForMultipleChoice.from_pretrained(model_checkpoint)
-    elif task_type == 'seq':
-        return AutoModelForSequenceClassification.from_pretrained(model_checkpoint)
-    elif task_type == 'nsp':
-        return AutoModelForNextSentencePrediction.from_pretrained(model_checkpoint)
-
-
 @dataclass
 class DataCollatorForMultipleChoice:
     """
@@ -153,109 +114,71 @@ class DataCollatorForMultipleChoice:
         return batch
 
 
-encoded_datasets = DatasetDict()
-encoded_datasets['train'] = Dataset.from_csv(params['train_data_path']).map(preprocess_function, batched=True)
-encoded_datasets['test'] = Dataset.from_csv(params['test_data_path']).map(preprocess_function, batched=True)
+raw_datasets = DatasetDict()
+raw_datasets['train'] = Dataset.from_csv(params['train_data'])
+raw_datasets['test'] = Dataset.from_csv(params['test_data'])
+train_dataset = raw_datasets['train']
+test_dataset = raw_datasets['test']
 
-columns_to_return = ['input_ids', 'label', 'attention_mask']
-if 'roberta' not in tokenizer_name:
-    columns_to_return.append('token_type_ids')
+train_dataset = train_dataset.map(
+    preprocess_function,
+    batched=True,
+)
+test_dataset = test_dataset.map(
+    preprocess_function,
+    batched=True,
+)
 
-encoded_datasets.set_format(type='torch', columns=columns_to_return)
-
-scheduler = PopulationBasedTraining(
-    time_attr="training_iteration",
-    metric="eval_accuracy",
-    mode="max",
-    perturbation_interval=1,
-    hyperparam_mutations={
-        "weight_decay": tune.uniform(0.0, 0.3),
-        "learning_rate": tune.uniform(params['tuning_learning_rate_start'], params['tuning_learning_rate_end']),
-        "per_device_train_batch_size": params['tuning_batch_size'],
-    })
+train_dev_dataset = train_dataset.train_test_split(test_size=0.1, seed=42)
 
 
-# since we don't have training set in COPA, we run cross-validation for hyperparameter tuning
-# obviously, we DON'T do the hyperparameter tuning on test set to avoid leakage
-
-def run_tuning(data_train, data_dev):
-    tuning_args = TrainingArguments(
-        tuning_output_path,
-        evaluation_strategy="steps",
-        disable_tqdm=True,
-        seed=42,
-    )
-
-    tuning_trainer = Trainer(
-        model_init=model_init,
-        args=tuning_args,
-        train_dataset=data_train,
-        eval_dataset=data_dev,
-        tokenizer=tokenizer,
-        data_collator=DataCollatorForMultipleChoice(tokenizer),
-        compute_metrics=compute_metrics,
-    )
-
-    best_tuning_trial = tuning_trainer.hyperparameter_search(hp_space=tune_config_ray,
-                                                             backend=params['tuning_backend'],
-                                                             direction='maximize',
-                                                             keep_checkpoints_num=0,
-                                                             # if using Ray and PopulationBasedTraining
-                                                             n_trials=params['n_trials'],
-                                                             # scheduler=scheduler,
-                                                             )
-
-    if best_tuning_trial.objective > tuning_vars['best_tuning_objective']:
-        tuning_vars['best_tuning_objective'] = best_tuning_trial.objective
-        tuning_vars['best_tuning_params'] = best_tuning_trial
-
-    # saving best trial
-    tuning_vars['best_tuning_trials'].append(best_tuning_trial)
+def model_init():
+    return AutoModelForMultipleChoice.from_pretrained(model_checkpoint)
 
 
-if params['hyperparameter_search'] == 1:
-    if params['cross_validation'] == 1:
-        kf = KFold(n_splits=n_fold, random_state=42, shuffle=True)
-        for train_index, dev_index in kf.split(encoded_datasets['train']):
-            train_index = [int(idx) for idx in list(train_index)]
-            dev_index = [int(idx) for idx in list(dev_index)]
-            train_set = torch.utils.data.dataset.Subset(encoded_datasets['train'], train_index)
-            dev_set = torch.utils.data.dataset.Subset(encoded_datasets['train'], dev_index)
-            run_tuning(train_set, dev_set)
-    else:
-        tuning_datasets = encoded_datasets['train'].train_test_split(test_size=0.1, shuffle=True, seed=42)
-        run_tuning(tuning_datasets['train'], tuning_datasets['test'])
+training_args = TrainingArguments(
+    tuning_output_path,
+    evaluation_strategy="steps",
+    disable_tqdm=True,
+)
 
-    print('==========================================')
-    print("*** all trials ***")
-    [print(trial) for trial in tuning_vars['best_tuning_trials']]
-    print("*** best accuracy: {}".format(tuning_vars['best_tuning_objective']))
-    print("*** best run hyperparameters ***")
-    print(tuning_vars['best_tuning_params'])
-    print('==========================================')
+trainer = Trainer(
+    model_init=model_init,
+    args=training_args,
+    train_dataset=train_dev_dataset['train'],
+    eval_dataset=train_dev_dataset['test'],
+    tokenizer=tokenizer,
+    data_collator=DataCollatorForMultipleChoice(tokenizer),
+    compute_metrics=compute_metrics,
+)
+
+tune_config = {
+    "per_device_train_batch_size": tune.grid_search(params['tuning_batch_size']),
+    "num_train_epochs": tune.grid_search(params['tuning_num_train_epochs']),
+    "learning_rate": tune.grid_search(params['tuning_learning_rate'])
+}
+
+best_trial = trainer.hyperparameter_search(
+    hp_space=lambda _: tune_config,
+    backend="ray",
+    direction='maximize',
+    n_trials=params['n_trials'],
+    keep_checkpoints_num=0,
+    log_to_file=True)
 
 for random_seed in random_seeds:
-    args = TrainingArguments(
-        running_output_path,
-        learning_rate=params['learning_rate'],
-        num_train_epochs=params['num_train_epochs'],
-        per_device_train_batch_size=params['batch_size'],
-        evaluation_strategy="steps",
-        seed=random_seed,
-    )
-
     trainer = Trainer(
         model_init=model_init,
-        args=args,
-        train_dataset=encoded_datasets['train'],
-        eval_dataset=encoded_datasets['test'],
+        args=training_args,
+        train_dataset=train_dataset,
+        eval_dataset=test_dataset,
         data_collator=DataCollatorForMultipleChoice(tokenizer),
         compute_metrics=compute_metrics,
     )
 
-    if params['hyperparameter_search'] == 1:
-        for n, v in tuning_vars['best_tuning_params'].hyperparameters.items():
-            setattr(trainer.args, n, v)
+    for n, v in best_trial.hyperparameters.items():
+        setattr(trainer.args, n, v)
+    setattr(trainer.args, 'seed', random_seed)
 
     trainer.train()
 
@@ -267,6 +190,4 @@ print("*** random seed runs ***")
 print(random_seed_results)
 print('\n\n*** average performance: {}'.format(round(sum(random_seed_results) / len(random_seed_results), 3)))
 print('*** standard deviation: {}'.format(round(np.std(random_seed_results), 3)))
-if params['hyperparameter_search'] == 1:
-    print("*** best tuning run ***")
-    print(tuning_vars['best_tuning_params'])
+print(best_trial)
