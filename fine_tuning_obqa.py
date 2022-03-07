@@ -9,8 +9,6 @@ from transformers import (AutoModelForMultipleChoice, PreTrainedTokenizerBase,
                           AutoTokenizer, TrainingArguments, Trainer, set_seed)
 from transformers.tokenization_utils_base import PaddingStrategy
 
-from utils import lower_nth
-
 
 def compute_metrics(eval_predictions):
     predictions = eval_predictions.predictions[0] if isinstance(eval_predictions.predictions,
@@ -32,51 +30,31 @@ experiment_name = params['experiment_name']
 running_output_path = params['running_output_path']
 tuning_output_path = params['tuning_output_path']
 
-# ending0 and ending1 are the two choices for each question
-ending_names = ["ending0", "ending1"]
+# ending* are choices for each question
+ending_names = ["ending0", "ending1", "ending2", "ending3"]
 
 output = []
 random_seed_results = []
 
 set_seed(42)
 
-tokenizer = AutoTokenizer.from_pretrained(tokenizer_name, use_fast=True)
+tokenizer = AutoTokenizer.from_pretrained(tokenizer_name, use_fast=False)
 
 
 def preprocess_function(examples, task=params['task_type'], prompt=params['add_prompt_to_test']):
-    # checking task value:
-    if task not in ['seq', 'multi', 'nsp']:
-        print("Task value should be one of the following: \'seq\' or \'multi\' or \'nsp\'")
-        return
-
-    if task == 'multi':
-        # Repeat each first sentence two times to go with the two possibilities of second sentences.
-        first_sentences = [[context] * 2 for context in examples["sent1"]]
-        # Grab all second sentences possible for each context.
-        question_headers = examples["sent2"]
-        if prompt == 1:
-            second_sentences = [[f"{header} {lower_nth(examples[end][i], 0)}" for end in ending_names] for i, header in
-                                enumerate(question_headers)]
-        else:
-            second_sentences = [[f"{examples[end][i]}" for end in ending_names] for i, header in
-                                enumerate(question_headers)]
-    elif task in ['seq', 'nsp']:
-        first_sentences = [examples["sent1"]]
-        second_sentences = [examples["sent2"]]
+    # Repeat each first sentence four times to go with the two possibilities of second sentences.
+    first_sentences = [[context] * 4 for context in examples["question"]]
+    # Grab all second sentences possible for each context.
+    question_headers = examples["question"]
+    second_sentences = [[f"{examples[end][i]}" for end in ending_names] for i, header in enumerate(question_headers)]
 
     # Flatten everything
     first_sentences = sum(first_sentences, [])
     second_sentences = sum(second_sentences, [])
 
     # Un-flatten
-    if task == 'multi':
-        tokenized_examples = tokenizer(first_sentences, second_sentences, max_length=params['max_length'],
-                                       truncation=True)
-        return {k: [v[i:i + 2] for i in range(0, len(v), 2)] for k, v in tokenized_examples.items()}
-    elif task in ['seq', 'nsp']:
-        tokenized_examples = tokenizer(first_sentences, second_sentences, max_length=params['max_length'],
-                                       truncation=True)
-        return tokenized_examples
+    tokenized_examples = tokenizer(first_sentences, second_sentences, max_length=params['max_length'], truncation=True)
+    return {k: [v[i:i + 4] for i in range(0, len(v), 4)] for k, v in tokenized_examples.items()}
 
 
 @dataclass
@@ -116,20 +94,17 @@ class DataCollatorForMultipleChoice:
 
 raw_datasets = DatasetDict()
 raw_datasets['train'] = Dataset.from_csv(params['train_data'])
+raw_datasets['dev'] = Dataset.from_csv(params['dev_data'])
 raw_datasets['test'] = Dataset.from_csv(params['test_data'])
+
+raw_datasets = raw_datasets.map(
+    preprocess_function,
+    batched=True,
+)
+
 train_dataset = raw_datasets['train']
+dev_dataset = raw_datasets['dev']
 test_dataset = raw_datasets['test']
-
-train_dataset = train_dataset.map(
-    preprocess_function,
-    batched=True,
-)
-test_dataset = test_dataset.map(
-    preprocess_function,
-    batched=True,
-)
-
-train_dev_dataset = train_dataset.train_test_split(test_size=0.1, seed=42)
 
 
 def model_init():
@@ -145,8 +120,8 @@ training_args = TrainingArguments(
 trainer = Trainer(
     model_init=model_init,
     args=training_args,
-    train_dataset=train_dev_dataset['train'],
-    eval_dataset=train_dev_dataset['test'],
+    train_dataset=train_dataset,
+    eval_dataset=dev_dataset,
     tokenizer=tokenizer,
     data_collator=DataCollatorForMultipleChoice(tokenizer),
     compute_metrics=compute_metrics,
@@ -163,6 +138,10 @@ best_trial = trainer.hyperparameter_search(
     backend="ray",
     direction='maximize',
     n_trials=params['n_trials'],
+    resources_per_trial={
+        "cpu": 1,
+        "gpu": 1
+    },
     keep_checkpoints_num=0,
     log_to_file=True)
 
