@@ -3,7 +3,7 @@ import json
 import comet_ml
 from datasets import Dataset, DatasetDict
 from transformers import (Trainer, TrainingArguments, EarlyStoppingCallback,
-                          AutoTokenizer, AutoModelForMaskedLM,
+                          AutoTokenizer, AutoModelForMaskedLM, set_seed,
                           RobertaForCausalLM, DataCollatorForLanguageModeling,
                           )
 
@@ -14,12 +14,6 @@ with open('config/pretraining_config.json') as f:
 # special tokens used when converting KG-to-Text
 with open('data/special_tokens.txt', 'r') as in_file:
     special_tokens = [line.strip() for line in in_file.readlines()]
-
-# check if we need to import TPU-related libraries
-if params['use_tpu'] == 1:
-    import torch_xla
-    import torch_xla.core.xla_model as xm
-    import torch_xla.distributed.xla_multiprocessing as xmp
 
 model_name = params['model_checkpoint']
 tokenizer_name = params['tokenizer_name']
@@ -34,6 +28,8 @@ kg_name = params['kg_name']
 relation_category = params['relation_category']
 create_dev = params['create_dev']
 text_field = params['text_field']
+
+set_seed(42)
 
 tokenizer = AutoTokenizer.from_pretrained(tokenizer_name, use_fast=True)
 tokenizer.add_special_tokens({"additional_special_tokens": special_tokens})
@@ -57,7 +53,6 @@ def group_texts(examples):
 
 def preprocess_example(example):
     example[text_field] = example[text_field].replace('\n', '')
-    example[text_field] = example[text_field].rstrip('.')
     return example
 
 
@@ -71,7 +66,7 @@ dataset = DatasetDict()
 dataset['train'] = Dataset.from_csv(train_data)
 
 if create_dev == 1:
-    train_eval = dataset["train"].train_test_split(test_size=0.05)
+    train_eval = dataset["train"].train_test_split(test_size=0.1)
     dataset["train"] = train_eval['train']
     dataset["dev"] = train_eval['test']
 else:
@@ -92,11 +87,6 @@ if params['batch_training'] == 1:
         batch_size=1000,
     )
 
-dataset.set_format(type='torch', columns=dataset['train'].column_names)
-
-# shuffling the dataset
-dataset['train'] = dataset['train'].shuffle(seed=42)
-
 data_collator = DataCollatorForLanguageModeling(
     tokenizer=tokenizer,
     mlm=True,
@@ -105,20 +95,19 @@ data_collator = DataCollatorForLanguageModeling(
 
 training_args = TrainingArguments(
     output_dir=output_dir,
-    do_train=True,
-    do_eval=True,
     num_train_epochs=params['num_train_epochs'],
     learning_rate=params['learning_rate'],
     weight_decay=params['weight_decay'],
     evaluation_strategy=params['eval_save_strategy'],
     save_strategy=params['eval_save_strategy'],
+    eval_steps=params['eval_steps'],
     save_steps=params['save_steps'],
     logging_steps=params['logging_steps'],
     per_device_train_batch_size=params['batch_size'],
     per_device_eval_batch_size=params['batch_size'],
     load_best_model_at_end=True,
     metric_for_best_model='eval_loss',
-    gradient_accumulation_steps=params['gradient_accumulation_steps']
+    gradient_accumulation_steps=params['gradient_accumulation_steps'],
 )
 
 
@@ -130,7 +119,7 @@ def get_model():
 
 
 trainer = Trainer(
-    model=get_model(),
+    model_init=get_model,
     args=training_args,
     train_dataset=dataset["train"],
     eval_dataset=dataset["dev"],

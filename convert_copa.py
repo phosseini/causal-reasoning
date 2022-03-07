@@ -13,7 +13,7 @@ from utils import convert_copa_data
 
 # the 'm' extension is for the multi-choice formatted data
 
-dir_path = '../data/copa/'
+dir_path = 'data/copa/'
 
 copa_dev, copa_dev_ordered, copa_dev_m = convert_copa_data(dir_path + 'original/copa-dev.xml')
 bcopa_dev, bcopa_dev_ordered, bcopa_dev_m = convert_copa_data(dir_path + 'original/balanced-copa-dev-all.xml')
