@@ -10,7 +10,7 @@ from utils import get_atomic_relation_templates
 from utils import lower_nth, capitalize_nth
 
 # loading parameters
-config_path = '../config/atomic_conversion_config.json'
+config_path = 'config/atomic_conversion_config.json'
 if os.path.exists(config_path):
     with open(config_path) as f:
         params = json.load(f)
@@ -18,9 +18,11 @@ else:
     raise FileNotFoundError('Please put the config file in the following path: ./config/atomic_conversion_config.json')
 
 # loading models
-grammar_tool = language_tool_python.LanguageTool('en-US')
+language_tool_python_config = {'cacheSize': 50000, 'pipelineCaching': True}
+grammar_tool = language_tool_python.LanguageTool('en-US', config=language_tool_python_config)
 
 special_tokens = {'[unused1]': '[unused1]'}
+check_pattern = True
 pattern = re.compile("([P|p]erson[A-Z|a-z])")
 
 max_samples = params['max_samples']  # will be considered only if greater than 0
@@ -32,12 +34,13 @@ output_file_directory = params['output_file_directory']
 data_splits = params['data_splits']  # ATOMIC-2020 has three splits: train.tsv, dev.tsv, test.tsv
 relation_filter = params['relation_filter']
 relation_category_filter = params['relation_category_filter']  # three possible categories: event, physical, social
+do_names_replacement = params['do_names_replacement']
 
 num_records = 0
 count_duplicates = 0
-relations_count = {}
-grammar_errors = []
+relations_count = dict()
 names_replacement = {'PersonX': 'Tracy', 'PersonY': 'Riley', 'PersonZ': 'Jordan'}
+special_token_replacement = {'PersonX': None, 'PersonY': None, 'PersonZ': None}
 
 
 def get_special_token(w):
@@ -65,8 +68,8 @@ def normalize_string(element: str):
                     'Personx': 'PersonX', 'Persony': 'PersonY',
                     ' X ': ' PersonX ', ' Y ': ' PersonY ', ' x ': ' PersonX ', ' y ': ' PersonY '}
 
-    for k, v in replacements.items():
-        element = re.sub(k, v, element)
+    for key, value in replacements.items():
+        element = re.sub(key, value, element)
 
     # checking if there's any X or Y at the start or end of tuple elements
     text_starts = ['X ', 'x ', 'Y ', 'y ']
@@ -93,26 +96,27 @@ def replace_tokens(text):
     return text
 
 
+for k, v in special_token_replacement.items():
+    special_token_replacement[k] = get_special_token(k)
+
 relation_templates = get_atomic_relation_templates()
 
+tmp = set()  # using as a temporary memory to check duplicate rows
+
 for data_split in data_splits:
-    tmp = set()  # using as a temporary memory to check duplicate rows
-    
+
     with open(output_file_directory + "atomic2020_{}.txt".format(data_split), 'w') as txt_file, open(
             output_file_directory + "atomic2020_{}.csv".format(data_split),
             'w') as csv_file:
         csv_writer = csv.writer(csv_file)
         # csv file header
-        # all *_text fields are created by concatenating head, relation, and tail in a knowledge graph triple
-        # verbalized_text: verbalized KG triple
-        # modified_text: the modified verbalized_text. Modification includes grammar correction, token replacement, etc.
+        # text: verbalized KG triple
         # triple_text: non-verbalized triple (simple concatenation of head, relation, and tail)
         # relation_category: one of the following categories: ['event', 'social', 'physical']
         # relation_type: relation type in ATOMIC 2020
-        # grammar_modified: whether the text is grammatically corrected (1) or not (0)
+        # corrected_grammar: whether the text is grammatically corrected (1) or not (0)
 
-        csv_writer.writerow(["verbalized_text", "modified_text", "triple_text", "relation_category", "relation_type",
-                             "corrected_grammar"])
+        csv_writer.writerow(["text", "triple_text", "relation_category", "relation_type", "corrected_grammar"])
 
         # loading data (triples) from ATOMIC
         df = pd.read_csv('{}/{}.tsv'.format(data_path, data_split), sep='\t', header=None)
@@ -134,59 +138,63 @@ for data_split in data_splits:
                     len(relation_filter) != 0 and relation_type in relation_filter)):
 
                 start_exception = ['PersonX', 'PersonY', 'PersonZ']
-
+                # ---------------------------
                 # normalizing triple elements
                 head = normalize_string(row[0])
                 tail = normalize_string(row[2])
                 verbalized_relation = relation_templates[row[1]][1]
 
                 # triple_text will be used when we want to do MLM only using the triples with no KG-to-text conversion
-                triple_text = '{} {} {}'.format(head, get_special_token(row[1]), tail)
+                triple_text = '{} {} {}'.format(head, row[1], tail)
 
-                # checking duplicate values
-                if str(triple_text) not in tmp:
-                    tmp.add(str(triple_text))
+                # ----------------------
+                # verbalizing the triple
+                segment_a = '{}'.format(capitalize_nth(head, 0))
+                tail = lower_nth(tail, 0) if not any(
+                    tail.startswith(exception) for exception in start_exception) else tail
 
-                    # verbalizing the triple
-                    segment_a = '{}'.format(capitalize_nth(head, 0))
-                    if any(tail.startswith(exception) for exception in start_exception):
-                        segment_b = '{} {}'.format(verbalized_relation, tail)
-                    else:
-                        segment_b = '{} {}'.format(verbalized_relation, lower_nth(tail, 0))
+                segment_b = '{} {}'.format(verbalized_relation, tail)
 
-                    if relation_templates[relation_type][2] == 0:
-                        verbalized_triple = '{} {}\n\n'.format(segment_a, segment_b)
-                    elif relation_templates[relation_type][2] == 1:
-                        verbalized_triple = segment_a + '. ' + capitalize_nth(segment_b, 0) + '.\n\n'
+                # if segment_a and segment_b are part of the same sentence
+                if relation_templates[relation_type][2] == 0:
+                    verbalized_triple = '{} {}\n\n'.format(segment_a, segment_b)
+                # if segment_a and segment_b are separate sentences
+                elif relation_templates[relation_type][2] == 1:
+                    verbalized_triple = segment_a + '. ' + capitalize_nth(segment_b, 0) + '.\n\n'
 
-                    # modifying the verbalized triple (e.g., grammar correction, etc.)
-                    modified_text = copy.deepcopy(verbalized_triple)
-
-                    # replacing the names
+                # ----------------------------
+                # replacing Person* with names
+                if do_names_replacement == 1:
                     for token, name_replacement in names_replacement.items():
-                        modified_text = modified_text.replace(token, name_replacement)
+                        verbalized_triple = verbalized_triple.replace(token, name_replacement)
+                else:
+                    # replacing with special tokens
+                    for token, special_token in special_token_replacement.items():
+                        verbalized_triple = verbalized_triple.replace(token, special_token)
 
-                    if pattern.search(modified_text) is None:
-                        if relation_type in relations_count:
-                            relations_count[relation_type] += 1
-                        else:
-                            relations_count[relation_type] = 1
+                if not check_pattern or (check_pattern and pattern.search(verbalized_triple) is None):
+                    if relation_type in relations_count:
+                        relations_count[relation_type] += 1
+                    else:
+                        relations_count[relation_type] = 1
 
-                        # ------------------------------------------------------------------------------
-                        # correct possible grammatical errors
-                        corrected_text = grammar_tool.correct(modified_text) if check_grammar == 1 else modified_text
+                    # -----------------------------------
+                    # correct possible grammatical errors
+                    text = grammar_tool.correct(
+                        verbalized_triple) if check_grammar == 1 else verbalized_triple
 
-                        # flag grammatically corrected examples
-                        corrected = 1 if corrected_text != modified_text else 0
-                        # ------------------------------------------------------------------------------
+                    # flag grammatically corrected examples
+                    corrected = 1 if text != verbalized_triple else 0
 
+                    # checking duplicate values
+                    if str(text) not in tmp:
+                        tmp.add(str(text))
                         # writing into the text file
-                        txt_file.write(corrected_text)
+                        txt_file.write(text)
 
                         # writing into the csv file
                         csv_writer.writerow(
-                            [verbalized_triple.strip(), corrected_text.strip(), triple_text.strip(), relation_category,
-                             relation_type, corrected])
+                            [text.strip(), triple_text.strip(), relation_category, relation_type, corrected])
 
                         num_records += 1
 
@@ -194,8 +202,8 @@ for data_split in data_splits:
                         if num_records % saving_step == 0:
                             txt_file.flush()
                             csv_file.flush()
-                else:
-                    count_duplicates += 1
+                    else:
+                        count_duplicates += 1
 
             if i % logging_step == 0:
                 print('step {}'.format(i))
@@ -204,11 +212,11 @@ for data_split in data_splits:
             if 0 < max_samples < num_records:
                 break
 
-        del tmp
+del tmp
 
 # writing the special tokens into a file
-special_tokens_file_path = "../data/special_tokens.txt"
-relations_count_file_path = "../data/relations_count.txt"
+special_tokens_file_path = "data/special_tokens.txt"
+relations_count_file_path = "data/relations_count.txt"
 
 with open(special_tokens_file_path, 'w') as out_file:
     for token, special_token in special_tokens.items():

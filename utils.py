@@ -28,34 +28,34 @@ def get_atomic_relation_templates():
     # an independent sentence together with the target in the triple, respectively.
     # 4) category of relation defined by the ATOMIC paper: physical, social, event
     return {
-        'AtLocation': ['located or found at/in/on', 'located at', 0, 'physical'],
+        'AtLocation': ['located or found at/in/on', 'located or found at', 0, 'physical'],
         'CapableOf': ['is/are capable of', 'is capable of', 0, 'physical'],
         'Causes': ['causes', 'causes', 0, 'event'],
-        'CausesDesire': ['makes someone want', 'causes the desire to', 0, 'social'],
+        'CausesDesire': ['makes someone want', 'makes someone want', 0, 'social'],
         'CreatedBy': ['is created by', 'is created by', 0, ''],
         'Desires': ['desires', 'desires', 0, 'physical'],
-        'HasA': ['has, possesses or contains', 'has a', 0, 'physical'],
-        'HasFirstSubevent': ['BEGINS with the event/action', 'starts with', 0, 'event'],
+        'HasA': ['has, possesses or contains', 'has, possesses or contains', 0, 'physical'],
+        'HasFirstSubevent': ['BEGINS with the event/action', 'begins with', 0, 'event'],
         'HasLastSubevent': ['ENDS with the event/action', 'ends with', 0, 'event'],
         'HasPrerequisite': ['to do this, one requires', 'requires', 1, 'social'],
-        'HasProperty': ['can be characterized by being/having', 'has the property', 0, 'physical'],
+        'HasProperty': ['can be characterized by being/having', 'can be characterized by', 0, 'physical'],
         'HasSubEvent': ['includes the event/action', 'includes', 0, 'event'],
-        'HinderedBy': ['can be hindered by', 'is hindered by', 0, 'event'],
-        'InstanceOf': ['is an example/instance of', 'is an instance of', 0, ''],
+        'HinderedBy': ['can be hindered by', 'can be hindered by', 0, 'event'],
+        'InstanceOf': ['is an example/instance of', 'is an example of', 0, ''],
         'isAfter': ['happens after', 'happens after', 0, 'event'],
         'isBefore': ['happens before', 'happens before', 0, 'event'],
-        'isFilledBy': ['blank can be filled by', 'is filled by', 0, 'event'],
+        'isFilledBy': ['blank can be filled by', 'can be filled by', 0, 'event'],
         'MadeOf': ['is made of', 'is made of', 0, 'physical'],
         'MadeUpOf': ['made (up) of', 'is made up of', 0, 'physical'],
-        'MotivatedByGoal': ['is a step towards accomplishing the goal', 'is motivated by', 0, 'social'],
+        'MotivatedByGoal': ['is a step towards accomplishing the goal', 'is a step towards accomplishing', 0, 'social'],
         'NotDesires': ['do(es) NOT desire', 'does not desire', 0, 'physical'],
         'ObjectUse': ['used for', 'is used for', 0, 'physical'],
         'UsedFor': ['used for', 'is used for', 0, 'physical'],
-        'oEffect': ['as a result, Y or others will', 'As a result, PersonY or others', 1, 'social'],
-        'oReact': ['as a result, Y or others feels', 'As a result, PersonY or others feel', 1, 'social'],
-        'oWant': ['as a result, Y or others want', 'As a result, PersonY or others want', 1, 'social'],
+        'oEffect': ['as a result, Y or others will', 'As a result, PersonY', 1, 'social'],
+        'oReact': ['as a result, Y or others feels', 'As a result, PersonY feels', 1, 'social'],
+        'oWant': ['as a result, Y or others want', 'As a result, PersonY wants', 1, 'social'],
         'PartOf': ['is a part of', 'is a part of', 0, 'physical'],
-        'ReceivesAction': ['can receive or be affected by the action', 'is affected by', 0, ''],
+        'ReceivesAction': ['can receive or be affected by the action', 'can receive or be affected by', 0, ''],
         'xAttr': ['X is seen as', 'PersonX is seen as', 1, 'social'],
         'xEffect': ['as a result, PersonX will', 'As a result, PersonX', 1, 'social'],
         'xIntent': ['because PersonX wanted', 'because PersonX wanted', 0, 'social'],
@@ -143,3 +143,18 @@ def convert_copa_data(file_path):
         print("[copa-convert-log] error detail: {}".format(e))
 
     return data, data_cause_effect, data_multi_choice
+
+
+def longest_prefix(a, b):
+    prefix = ""
+    a = a.split()
+    b = b.split()
+    min_len = min(len(a), len(b))
+    i = 0
+    while i < min_len:
+        if a[i] == b[i]:
+            prefix += a[i] + " "
+        else:
+            break
+        i += 1
+    return prefix.strip()
