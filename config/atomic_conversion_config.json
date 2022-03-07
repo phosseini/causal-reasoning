@@ -1,6 +1,6 @@
 {
-  "data_path": "../data/atomic2020_data-feb2021",
-  "output_file_directory": "../data/",
+  "data_path": "data/atomic2020_data-feb2021",
+  "output_file_directory": "data/",
   "data_splits": [
     "train",
     "dev"
@@ -11,8 +11,9 @@
     "social",
     "physical"
   ],
-  "saving_step": 20000,
+  "saving_step": 50000,
   "logging_step": 50000,
   "max_samples": 0,
-  "check_grammar": 1
+  "check_grammar": 1,
+  "do_names_replacement": 1
 }
