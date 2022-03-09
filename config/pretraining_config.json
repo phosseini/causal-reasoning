@@ -23,6 +23,7 @@
   "eval_steps": 500,
   "logging_steps": 100,
   "create_dev": 0,
+  "test_size": 0.1,
   "batch_training": 0,
   "gradient_accumulation_steps": 1
 }

@@ -27,6 +27,7 @@ output_dir = params['output_dir']
 kg_name = params['kg_name']
 relation_category = params['relation_category']
 create_dev = params['create_dev']
+test_size = params['test_size']
 text_field = params['text_field']
 
 set_seed(42)
@@ -59,23 +60,26 @@ def preprocess_example(example):
 def encode(examples):
     # since the data collator (DataCollatorForLanguageModeling) dynamically pads the input examples,
     # we skip padding when we are tokenizing the input examples and only do the truncation
-    return tokenizer(examples[text_field], max_length=max_length, truncation=True, padding=False)
+    return tokenizer(examples[text_field], max_length=max_length, truncation=True, padding=True)
 
 
 dataset = DatasetDict()
 dataset['train'] = Dataset.from_csv(train_data)
 
 if create_dev == 1:
-    train_eval = dataset["train"].train_test_split(test_size=0.1)
+    train_eval = dataset["train"].train_test_split(test_size=test_size)
     dataset["train"] = train_eval['train']
     dataset["dev"] = train_eval['test']
 else:
     dataset['dev'] = Dataset.from_csv(dev_data)
 
+# filtering based on max_length is not same as truncation since we may not always want to break a long sequence
+dataset = dataset.filter(lambda example: example[text_field] != '' and "[MASK]" not in example[text_field] and (
+        min_length < len(example[text_field].split()) <= max_length))
+
+# relation_category only exists for ATOMIC
 if kg_name == "atomic":
-    dataset = dataset.filter(lambda example: example['relation_category'] in relation_category and example[
-        text_field] != '' and "[MASK]" not in example[text_field] and (
-                                                     min_length < len(example[text_field].split(' '))))
+    dataset = dataset.filter(lambda example: example['relation_category'] in relation_category)
 
 dataset = dataset.map(preprocess_example)
 dataset = dataset.map(encode, batched=True)
@@ -84,7 +88,7 @@ if params['batch_training'] == 1:
     dataset = dataset.map(
         group_texts,
         batched=True,
-        batch_size=1000,
+        batch_size=params['block_size'],
     )
 
 data_collator = DataCollatorForLanguageModeling(
