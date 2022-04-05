@@ -1,7 +1,7 @@
 # Commonsense Causal Reasoning
 
 <p align="center">
-  <img src='overview.png' width='600' height='350' style="vertical-align:middle;margin:100px 50px">
+  <img src='overview.png' width='600' height='300' style="vertical-align:middle;margin:100px 50px">
 </p>
 
 ## Converting ATOMIC-to-Text
