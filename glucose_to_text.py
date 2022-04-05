@@ -17,7 +17,7 @@ file_path = 'data/glucose_train.csv'
 df = pd.read_csv('data/glucose/GLUCOSE_training_data_final.csv')
 
 # quality can be 1-3 with 1 being the lowest and 3 being the best.
-df = df[df['worker_quality_rating'].isin([2, 3])]
+df = df[df['worker_quality_rating'].isin([3])]
 
 # "specific" columns contain the actual sentences from the story
 # general columns are the general patterns of a relation

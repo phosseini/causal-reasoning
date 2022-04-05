@@ -44,7 +44,6 @@ tokenizer = AutoTokenizer.from_pretrained(tokenizer_name, use_fast=False)
 
 
 def preprocess_function(examples, task=params['task_type'], prompt=params['add_prompt_to_test']):
-    # checking task value:
     if task not in ['seq', 'multi', 'nsp']:
         print("Task value should be one of the following: \'seq\' or \'multi\' or \'nsp\'")
         return
