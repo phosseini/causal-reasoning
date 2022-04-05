@@ -8,7 +8,7 @@
 Triples in ATOMIC are stored in form of: `(subject, relation, target)`. We convert (verbalize) these triples to natural language text to later use them in training/fine-tuning some Pretrained Language Models (PLMs).
 #### Steps:
 1. Download ATOMIC 2020 [here](https://allenai.org/data/atomic-2020), put it in the `/data` folder, and unzip it.
-2. Run the following code: [`atomic_to_text.py`](https://github.com/phosseini/causal-reasoning/blob/main/src/convert_atomic_to_text.py)
+2. Run the following code: [`atomic_to_text.py`](https://github.com/phosseini/causal-reasoning/blob/main/atomic_to_text.py)
 3. Output will be stored as `.txt` and `.csv` files in the `/data` folder.
 
 
@@ -34,13 +34,13 @@ glucose_model = AutoModel.from_pretrained("phosseini/glucose-bert-large")
 
 ## Fine-tuning
 After pretraining the PLM with the new data, it is time to fine-tune and evaluate its performance on downstream tasks. There are three steps for running the experiments related to model fine-tuning and evaluation:
-* Running the [`src/convert_copa.py`](https://github.com/phosseini/causal-reasoning/blob/main/src/convert_copa.py) to generate all the required COPA-related data files (`train/test`) for fine-tuning.
+* Running the [`convert_copa.py`](https://github.com/phosseini/causal-reasoning/blob/main/convert_copa.py) to generate all the required COPA-related data files (`train/test`) for fine-tuning.
 * Setting the parameters in [`config/fine_tuning_config.json`](https://github.com/phosseini/causal-reasoning/blob/main/config/fine_tuning_config.json). Description of some parameters:
   * `tuning_backend`: For choosing the hyperparameter tuning backend, `ray` or `optuna`
   * `hyperparameter_search`: Whether to run hyperparameter search or not. `1` for running and `0` for not running, respectively.
   * `cross_validation`: Whether running the cross-validation on development set or not. If the `hyperparameter_search` is `0`, this parameter will be ignored since if we do not want to fine-tune the model with a known set of hyperparameters there is no need to run cross-validation on the development set.
   * `tuning_*`: All parameters related to hyperparameter tuning. `tuning_learning_rate_do_range` is set to `1` when we want to search learning rates within a range instead of a predefined list of learning rate values. `tuning_learning_rate_start` and `tuning_learning_rate_end` are to specify the start and end of such a range. Alternatively, we can set the `tuning_learning_rate_do_range` to `0` and learning rates for hyperparameter tuning will be selected from the `tuning_learning_rate` list.
- * Running the fine-tuning code: [`fine_tuning.py`](https://github.com/phosseini/causal-reasoning/blob/main/fine_tuning.py)
+ * Running the fine-tuning code: [`fine_tuning_copa.py`](https://github.com/phosseini/causal-reasoning/blob/main/fine_tuning_copa.py)
 
 ### Citation
 ```bibtex
