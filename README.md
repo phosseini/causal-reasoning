@@ -48,10 +48,10 @@ After pretraining the PLM with the new data, it is time to fine-tune and evaluat
 
 ### Citation
 ```bibtex
-@article{hosseini2021commonsense,
-  title={Commonsense Knowledge-Augmented Pretrained Language Models for Causal Reasoning Classification},
-  author={Hosseini, Pedram and Broniatowski, David A and Diab, Mona},
-  journal={arXiv preprint arXiv:2112.08615},
-  year={2021}
+@inproceedings{hosseini2022knowledge,
+  title={Knowledge-Augmented Language Models for Cause-Effect Relation Classification},
+  author={Hosseini, Pedram and Broniatowski, David A and Diab, Mona T},
+  booktitle={ACL 2022 Workshop on Commonsense Representation and Reasoning},
+  year={2022}
 }
 ```
