@@ -126,8 +126,6 @@ test_dataset = test_dataset.map(
 
 # since COPA doesn't have separate train and dev sets, we split its dev set into train and dev
 train_dev_dataset = train_dataset.train_test_split(test_size=0.1, seed=42)
-train_dataset = train_dev_dataset['train']
-dev_dataset = train_dev_dataset['test']
 
 
 def get_model():
@@ -145,8 +143,8 @@ training_args = TrainingArguments(
 trainer = Trainer(
     args=training_args,
     tokenizer=tokenizer,
-    train_dataset=train_dataset,
-    eval_dataset=dev_dataset,
+    train_dataset=train_dev_dataset['train'],
+    eval_dataset=train_dev_dataset['test'],
     data_collator=DataCollatorForMultipleChoice(tokenizer),
     model_init=get_model,
     compute_metrics=compute_metrics
