@@ -1,12 +1,13 @@
 import json
 import torch
+import statistics
 import numpy as np
 from ray import tune
 from typing import Optional, Union
 from dataclasses import dataclass
 from datasets import (DatasetDict, Dataset)
 from transformers import (AutoModelForMultipleChoice, PreTrainedTokenizerBase,
-                          AutoTokenizer, TrainingArguments, Trainer, set_seed)
+                          AutoTokenizer, TrainingArguments, Trainer)
 from transformers.tokenization_utils_base import PaddingStrategy
 
 from utils import lower_nth
@@ -34,11 +35,6 @@ tuning_output_path = params['tuning_output_path']
 
 # ending0 and ending1 are the two choices for each question
 ending_names = ["ending0", "ending1"]
-
-output = []
-random_seed_results = []
-
-set_seed(42)
 
 tokenizer = AutoTokenizer.from_pretrained(tokenizer_name, use_fast=False)
 
@@ -128,27 +124,32 @@ test_dataset = test_dataset.map(
     batched=True,
 )
 
+# since COPA doesn't have separate train and dev sets, we split its dev set into train and dev
 train_dev_dataset = train_dataset.train_test_split(test_size=0.1, seed=42)
+train_dataset = train_dev_dataset['train']
+dev_dataset = train_dev_dataset['test']
 
 
-def model_init():
+def get_model():
     return AutoModelForMultipleChoice.from_pretrained(model_checkpoint)
 
 
 training_args = TrainingArguments(
-    tuning_output_path,
+    output_dir=running_output_path,  # output directory
     evaluation_strategy="steps",
+    report_to="wandb",
     disable_tqdm=True,
+    seed=42
 )
 
 trainer = Trainer(
-    model_init=model_init,
     args=training_args,
-    train_dataset=train_dev_dataset['train'],
-    eval_dataset=train_dev_dataset['test'],
     tokenizer=tokenizer,
+    train_dataset=train_dataset,
+    eval_dataset=dev_dataset,
     data_collator=DataCollatorForMultipleChoice(tokenizer),
-    compute_metrics=compute_metrics,
+    model_init=get_model,
+    compute_metrics=compute_metrics
 )
 
 tune_config = {
@@ -162,35 +163,46 @@ best_trial = trainer.hyperparameter_search(
     backend="ray",
     direction='maximize',
     n_trials=params['n_trials'],
+    verbose=1,
     resources_per_trial={
-        "cpu": 1,
+        "cpu": 8,  # make sure to change your resources accordingly
         "gpu": 1
     },
     keep_checkpoints_num=0,
+    local_dir="./ray_results/",
     log_to_file=True)
 
-for random_seed in random_seeds:
+# updating hyperparameters using best trial
+for n, v in best_trial.hyperparameters.items():
+    setattr(training_args, n, v)
+
+print("*** best hyperparameter values ***")
+print(training_args)
+
+print("*** best trial ***")
+print(best_trial)
+
+test_results = {'eval_accuracy': list()}
+
+for run in params['random_seeds']:
+    setattr(training_args, 'seed', run)
     trainer = Trainer(
-        model_init=model_init,
         args=training_args,
+        tokenizer=tokenizer,
         train_dataset=train_dataset,
         eval_dataset=test_dataset,
         data_collator=DataCollatorForMultipleChoice(tokenizer),
-        compute_metrics=compute_metrics,
+        model_init=get_model,
+        compute_metrics=compute_metrics
     )
 
-    for n, v in best_trial.hyperparameters.items():
-        setattr(trainer.args, n, v)
-    setattr(trainer.args, 'seed', random_seed)
-
     trainer.train()
-
     result = trainer.evaluate()
+    test_results['eval_accuracy'].append(result['eval_accuracy'])
+    trainer.save_model('{}/model_seed_{}'.format(running_output_path, run))
 
-    random_seed_results.append(result['eval_accuracy'])
-
-print("*** random seed runs ***")
-print(random_seed_results)
-print('\n\n*** average performance: {}'.format(round(sum(random_seed_results) / len(random_seed_results), 3)))
-print('*** standard deviation: {}'.format(round(np.std(random_seed_results), 3)))
-print(best_trial)
+print("=======================")
+print("*** results on test ***")
+print(test_results)
+for metric, values in test_results.items():
+    print('{}: mean: {}, std: {}'.format(metric, statistics.mean(values), statistics.stdev(values)))
