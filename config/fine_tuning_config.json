@@ -1,9 +1,7 @@
 {
   "task_type": "multi",
-  "tuning_backend": "ray",
   "tokenizer_name": "bert-large-cased",
   "model_checkpoint": "bert-large-cased",
-  "experiment_name": "bert-large-copa",
   "train_data": "data/copa/copa_dev_m.csv",
   "dev_data": "data/copa/copa_dev_m.csv",
   "test_data": "data/copa/copa_test_m.csv",
@@ -11,15 +9,11 @@
   "running_output_path": "models/running_output",
   "add_prompt_to_test": 0,
   "tuning_num_train_epochs": [4],
-  "tuning_batch_size": [4, 8, 16],
-  "learning_rate": 3e-5,
-  "tuning_learning_rate": [1e-5, 2e-5, 3e-5, 4e-5, 5e-5],
-  "tuning_learning_rate_start": 2e-5,
-  "tuning_learning_rate_end": 5e-5,
+  "tuning_batch_size": [4],
+  "tuning_learning_rate": [2e-5],
   "n_trials": 1,
   "max_length": 32,
-  "num_train_epochs": 4,
-  "batch_size": 16,
-  "resources_per_trial": {"cpu": 4, "gpu": 0},
-  "random_seeds": [107, 117, 127, 137]
+  "resources_per_trial": {"cpu": 0, "gpu": 1},
+  "random_seeds": [107, 117, 127, 137],
+  "WANDB_API_KEY": "YOUR_WANDB_API_KEY"
 }
