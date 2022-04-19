@@ -1,3 +1,4 @@
+import os
 import json
 import torch
 import statistics
@@ -25,11 +26,12 @@ def compute_metrics(eval_predictions):
 with open('config/fine_tuning_config.json') as f:
     params = json.load(f)
 
+os.environ["WANDB_API_KEY"] = params['WANDB_API_KEY']
+
 task_type = params['task_type']
 model_checkpoint = params['model_checkpoint']
 random_seeds = params['random_seeds']
 tokenizer_name = params['tokenizer_name']
-experiment_name = params['experiment_name']
 running_output_path = params['running_output_path']
 tuning_output_path = params['tuning_output_path']
 
@@ -163,8 +165,8 @@ best_trial = trainer.hyperparameter_search(
     n_trials=params['n_trials'],
     verbose=1,
     resources_per_trial={
-        "cpu": 8,  # make sure to change your resources accordingly
-        "gpu": 1
+        "cpu": params['resources_per_trial']['cpu'],  # make sure to change your resources accordingly
+        "gpu": params['resources_per_trial']['gpu']
     },
     keep_checkpoints_num=0,
     local_dir="./ray_results/",
