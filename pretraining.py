@@ -21,7 +21,6 @@ pretraining_method = params['pretraining_method']
 train_data = params['train_data']
 dev_data = params['dev_data']
 max_length = params['max_length']
-min_length = params['min_length']
 block_size = params['block_size']
 output_dir = params['output_dir']
 kg_name = params['kg_name']
@@ -60,7 +59,7 @@ def preprocess_example(example):
 def encode(examples):
     # since the data collator (DataCollatorForLanguageModeling) dynamically pads the input examples,
     # we skip padding when we are tokenizing the input examples and only do the truncation
-    return tokenizer(examples[text_field], max_length=max_length, truncation=True, padding=True)
+    return tokenizer(examples[text_field], max_length=max_length, truncation=True, padding='max_length')
 
 
 dataset = DatasetDict()
@@ -73,9 +72,7 @@ if create_dev == 1:
 else:
     dataset['dev'] = Dataset.from_csv(dev_data)
 
-# filtering based on max_length is not same as truncation since we may not always want to break a long sequence
-dataset = dataset.filter(lambda example: example[text_field] != '' and "[MASK]" not in example[text_field] and (
-        min_length < len(example[text_field].split()) <= max_length))
+dataset = dataset.filter(lambda example: example[text_field] != '' and "[MASK]" not in example[text_field])
 
 # relation_category only exists for ATOMIC
 if kg_name == "atomic":
@@ -123,11 +120,11 @@ def get_model():
 
 
 trainer = Trainer(
-    model_init=get_model,
     args=training_args,
     train_dataset=dataset["train"],
     eval_dataset=dataset["dev"],
     data_collator=data_collator,
+    model_init=get_model,
     callbacks=[EarlyStoppingCallback(early_stopping_patience=params['early_stopping_patience'])]
 )
 
