@@ -35,14 +35,30 @@ glucose_model = AutoModel.from_pretrained("phosseini/glucose-bert-large")
 ```
 
 ## Fine-tuning
-After pretraining the PLM with the new data, it is time to fine-tune and evaluate its performance on downstream tasks. There are three steps for running the experiments related to model fine-tuning and evaluation:
-* Running the [`convert_copa.py`](https://github.com/phosseini/causal-reasoning/blob/main/convert_copa.py) to generate all the required COPA-related data files (`train/test`) for fine-tuning.
+After pretraining the PLM with the new data, it is time to fine-tune and evaluate its performance on downstream tasks. So far, we have tested our models on two benchmarks including COPA and TCR. In the following, we explain the fine-tuning process for each of them.
+### COPA (Choice of Plausible Alternatives)
+* Run the [`convert_copa.py`](https://github.com/phosseini/causal-reasoning/blob/main/convert_copa.py) to generate all the required COPA-related data files (`train/test`) for fine-tuning.
 * Setting the parameters in [`config/fine_tuning_config.json`](https://github.com/phosseini/causal-reasoning/blob/main/config/fine_tuning_config.json). Description of some parameters:
   * `tuning_backend`: For choosing the hyperparameter tuning backend, `ray` or `optuna`
   * `hyperparameter_search`: Whether to run hyperparameter search or not. `1` for running and `0` for not running, respectively.
   * `cross_validation`: Whether running the cross-validation on development set or not. If the `hyperparameter_search` is `0`, this parameter will be ignored since if we do not want to fine-tune the model with a known set of hyperparameters there is no need to run cross-validation on the development set.
   * `tuning_*`: All parameters related to hyperparameter tuning. `tuning_learning_rate_do_range` is set to `1` when we want to search learning rates within a range instead of a predefined list of learning rate values. `tuning_learning_rate_start` and `tuning_learning_rate_end` are to specify the start and end of such a range. Alternatively, we can set the `tuning_learning_rate_do_range` to `0` and learning rates for hyperparameter tuning will be selected from the `tuning_learning_rate` list.
  * Running the fine-tuning code: [`fine_tuning_copa.py`](https://github.com/phosseini/causal-reasoning/blob/main/fine_tuning_copa.py)
+### TCR (Temporal and Causal Reasoning)
+* Convert the original TCR dataset to a standard format using [CREST](https://github.com/phosseini/crest). Then convert the new files to a format reauired by R-BERT. Check the following notebook to see how: [tcr_data_preparation.ipynb](https://github.com/phosseini/R-BERT/blob/master/notebooks/tcr_data_preparation.ipynb)
+* Now run R-BERT using the following command (we slightly modified R-BERT, please find our forked repository [here](https://github.com/phosseini/R-BERT)):
+```
+! python3 main.py \
+    --do_train \
+    --do_eval \
+    --model_name_or_path phosseini/atomic-bert-large \
+    --tokenizer_name_or_path bert-large-cased \
+    --num_train_epochs 10 \
+    --train_batch_size 8 \
+    --seed 117 \
+    --save_steps 40 \
+    --max_seq_len 200
+```
 
 ### Citation
 ```bibtex
