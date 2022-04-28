@@ -205,6 +205,7 @@ test_results = {'test_accuracy': list()}
 df_test_dataset = test_dataset.to_pandas()
 df_results['text'] = df_test_dataset['startphrase'] + " [0] " + df_test_dataset['ending0'] + " [1] " + df_test_dataset[
     'ending1']
+df_results['label'] = df_test_dataset['label']
 
 for run in params['random_seeds']:
     setattr(training_args, 'seed', run)
@@ -227,7 +228,6 @@ for run in params['random_seeds']:
     predicted = le.inverse_transform(predictions.predictions.argmax(-1))
     labels = le.inverse_transform(test_dataset['label'])
     df_results['predicted_{}'.format(run)] = predicted
-    df_results['labels_{}'.format(run)] = labels
 
     assert accuracy_score(labels, predicted) == accuracy['accuracy']
 
