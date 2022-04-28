@@ -3,9 +3,12 @@ import json
 import torch
 import statistics
 import numpy as np
+import pandas as pd
 from ray import tune
-from typing import Optional, Union
 from dataclasses import dataclass
+from typing import Optional, Union
+from sklearn.preprocessing import LabelEncoder
+from sklearn.metrics import accuracy_score, precision_recall_fscore_support
 from datasets import (DatasetDict, Dataset)
 from transformers import (AutoModelForMultipleChoice, PreTrainedTokenizerBase,
                           AutoTokenizer, TrainingArguments, Trainer)
@@ -14,12 +17,23 @@ from transformers.tokenization_utils_base import PaddingStrategy
 from utils import lower_nth
 
 
-def compute_metrics(eval_predictions):
-    predictions = eval_predictions.predictions[0] if isinstance(eval_predictions.predictions,
-                                                                tuple) else eval_predictions.predictions
-    label_ids = eval_predictions.label_ids
+def compute_metrics_v1(pred):
+    """
+    a sightly different implementation of computing metrics, essentially same as compute_metrics
+    :param pred:
+    :return:
+    """
+    predictions = pred.predictions[0] if isinstance(pred.predictions, tuple) else pred.predictions
+    label_ids = pred.label_ids
     preds = np.argmax(predictions, axis=1)
     return {"accuracy": (preds == label_ids).astype(np.float32).mean().item()}
+
+
+def compute_metrics(pred):
+    labels = pred.label_ids
+    preds = pred.predictions.argmax(-1)
+    acc = accuracy_score(labels, preds)
+    return {'accuracy': acc}
 
 
 # loading parameters
@@ -28,6 +42,8 @@ with open('config/fine_tuning_config.json') as f:
 
 os.environ["WANDB_API_KEY"] = params['WANDB_API_KEY']
 
+# creating a dataframe to save results
+df_results = pd.DataFrame()
 task_type = params['task_type']
 model_checkpoint = params['model_checkpoint']
 random_seeds = params['random_seeds']
@@ -117,6 +133,9 @@ raw_datasets['test'] = Dataset.from_csv(params['test_data'])
 train_dataset = raw_datasets['train']
 test_dataset = raw_datasets['test']
 
+le = LabelEncoder()
+le.fit_transform(train_dataset['label'])
+
 train_dataset = train_dataset.map(
     preprocess_function,
     batched=True,
@@ -182,27 +201,45 @@ print(training_args)
 print("*** best trial ***")
 print(best_trial)
 
-test_results = {'eval_accuracy': list()}
+test_results = {'test_accuracy': list()}
+df_test_dataset = test_dataset.to_pandas()
+df_results['text'] = df_test_dataset['startphrase'] + " [0] " + df_test_dataset['ending0'] + " [1] " + df_test_dataset[
+    'ending1']
 
 for run in params['random_seeds']:
     setattr(training_args, 'seed', run)
     trainer = Trainer(
         args=training_args,
         tokenizer=tokenizer,
-        train_dataset=train_dataset,
-        eval_dataset=test_dataset,
+        train_dataset=train_dev_dataset['train'],
+        eval_dataset=train_dev_dataset['test'],
         data_collator=DataCollatorForMultipleChoice(tokenizer),
         model_init=get_model,
         compute_metrics=compute_metrics
     )
 
     trainer.train()
-    result = trainer.evaluate()
-    test_results['eval_accuracy'].append(result['eval_accuracy'])
+
+    predictions = trainer.predict(test_dataset)
+
+    accuracy = compute_metrics(predictions)
+    test_results['test_accuracy'].append(accuracy['accuracy'])
+    predicted = le.inverse_transform(predictions.predictions.argmax(-1))
+    labels = le.inverse_transform(test_dataset['label'])
+    df_results['predicted_{}'.format(run)] = predicted
+    df_results['labels_{}'.format(run)] = labels
+
+    assert accuracy_score(labels, predicted) == accuracy['accuracy']
+
     trainer.save_model('{}/model_seed_{}'.format(running_output_path, run))
+
+# saving prediction results
+df_results.to_csv('{}/predictions.csv'.format(running_output_path))
 
 print("=======================")
 print("*** results on test ***")
 print(test_results)
 for metric, values in test_results.items():
-    print('{}: mean: {}, std: {}'.format(metric, statistics.mean(values), statistics.stdev(values)))
+    print('{}: mean = {}'.format(metric, statistics.mean(values)))
+    if len(values) > 1:  # variance requires at least two data points
+        print('{}: std = {}'.format(metric, statistics.stdev(values)))
