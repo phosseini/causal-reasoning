@@ -55,6 +55,7 @@ Best hyperparameter values for different models:
 | -- | :----------: | :----------: | :---------: |
 | `bert-large-cased` | 4 | 8 | 3e-05 |
 | `phosseini/atomic-bert-large` | 4 | 4 | 2e-5 |
+| `phosseini/atomic-roberta-large` | 4 | 4 | 1e-5 |
 ### TCR (Temporal and Causal Reasoning)
 * Convert the original TCR dataset to a standard format using [CREST](https://github.com/phosseini/crest). Then convert the new files to a format required by R-BERT. Check the following notebook to see how: [tcr_data_preparation.ipynb](https://github.com/phosseini/R-BERT/blob/master/notebooks/tcr_data_preparation.ipynb)
 * Now run R-BERT using the following command (we slightly modified R-BERT, please find our forked repository [here](https://github.com/phosseini/R-BERT)):
