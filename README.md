@@ -28,12 +28,15 @@ Our models are deployed on the [HuggingFace's model hub](https://huggingface.co/
 ```python
 from transformers import AutoTokenizer, AutoModel
 
-tokenizer = AutoTokenizer.from_pretrained("bert-large-cased")
+# bert tokenizer
+tokenizer_bert = AutoTokenizer.from_pretrained("bert-large-cased")
 
 atomic_bert_model = AutoModel.from_pretrained("phosseini/atomic-bert-large")
-atomic_roberta_model = AutoModel.from_pretrained("phosseini/atomic-roberta-large")
-
 glucose_model = AutoModel.from_pretrained("phosseini/glucose-bert-large")
+
+# roberta tokenizer
+tokenizer_roberta = AutoTokenizer.from_pretrained("roberta-large")
+atomic_roberta_model = AutoModel.from_pretrained("phosseini/atomic-roberta-large")
 ```
 
 ## Fine-tuning
