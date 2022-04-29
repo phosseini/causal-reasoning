@@ -22,7 +22,7 @@ Once we verbalized the ATOMIC knowledge graph and GLUCOSE dataset to text, we co
   * `relation_category` (for ATOMIC): A list of triple types (strings) with which we want to continually pretrain our model. There are three main categories of triples in ATOMIC: `event`, `social`, and `physical`. These categories may deal with different types of knowledge. And, models pretrained with each of these categories or a combination of them may give us different results when fine-tuned and tested on downstream tasks. As a result, we added an option for choosing the triple type(s) with which we want to run the pretraining.
 * Runnig the pretraining code: [`pretraining.py`](https://github.com/phosseini/causal-reasoning/blob/main/pretraining.py)
 
-### Using our continually pretrained model on HuggingFace🤗
+### Using our models on HuggingFace🤗
 Our models are deployed on the [HuggingFace's model hub](https://huggingface.co/models). Here is an example of how you can load the models:
 
 ```python
