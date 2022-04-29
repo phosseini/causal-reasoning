@@ -30,7 +30,9 @@ from transformers import AutoTokenizer, AutoModel
 
 tokenizer = AutoTokenizer.from_pretrained("bert-large-cased")
 
-atomic_model = AutoModel.from_pretrained("phosseini/atomic-bert-large")
+atomic_bert_model = AutoModel.from_pretrained("phosseini/atomic-bert-large")
+atomic_roberta_model = AutoModel.from_pretrained("phosseini/atomic-roberta-large")
+
 glucose_model = AutoModel.from_pretrained("phosseini/glucose-bert-large")
 ```
 
