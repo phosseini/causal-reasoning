@@ -28,16 +28,23 @@ Our models are deployed on the [HuggingFace's model hub](https://huggingface.co/
 ```python
 from transformers import AutoTokenizer, AutoModel
 
-# bert tokenizer
+# bert model examples
 tokenizer_bert = AutoTokenizer.from_pretrained("bert-large-cased")
-
 atomic_bert_model = AutoModel.from_pretrained("phosseini/atomic-bert-large")
 glucose_model = AutoModel.from_pretrained("phosseini/glucose-bert-large")
 
-# roberta tokenizer
+# roberta model example
 tokenizer_roberta = AutoTokenizer.from_pretrained("roberta-large")
 atomic_roberta_model = AutoModel.from_pretrained("phosseini/atomic-roberta-large")
 ```
+Full list of models on HuggingFace
+| Model | Training Data |
+| :---: | :---: |
+| [phosseini/glucose-bert-large](https://huggingface.co/phosseini/glucose-bert-large) | GLUCOSE |
+| [phosseini/atomic-bert-large](https://huggingface.co/phosseini/atomic-bert-large)| ATOMIC `event` relations |
+| [phosseini/atomic-bert-large-full](https://huggingface.co/phosseini/atomic-bert-large-full)| ATOMIC `event`, `social`, `physical` relations |
+| [phosseini/atomic-roberta-large](https://huggingface.co/phosseini/atomic-roberta-large)| ATOMIC `event` relations |
+| [phosseini/atomic-roberta-large-full](https://huggingface.co/phosseini/atomic-roberta-large-full)| ATOMIC `event`, `social`, `physical` relations |
 
 ## Fine-tuning
 After pretraining the PLM with the new data, it is time to fine-tune and evaluate its performance on downstream tasks. So far, we have tested our models on two benchmarks including COPA and TCR. In the following, we explain the fine-tuning process for each of them.
