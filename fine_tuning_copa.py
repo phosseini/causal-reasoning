@@ -8,7 +8,7 @@ from ray import tune
 from dataclasses import dataclass
 from typing import Optional, Union
 from sklearn.preprocessing import LabelEncoder
-from sklearn.metrics import accuracy_score, precision_recall_fscore_support
+from sklearn.metrics import accuracy_score
 from datasets import (DatasetDict, Dataset)
 from transformers import (AutoModelForMultipleChoice, PreTrainedTokenizerBase,
                           AutoTokenizer, TrainingArguments, Trainer)
@@ -40,6 +40,7 @@ def compute_metrics(pred):
 with open('config/fine_tuning_config.json') as f:
     params = json.load(f)
 
+# initialize Weights & Biases
 os.environ["WANDB_API_KEY"] = params['WANDB_API_KEY']
 
 # creating a dataframe to save results
@@ -57,7 +58,7 @@ ending_names = ["ending0", "ending1"]
 tokenizer = AutoTokenizer.from_pretrained(tokenizer_name, use_fast=False)
 
 
-def preprocess_function(examples, task=params['task_type'], prompt=params['add_prompt_to_test']):
+def preprocess_function(examples, task=params['task_type'], prompt=params['add_prompt']):
     if task not in ['seq', 'multi', 'nsp']:
         print("Task value should be one of the following: \'seq\' or \'multi\' or \'nsp\'")
         return
@@ -90,6 +91,25 @@ def preprocess_function(examples, task=params['task_type'], prompt=params['add_p
         tokenized_examples = tokenizer(first_sentences, second_sentences, max_length=params['max_length'],
                                        truncation=True)
         return tokenized_examples
+
+
+def copa_preprocess_function(examples, prompt=params['add_prompt']):
+    # Repeat each first sentence two times to go with the two possibilities of second sentences.
+    if prompt == 1:
+        first_sentences = [[context] * 2 for context in examples["startphrase"]]
+    else:
+        first_sentences = [[context] * 2 for context in examples["sent1"]]
+    # Grab all second sentences possible for each context.
+    question_headers = examples["sent2"]
+    second_sentences = [[f"{examples[end][i]}" for end in ending_names] for i, header in enumerate(question_headers)]
+
+    # Flatten everything
+    first_sentences = sum(first_sentences, [])
+    second_sentences = sum(second_sentences, [])
+
+    # Un-flatten
+    tokenized_examples = tokenizer(first_sentences, second_sentences, max_length=params['max_length'], truncation=True)
+    return {k: [v[i:i + 2] for i in range(0, len(v), 2)] for k, v in tokenized_examples.items()}
 
 
 @dataclass
@@ -137,16 +157,37 @@ le = LabelEncoder()
 le.fit_transform(train_dataset['label'])
 
 train_dataset = train_dataset.map(
-    preprocess_function,
+    copa_preprocess_function,
     batched=True,
 )
 test_dataset = test_dataset.map(
-    preprocess_function,
+    copa_preprocess_function,
     batched=True,
 )
 
 # since COPA doesn't have separate train and dev sets, we split its dev set into train and dev
 train_dev_dataset = train_dataset.train_test_split(test_size=0.1, seed=42)
+
+# -------------------------------------------------------------------
+# creating texts of right/wrong answers to use them in error analysis
+test_results = {'test_accuracy': list()}
+df_test_dataset = test_dataset.to_pandas()
+texts_right = list()
+texts_wrong = list()
+for idx, row in df_test_dataset.iterrows():
+    if row['label'] == 0:
+        texts_right.append(row['startphrase'] + " " + row['ending0'])
+        texts_wrong.append(row['startphrase'] + " " + row['ending1'])
+    else:
+        texts_right.append(row['startphrase'] + " " + row['ending1'])
+        texts_wrong.append(row['startphrase'] + " " + row['ending0'])
+
+df_results['text_right'] = texts_right
+df_results['text_wrong'] = texts_wrong
+df_results['label'] = test_dataset['label']
+
+
+# -------------------------------------------------------------------
 
 
 def get_model():
@@ -201,19 +242,14 @@ print(training_args)
 print("*** best trial ***")
 print(best_trial)
 
-test_results = {'test_accuracy': list()}
-df_test_dataset = test_dataset.to_pandas()
-df_results['text'] = df_test_dataset['startphrase'] + " [0] " + df_test_dataset['ending0'] + " [1] " + df_test_dataset[
-    'ending1']
-df_results['label'] = df_test_dataset['label']
-
 for run in params['random_seeds']:
     setattr(training_args, 'seed', run)
+    setattr(training_args, 'do_eval', False)
+    setattr(training_args, 'evaluation_strategy', 'no')
     trainer = Trainer(
         args=training_args,
         tokenizer=tokenizer,
-        train_dataset=train_dev_dataset['train'],
-        eval_dataset=train_dev_dataset['test'],
+        train_dataset=train_dataset,
         data_collator=DataCollatorForMultipleChoice(tokenizer),
         model_init=get_model,
         compute_metrics=compute_metrics
