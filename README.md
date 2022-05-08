@@ -5,9 +5,9 @@
 </p>
 
 ## Converting Knowledge Graphs to Text
-### ATOMIC-to-Text
-Triples in ATOMIC are stored in form of: `(subject, relation, target)`. We convert (verbalize) these triples to natural language text to later use them in training/fine-tuning some Pretrained Language Models (PLMs):
-1. Download ATOMIC 2020 [here](https://allenai.org/data/atomic-2020), put the zip file in the `/data` folder, and unzip it (we only need `dev.tsv` and `train.tsv`).
+### ATOMIC<sub>2020</sub>-to-Text
+Triples in ATOMIC<sub>2020</sub> are stored in form of: `(subject, relation, target)`. We convert (verbalize) these triples to natural language text to later use them in training/fine-tuning some Pretrained Language Models (PLMs):
+1. Download ATOMIC<sub>2020</sub> [here](https://allenai.org/data/atomic-2020), put the zip file in the `/data` folder, and unzip it (we only need `dev.tsv` and `train.tsv`).
 2. Run the following code: [`atomic_to_text.py`](https://github.com/phosseini/causal-reasoning/blob/main/atomic_to_text.py) (depending on whether you're running the grammar check, this may take a while.)
 3. Outputs will be stored as `.txt` and `.csv` files in the `/data` folder following the name patterns: `atomic2020_dev.*` and `atomic2020_train.*`.
 
@@ -17,22 +17,35 @@ Triples in ATOMIC are stored in form of: `(subject, relation, target)`. We conve
 3. Output will be stored in: `data/glucose_train.csv`
 
 ## Continual Pretraining
-Once we verbalized the ATOMIC knowledge graph and GLUCOSE dataset to text, we continually pretrain a Pretrained Language Model (PLM), BERT here, using the converted texts. We call this pretraining step a **continual pretraining** since we use one of the objectives, Masked Language Modeling (MLM) that was originally used in pretraining BERT, to further train the PLM. There are two steps for running the pretraining:
+Once we verbalized the ATOMIC<sub>2020</sub> knowledge graph and GLUCOSE dataset to text, we continually pretrain a Pretrained Language Model (PLM), BERT here, using the converted texts. We call this pretraining step a **continual pretraining** since we use one of the objectives, Masked Language Modeling (MLM) that was originally used in pretraining BERT, to further train the PLM. There are two steps for running the pretraining:
 * Setting the parameters in the [`config/pretraining_config.json`](https://github.com/phosseini/causal-reasoning/blob/main/config/pretraining_config.json): Even though most of these parameters are self-descriptive, we give a brief explanation about some of them for clarification purposes:
-  * `relation_category` (for ATOMIC): A list of triple types (strings) with which we want to continually pretrain our model. There are three main categories of triples in ATOMIC: `event`, `social`, and `physical`. These categories may deal with different types of knowledge. And, models pretrained with each of these categories or a combination of them may give us different results when fine-tuned and tested on downstream tasks. As a result, we added an option for choosing the triple type(s) with which we want to run the pretraining.
+  * `relation_category` (for ATOMIC<sub>2020</sub>): A list of triple types (strings) with which we want to continually pretrain our model. There are three main categories of triples in ATOMIC<sub>2020</sub>: `event`, `social`, and `physical`. These categories may deal with different types of knowledge. And, models pretrained with each of these categories or a combination of them may give us different results when fine-tuned and tested on downstream tasks. As a result, we added an option for choosing the triple type(s) with which we want to run the pretraining.
 * Runnig the pretraining code: [`pretraining.py`](https://github.com/phosseini/causal-reasoning/blob/main/pretraining.py)
 
-### Using our continually pretrained model on HuggingFace🤗
+### Using our models on HuggingFace🤗
 Our models are deployed on the [HuggingFace's model hub](https://huggingface.co/models). Here is an example of how you can load the models:
 
 ```python
 from transformers import AutoTokenizer, AutoModel
 
-tokenizer = AutoTokenizer.from_pretrained("bert-large-cased")
-
-atomic_model = AutoModel.from_pretrained("phosseini/atomic-bert-large")
+# bert model examples
+tokenizer_bert = AutoTokenizer.from_pretrained("bert-large-cased")
+atomic_bert_model = AutoModel.from_pretrained("phosseini/atomic-bert-large")
 glucose_model = AutoModel.from_pretrained("phosseini/glucose-bert-large")
+
+# roberta model example
+tokenizer_roberta = AutoTokenizer.from_pretrained("roberta-large")
+atomic_roberta_model = AutoModel.from_pretrained("phosseini/atomic-roberta-large")
 ```
+Full list of models on HuggingFace
+| Model | Training Data |
+| :---: | :---: |
+| [`phosseini/glucose-bert-large`](https://huggingface.co/phosseini/glucose-bert-large) | [GLUCOSE](https://github.com/ElementalCognition/glucose) |
+| [`phosseini/glucose-roberta-large`](https://huggingface.co/phosseini/glucose-roberta-large) | [GLUCOSE](https://github.com/ElementalCognition/glucose) |
+| [`phosseini/atomic-bert-large`](https://huggingface.co/phosseini/atomic-bert-large)| [ATOMIC<sub>2020</sub>](https://allenai.org/data/atomic-2020) `event` relations |
+| [`phosseini/atomic-bert-large-full`](https://huggingface.co/phosseini/atomic-bert-large-full)| [ATOMIC<sub>2020</sub>](https://allenai.org/data/atomic-2020) `event`, `social`, `physical` relations |
+| [`phosseini/atomic-roberta-large`](https://huggingface.co/phosseini/atomic-roberta-large)| [ATOMIC<sub>2020</sub>](https://allenai.org/data/atomic-2020) `event` relations |
+| [`phosseini/atomic-roberta-large-full`](https://huggingface.co/phosseini/atomic-roberta-large-full)| [ATOMIC<sub>2020</sub>](https://allenai.org/data/atomic-2020) `event`, `social`, `physical` relations |
 
 ## Fine-tuning
 After pretraining the PLM with the new data, it is time to fine-tune and evaluate its performance on downstream tasks. So far, we have tested our models on two benchmarks including COPA and TCR. In the following, we explain the fine-tuning process for each of them.
@@ -50,6 +63,7 @@ Best hyperparameter values for different models:
 | -- | :----------: | :----------: | :---------: |
 | `bert-large-cased` | 4 | 8 | 3e-05 |
 | `phosseini/atomic-bert-large` | 4 | 4 | 2e-5 |
+| `phosseini/atomic-roberta-large` | 4 | 4 | 1e-5 |
 ### TCR (Temporal and Causal Reasoning)
 * Convert the original TCR dataset to a standard format using [CREST](https://github.com/phosseini/crest). Then convert the new files to a format required by R-BERT. Check the following notebook to see how: [tcr_data_preparation.ipynb](https://github.com/phosseini/R-BERT/blob/master/notebooks/tcr_data_preparation.ipynb)
 * Now run R-BERT using the following command (we slightly modified R-BERT, please find our forked repository [here](https://github.com/phosseini/R-BERT)):
