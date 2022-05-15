@@ -82,10 +82,15 @@ Best hyperparameter values for different models:
 
 ### Citation
 ```bibtex
-@inproceedings{hosseini2022knowledge,
-  title={Knowledge-Augmented Language Models for Cause-Effect Relation Classification},
-  author={Hosseini, Pedram and Broniatowski, David A and Diab, Mona T},
-  booktitle={ACL 2022 Workshop on Commonsense Representation and Reasoning},
-  year={2022}
-}
+@inproceedings{hosseini-etal-2022-knowledge,
+    title = "Knowledge-Augmented Language Models for Cause-Effect Relation Classification",
+    author = "Hosseini, Pedram and Broniatowski, David A. and Diab, Mona",
+    booktitle = "Proceedings of the First Workshop on Commonsense Representation and Reasoning (CSRR 2022)",
+    month = may,
+    year = "2022",
+    address = "Dublin, Ireland",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2022.csrr-1.6",
+    pages = "43--48",
+    }
 ```
