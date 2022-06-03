@@ -1,4 +1,4 @@
-# Commonsense Causal Reasoning
+# Knowledge-Augmented Language Models for Cause-Effect Relation Classification
 
 <p align="center">
   <img src='overview.png' width='600' height='300' style="vertical-align:middle;margin:100px 50px">
